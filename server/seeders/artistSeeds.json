@@ -1,0 +1,47 @@
+[
+    {
+      "bio": "",
+      "first_name": "Bri",
+      "last_name": "Kern",
+      "email": "bkern@dndy.dev",
+      "password": "password01",
+      "location": "Dallas,TX",
+      "feature": "627adbe49d12989a1b862061"
+    },
+    {
+        "bio": "",
+        "first_name": "Tony",
+        "last_name": "Law",
+        "email": "tlaw@dndy.dev",
+        "password": "password02",
+        "location": "Austin,TX",
+        "feature": "627adbe49d12989a1b862062"
+      },
+      {
+        "bio": "",
+        "first_name": "Daniel",
+        "last_name": "Sarmiento",
+        "email": "dsarmiento@dndy.dev",
+        "password": "password03",
+        "location": "San Diego,CA",
+        "feature": "627adbe49d12989a1b862063"
+      },
+      {
+        "bio": "",
+        "first_name": "Linda",
+        "last_name": "Haux",
+        "email": "lhaux@dndy.dev",
+        "password": "password04",
+        "location": "Bronx,NY",
+        "feature": "627adbe49d12989a1b862064"
+      },
+      {
+        "bio": "",
+        "first_name": "joy",
+        "last_name": "Aguire",
+        "email": "jaguire@dndy.dev",
+        "password": "password05",
+        "location": "Miami,FL",
+        "feature": "627adbe49d12989a1b862065"
+      }
+  ]
