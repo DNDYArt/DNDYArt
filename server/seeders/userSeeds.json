@@ -1,0 +1,51 @@
+[
+  {
+    "username": "Brian Kernighan",
+    "first_name": "Brian",
+    "last_name": "Kernighan",
+    "email": "bkernighan@dndy.dev",
+    "password": "password01"
+  },
+  {
+    "username": "Max Kanat-Alexander",
+    "first_name": "Max",
+    "last_name": "Alexander",
+    "email": "mkanatalexander@dndy.dev",
+    "password": "password02"
+  },
+  {
+    "username": "Kent Beck",
+    "first_name": "Kent",
+    "last_name": "Beck",
+    "email": "kbeck@dndy.dev",
+    "password": "password04"
+  },
+  {
+    "username": "Edward V. Berard",
+    "first_name": "Edward",
+    "last_name": "Berard",
+    "email": "evberard@dndy.dev",
+    "password": "password05"
+  },
+  {
+    "username": "Alan Kay",
+    "first_name": "Alan",
+    "last_name": "Kay",
+    "email": "akay@dndy.dev",
+    "password": "password06"
+  },
+  {
+    "username": "David Thomas",
+    "first_name": "David",
+    "last_name": "Thomas",
+    "email": "dthomas@dndy.dev",
+    "password": "password08"
+  },
+  {
+    "username": "Donald Knuth",
+    "first_name": "Donald",
+    "last_name": "Knuth",
+    "email": "dknuth@dndy.dev",
+    "password": "password09"
+  }
+]
