@@ -4,24 +4,45 @@
         /* Super Modern Browsers */
         url('../src/fonts/Bosch.otf') format('otf'),
         /* Pretty Modern Browsers */
-        url('../src/fonts/Bosch.otf') format('otf'),
-        /* Safari, Android, iOS */
+        url('../src/fonts/Bosch.otf') format('otf');
+    /* Safari, Android, iOS */
 }
 
 /* Header */
 
-h1 {
-    font-family: roc-grotesk-wide, sans-serif;
-    font-weight: 600;
-    font-style: normal;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.h1 {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    height: 30px;
+    margin-left: 10px
+
 }
 
 nav {
-    font-family: aktiv-grotesk, sans-serif;
+    font-family: aktiv-grotesk, sans-serif !important;
     font-weight: 300;
     font-style: normal;
+    justify-content: space-between;
+    width: 350px;
+    margin-right: 10px;
 }
 
+ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+li {
+    list-style-type: none;
+}
 
 
 /* @font-face {

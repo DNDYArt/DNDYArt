@@ -12,9 +12,19 @@ import Header from "./components/Header/Header";
 import Profile from "./pages/Profile";
 import Shop from "./pages/Shop";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
 function App() {
+	const colors = {
+		brand: {
+		  900: '#1a365d',
+		  800: '#153e75',
+		  700: '#2a69ac',
+		},
+	  }
+	const theme = extendTheme({ colors })
 	return (
+		<ChakraProvider theme={theme}>
 		<div className="App">
 			{/* <ApolloProvider>  */}
 			<Router>
@@ -29,6 +39,7 @@ function App() {
 			</Router>
 			{/* </ApolloProvider> */}
 		</div>
+		</ChakraProvider>
 	);
 }
 
