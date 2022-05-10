@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react"
+import { ThemeProvider, ColorModeProvider, button } from "@chakra-ui/react"
+
+import Header from '../components/Header/Header'
 
 const HomePage = (props) => {
 
   return (
-    <h1>Home Page</h1>
+    <>
+      
+    </>
   )
 }
 
