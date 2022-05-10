@@ -9,7 +9,7 @@ const typeDefs = gql`
     email: String
     password: String
   }
-  type Thought {
+  type Feature {
     _id: ID
     name: String
     startPrice: Number
@@ -25,13 +25,17 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(username: String!)
+    user(username: String!): User
+    features: [Feature]
+    feature(featureId: ID!): Feature
     me: User
   }
 
   type Mutation {
     addUser(username: String!, last_name: String!, fist_name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!)
+    addFeature(featureId: ID!):Feature
+    removeFeature(featureId: ID!):Feature
   }
 `;
 
