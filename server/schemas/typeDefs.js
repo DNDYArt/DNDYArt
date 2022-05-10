@@ -16,8 +16,17 @@ const typeDefs = gql`
     description: String
     image: String
   }
+  type Artist {
+    _id: ID
+    bio: String
+    last_name: String
+    first_name: String
+    email: String
+    password: String
+    location: String
+    features:[Feature]!
+  }
   
-
   type Auth {
     token: ID!
     user: User
