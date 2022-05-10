@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 function Nav() {
   return (
-    <div className="card text-center">
+    <div>
      <ul>
          <li>
             <Link to="./"> Home </Link>
