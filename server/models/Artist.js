@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose'),
+      bycrypt = require('bcrypt');
       featureSchema = require('./Feature')
 
 const artistSchema = new Schema({
@@ -28,7 +29,7 @@ const artistSchema = new Schema({
     type: String,
     required: true
   },
-  features: [featureSchema]
+  feature: [featureSchema]
 });
 
 artistSchema.pre('save', async function(next){
