@@ -1,3 +1,5 @@
-const Sample = require('./Sample');
+const User = require('./User');
+const Artist = require('./Artist');
+const Feature = require('./Feature');
 
-module.exports = { Sample };
+module.exports = { User, Artist, Feature };

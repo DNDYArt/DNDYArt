@@ -1,18 +1,14 @@
 const { Schema, model } = require('mongoose'),
       bycrypt = require('bcrypt');
+      featureSchema = require('./Feature')
 
-const userSchema = new Schema({
+const artistSchema = new Schema({
   first_name: {
     type: String,
     required: true,
     trim: true
   },
   last_name: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  username: {
     type: String,
     required: true,
     trim: true
@@ -25,10 +21,18 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  bio: {
+    type: String
+  },
+  location: {
+    type: String,
+    required: true
+  },
+  feature: [featureSchema]
 });
 
-userSchema.pre('save', async function(next){
+artistSchema.pre('save', async function(next){
   try {
     if (!this.isModified('password')) return next();
 
@@ -39,6 +43,6 @@ userSchema.pre('save', async function(next){
   }
 })
 
-const User = model('user', userSchema);
+const Artist = model('artist', artistSchema);
 
-module.exports = User;
+module.exports = Artist;
