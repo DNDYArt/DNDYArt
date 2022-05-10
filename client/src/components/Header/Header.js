@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@chakra-ui/react"
-import { Heading } from '@chakra-ui/react'
+import { Heading, useColorMode, toggleColorMode } from '@chakra-ui/react'
+import { SunIcon } from '@chakra-ui/icons'
+
 
 
 const Header = () => {
+
+  const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <header>
@@ -24,7 +28,7 @@ const Header = () => {
             <Link to="./profile"> login </Link>
          </li>
          <li>
-         <i className="fa-regular fa-sun" />
+         <SunIcon onClick={toggleColorMode}/>
          </li>
 
      </ul>
