@@ -1,24 +1,28 @@
 const { Schema, model } = require('mongoose');
 
-const matchupSchema = new Schema({
-  tech1: {
+const userSchema = new Schema({
+  first_name: {
     type: String,
     required: true,
+    trim: true
   },
-  tech2: {
+  last_name: {
     type: String,
     required: true,
+    trim: true
   },
-  tech1_votes: {
-    type: Number,
-    default: 0,
+  username: {
+    type: String,
+    required: true,
+    trim: true
   },
-  tech2_votes: {
-    type: Number,
-    default: 0,
-  },
+  email: {
+    type: String,
+    required: true,
+    match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+  }
 });
 
-const Matchup = model('Matchup', matchupSchema);
+const User = model('user', userSchema);
 
-module.exports = Matchup;
+module.exports = User;
