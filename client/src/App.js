@@ -12,7 +12,7 @@ import Header from "./components/Header/Header";
 import Profile from "./pages/Profile";
 import Shop from "./pages/Shop";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 import Theme from './components/Theme'
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
 		<div className="App">
 			{/* <ApolloProvider>  */}
 			<Router>
+			<Header />
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/member" element={<Member />} />

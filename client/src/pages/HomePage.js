@@ -7,7 +7,6 @@ const HomePage = (props) => {
 
   return (
     <>
-      <Header />
       <main></main>
     </>
   )

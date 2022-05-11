@@ -6,6 +6,7 @@ const Footer = () => {
   const navigate = useNavigate();
   return (
     <footer>
+      
       <div >
         {location.pathname !== '/' && (
           <button
