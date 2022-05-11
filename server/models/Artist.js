@@ -29,7 +29,12 @@ const artistSchema = new Schema({
     type: String,
     required: true
   },
-  feature: [featureSchema]
+  feature: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Feature",
+    }
+  ]
 });
 
 artistSchema.pre('save', async function(next){

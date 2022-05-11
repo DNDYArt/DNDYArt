@@ -13,11 +13,13 @@ import Profile from "./pages/Profile";
 import Shop from "./pages/Shop";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react'
-import Theme from './components/Theme'
+import Theme from './components/Theme';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 function App() {
 
 	return (
+		<ParallaxProvider>
 		<ChakraProvider theme={Theme}>
 		<div className="App">
 			{/* <ApolloProvider>  */}
@@ -34,6 +36,7 @@ function App() {
 			{/* </ApolloProvider> */}
 		</div>
 		</ChakraProvider>
+		</ParallaxProvider>
 	);
 }
 

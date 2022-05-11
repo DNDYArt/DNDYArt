@@ -5,26 +5,31 @@ const userSchema = new Schema({
   first_name: {
     type: String,
     required: true,
-    trim: true
+    unique:true,
+    trim: true,
   },
   last_name: {
     type: String,
     required: true,
+    unique:true,
     trim: true
   },
   username: {
     type: String,
     required: true,
+    unique:true,
     trim: true
   },
   email: {
     type: String,
     required: true,
+    unique:true,
     match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    minLength: 8,
   }
 });
 
