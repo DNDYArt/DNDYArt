@@ -81,6 +81,8 @@ main {
     z-index: 1;
     top: 115px;
     padding-left: 15px;
+
+    /* border: 3px red solid; */
 }
 
 .welcome {
@@ -96,6 +98,48 @@ main {
     margin-top: 10px;
 }
 
+/* Parallax-Scroll */
+
+.feature-scroller {
+    position: relative;
+
+    border: 3px red solid;
+    height: 475vh;
+}
+
+/* .home-img {
+
+} */
+
+.pink {
+    width: 700px;
+    
+    position: relative;
+    left: -210px;
+}
+
+.berry {
+    width: 400px;
+
+    position: relative;
+    top: 120px;
+    right: -380px;
+}
+
+.mountain {
+    width: 600px;
+
+    position: relative;
+    top: 200px;
+}
+
+.abstract {
+    width: 600px;
+
+    position: relative;
+    top: 250px;
+    left: -210px;
+}
 
 /* Footer */
 

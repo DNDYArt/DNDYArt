@@ -2,7 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Parallax } from 'react-scroll-parallax'
 import { Container, Box, Image, Button, Heading } from "@chakra-ui/react";
-import Img from '../components/greek-bust.png'
+
+// Import Pictures
+import Bust from '../components/images/greek-bust.png'
+import Pink from '../components/images/pink.jpg'
+import Berry from '../components/images/strawberry.jpg'
+import Evening from '../components/images/evening-mountain.jpg'
+import Abstract from '../components/images/abstract-1.jpg'
+
 
 
 const HomePage = (props) => {
@@ -17,37 +24,31 @@ const HomePage = (props) => {
 				<section className="container">
 					{/* <!-- Main Title/Bust --> */}
 					<Box className="hero" boxSize="lg">
-						<img src={Img} alt={hero.imageAlt} />
+						<img src={Bust} alt={hero.imageAlt} />
             <Heading className='h1 hero-head' as='h1'>DNDY</Heading>
 					</Box>
 					{/* <!-- Statement/Enter --> */}
 					<Box className="welcome">
 						<Heading className='h2' as='h2' size='xl' >Art should be shared, <br></br>
                 never contained.</Heading>
-						<Button className="enter" colorScheme='black' variant='outline' size='lg'>explore</Button>
+						<Button className="enter" colorScheme='black' variant='outline' size='lg' width='200px'>explore</Button>
 					</Box>
 				</section>
         {/* <!-- Second-Fourth --> */}
-        <section>
-        <Container scrollAxis="vertical">
+        <section className="feature-scroller">
+        <Container scrollaxis="vertical">
       <div>
-        <Parallax speed={10}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <Parallax className="home-img pink" speed={10}>
+          <Image src={Pink} />
         </Parallax>
-        <Parallax speed={-10}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <Parallax className="home-img berry" speed={-10}>
+          <Image src={Berry} />
         </Parallax>
-        <Parallax speed={5}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <Parallax className="home-img mountain" speed={5}>
+          <Image src={Evening} />
         </Parallax>
-        <Parallax speed={-5}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-        <Parallax speed={3}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-        <Parallax speed={6}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <Parallax className="home-img abstract" speed={-5}>
+          <Image src={Abstract} />
         </Parallax>
       </div>
     </Container>
