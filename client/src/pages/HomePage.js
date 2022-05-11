@@ -1,4 +1,5 @@
-import { useState, useEffect, Container } from "react";
+import { useState, useEffect } from "react";
+import { Parallax } from 'react-scroll-parallax'
 import { Box, Image, Button, Heading } from "@chakra-ui/react";
 import Img from '../components/greek-bust.png'
 
