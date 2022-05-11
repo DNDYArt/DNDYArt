@@ -2,6 +2,7 @@
     display: block;
     text-align: center;
     justify-content: center;
+    /* position: relative; */
 }
 
 .landing--banner{
