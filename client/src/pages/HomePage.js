@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { Parallax } from 'react-scroll-parallax'
-import { Box, Image, Button, Heading } from "@chakra-ui/react";
-import Img from '../components/greek-bust.png'
+import { Container, Box, Image, Button, Heading } from "@chakra-ui/react";
+
+// Import Pictures
+import Bust from '../components/images/greek-bust.png'
+import Pink from '../components/images/pink.jpg'
+import Berry from '../components/images/strawberry.jpg'
+import Evening from '../components/images/evening-mountain.jpg'
+import Abstract from '../components/images/abstract-1.jpg'
+
 
 const HomePage = (props) => {
 	const hero = {
@@ -15,40 +22,34 @@ const HomePage = (props) => {
 				<section className="container">
 					{/* <!-- Main Title/Bust --> */}
 					<Box className="hero" boxSize="lg">
-						<img src={Img} alt={hero.imageAlt} />
+						<img src={Bust} alt={hero.imageAlt} />
             <Heading className='h1 hero-head' as='h1'>DNDY</Heading>
 					</Box>
 					{/* <!-- Statement/Enter --> */}
 					<Box className="welcome">
 						<Heading className='h2' as='h2' size='xl' >Art should be shared, <br></br>
                 never contained.</Heading>
-						<Button className="enter" colorScheme='black' variant='outline' size='lg'>explore</Button>
+						<Button className="enter" colorScheme='black' variant='outline' size='lg' width='200px'>explore</Button>
 					</Box>
 				</section>
         {/* <!-- Second-Fourth --> */}
         <section>
-        {/* <Container scrollAxis="vertical">
-      <div className={styles.images}>
-        <Parallax speed={4} className={styles.parallaxImage}>
-          <Image src={imageFile1} />
+        <Container scrollAxis="vertical">
+      <div>
+        <Parallax className="pink" speed={10}>
+          <Image src={Pink} />
         </Parallax>
-        <Parallax speed={-4} className={styles.parallaxImage}>
-          <Image src={imageFile2} />
+        <Parallax className="berry" speed={-10}>
+          <Image src={Berry} />
         </Parallax>
-        <Parallax speed={4} className={styles.parallaxImage2}>
-          <Image src={imageFile4} />
+        <Parallax className="mountain" speed={5}>
+          <Image src={Evening} />
         </Parallax>
-        <Parallax speed={-3} className={styles.parallaxImage}>
-          <Image src={imageFile5} />
-        </Parallax>
-        <Parallax speed={3} className={styles.parallaxImage}>
-          <Image src={imageFile3} />
-        </Parallax>
-        <Parallax speed={6} className={styles.parallaxImage2}>
-          <Image src={imageFile6} />
+        <Parallax className="abstract" speed={-5}>
+          <Image src={Abstract} />
         </Parallax>
       </div>
-    </Container> */}
+    </Container>
         </section>
 			</main>
 		</>
