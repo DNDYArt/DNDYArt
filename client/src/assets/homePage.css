@@ -1,0 +1,17 @@
+.landing{
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+
+.landing--banner{
+    width: 100%;
+    align-items: center;
+}
+
+/* .landing--actions{
+} */
+
+.landing--action-button{
+    margin: 1rem;
+}
