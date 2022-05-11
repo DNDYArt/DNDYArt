@@ -1,7 +1,9 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { Parallax } from 'react-scroll-parallax'
 import { Container, Box, Image, Button, Heading } from "@chakra-ui/react";
 import Img from '../components/greek-bust.png'
+
 
 const HomePage = (props) => {
 	const hero = {
