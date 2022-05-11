@@ -7,7 +7,7 @@ import React from "react";
 // } from '@apollo/client';
 import HomePage from "./pages/HomePage";
 import Member from "./pages/Member";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Profile from "./pages/Profile";
 import Shop from "./pages/Shop";
