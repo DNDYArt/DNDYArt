@@ -27,7 +27,7 @@ const HomePage = (props) => {
 				</section>
         {/* <!-- Second-Fourth --> */}
         <section>
-        <Container scrollAxis="vertical">
+        {/* <Container scrollAxis="vertical">
       <div className={styles.images}>
         <Parallax speed={4} className={styles.parallaxImage}>
           <Image src={imageFile1} />
@@ -48,7 +48,7 @@ const HomePage = (props) => {
           <Image src={imageFile6} />
         </Parallax>
       </div>
-    </Container>
+    </Container> */}
         </section>
 			</main>
 		</>
