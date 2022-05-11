@@ -103,12 +103,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-direction: column;
     /* position */
     position: absolute;
     bottom: -40px;
     width: 100%;
-    height: 2.5rem; 
+    height: 7.5rem;
+    background-color: black;
+    color: white;
 }
 
 .h5 {
@@ -122,4 +124,19 @@ span {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-style: normal !important;
+}
+
+.artistLink{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: larger;
+    font-style: normal !important;
+}
+
+.lineOne{
+    margin-bottom: .7rem;
+}
+
+.lineTwo{
+    margin-top: .7rem;
 }
