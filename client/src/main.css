@@ -8,6 +8,10 @@
     /* Safari, Android, iOS */
 }
 
+body {
+    color: #000;
+}
+
 /* Header */
 
 header {
@@ -17,14 +21,15 @@ header {
     padding: 10px;
 }
 
+
 .h1 {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-style: normal !important;
     height: 30px;
     margin-left: 10px
-
 }
+
 
 nav {
     font-family: aktiv-grotesk, sans-serif !important;
@@ -51,6 +56,46 @@ main {
     min-height: 100vh;
 }
 
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0 50px 0 50px;
+    /* border: 3px red solid; */
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    /* border: 3px red solid; */
+}
+
+.hero-head {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 150px !important;
+    
+    position: absolute;
+    z-index: 1;
+    top: 115px;
+    padding-left: 15px;
+}
+
+.welcome {
+    padding-left: 10px;
+}
+
+.h2,
+.welcome {
+    font-family: 'Bosch', sans-serif !important;
+}
+
+.enter {
+    margin-top: 10px;
+}
+
 
 /* Footer */
 
@@ -61,7 +106,7 @@ footer {
 
     /* position */
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     width: 100%;
     height: 2.5rem; 
 }
