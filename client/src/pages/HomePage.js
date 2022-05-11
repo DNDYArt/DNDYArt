@@ -33,19 +33,19 @@ const HomePage = (props) => {
 					</Box>
 				</section>
         {/* <!-- Second-Fourth --> */}
-        <section>
-        <Container scrollAxis="vertical">
+        <section className="feature-scroller">
+        <Container scrollaxis="vertical">
       <div>
-        <Parallax className="pink" speed={10}>
+        <Parallax className="home-img pink" speed={10}>
           <Image src={Pink} />
         </Parallax>
-        <Parallax className="berry" speed={-10}>
+        <Parallax className="home-img berry" speed={-10}>
           <Image src={Berry} />
         </Parallax>
-        <Parallax className="mountain" speed={5}>
+        <Parallax className="home-img mountain" speed={5}>
           <Image src={Evening} />
         </Parallax>
-        <Parallax className="abstract" speed={-5}>
+        <Parallax className="home-img abstract" speed={-5}>
           <Image src={Abstract} />
         </Parallax>
       </div>

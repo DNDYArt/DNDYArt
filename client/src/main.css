@@ -100,13 +100,46 @@ main {
 
 /* Parallax-Scroll */
 
-.pink {}
+.feature-scroller {
+    position: relative;
 
-.berry {}
+    border: 3px red solid;
+    height: 475vh;
+}
 
-.mountain {}
+/* .home-img {
 
-.abstract {}
+} */
+
+.pink {
+    width: 700px;
+    
+    position: relative;
+    left: -210px;
+}
+
+.berry {
+    width: 400px;
+
+    position: relative;
+    top: 120px;
+    right: -380px;
+}
+
+.mountain {
+    width: 600px;
+
+    position: relative;
+    top: 200px;
+}
+
+.abstract {
+    width: 600px;
+
+    position: relative;
+    top: 250px;
+    left: -210px;
+}
 
 /* Footer */
 
