@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Parallax } from 'react-scroll-parallax'
-import { Box, Image, Button, Heading } from "@chakra-ui/react";
+import { Container, Box, Image, Button, Heading } from "@chakra-ui/react";
 import Img from '../components/greek-bust.png'
 
 const HomePage = (props) => {
@@ -27,28 +27,28 @@ const HomePage = (props) => {
 				</section>
         {/* <!-- Second-Fourth --> */}
         <section>
-        {/* <Container scrollAxis="vertical">
-      <div className={styles.images}>
-        <Parallax speed={4} className={styles.parallaxImage}>
-          <Image src={imageFile1} />
+        <Container scrollAxis="vertical">
+      <div>
+        <Parallax speed={10}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
         </Parallax>
-        <Parallax speed={-4} className={styles.parallaxImage}>
-          <Image src={imageFile2} />
+        <Parallax speed={-10}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
         </Parallax>
-        <Parallax speed={4} className={styles.parallaxImage2}>
-          <Image src={imageFile4} />
+        <Parallax speed={5}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
         </Parallax>
-        <Parallax speed={-3} className={styles.parallaxImage}>
-          <Image src={imageFile5} />
+        <Parallax speed={-5}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
         </Parallax>
-        <Parallax speed={3} className={styles.parallaxImage}>
-          <Image src={imageFile3} />
+        <Parallax speed={3}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
         </Parallax>
-        <Parallax speed={6} className={styles.parallaxImage2}>
-          <Image src={imageFile6} />
+        <Parallax speed={6}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
         </Parallax>
       </div>
-    </Container> */}
+    </Container>
         </section>
 			</main>
 		</>
