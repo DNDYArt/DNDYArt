@@ -1,46 +1,60 @@
-import { useState, useEffect } from "react"
-import SignInPane from '../components/SignInPane';
-import SignUpPane from '../components/SignUpPane';
-import '../assets/homePage.css'
+import React from "react";
+import { useState, useEffect } from "react";
+import { Parallax } from 'react-scroll-parallax'
+import { Container, Box, Image, Button, Heading } from "@chakra-ui/react";
+import Img from '../components/greek-bust.png'
+
 
 const HomePage = (props) => {
-      
-  const [signupVis, setSignup] = useState(false)
-  const [loginVis, setLogin] = useState(false)
+	const hero = {
+		imageAlt: "Greco-Roman bust"
+	};
 
-  function toggle(e) {
-    switch (e.target.id) {
-      case 'signup':
-        setSignup(!signupVis)
-        setLogin(false)
-        break;
-      case 'login':
-        setLogin(!loginVis)
-        setSignup(false)
-        break;
-      default:
-        setSignup(false);
-        setLogin(false);
-    }
-  }
-
-  return (
-    <>
-    <div className='landing'>
-      <div className='landing--banner'>
-        <h1>DNDY IMAGE HERE</h1>
-        <h2>...</h2>
+	return (
+		<>
+			<main>
+				{/* <!-- First --> */}
+				<section className="container">
+					{/* <!-- Main Title/Bust --> */}
+					<Box className="hero" boxSize="lg">
+						<img src={Img} alt={hero.imageAlt} />
+            <Heading className='h1 hero-head' as='h1'>DNDY</Heading>
+					</Box>
+					{/* <!-- Statement/Enter --> */}
+					<Box className="welcome">
+						<Heading className='h2' as='h2' size='xl' >Art should be shared, <br></br>
+                never contained.</Heading>
+						<Button className="enter" colorScheme='black' variant='outline' size='lg'>explore</Button>
+					</Box>
+				</section>
+        {/* <!-- Second-Fourth --> */}
+        <section>
+        <Container scrollAxis="vertical">
+      <div>
+        <Parallax speed={10}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        </Parallax>
+        <Parallax speed={-10}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        </Parallax>
+        <Parallax speed={5}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        </Parallax>
+        <Parallax speed={-5}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        </Parallax>
+        <Parallax speed={3}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        </Parallax>
+        <Parallax speed={6}>
+          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        </Parallax>
       </div>
-      
-      <div className='landing--actions'>
-          <button id='signup' className='landing--action-button' onClick={toggle}>Join DNDY</button>
-          <button id='login' className='landing--action-button' onClick={toggle}>Sign In</button>
-      </div>
-    </div>
-    {signupVis && <SignUpPane toggle={toggle}/>}
-    {loginVis && <SignInPane toggle={toggle}/>}
-    </>
-  )
-}
+    </Container>
+        </section>
+			</main>
+		</>
+	);
+};
 
 export default HomePage;
