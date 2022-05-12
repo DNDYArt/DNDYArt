@@ -92,15 +92,6 @@ import {
                 </FormControl>
 
                 <FormControl mt={4}>
-                <FormLabel>Location</FormLabel>
-                <Input id='city' placeholder='City' />
-                </FormControl>
-                <FormControl mt={4}>
-                <FormLabel>{/* Don't put anything in here */}</FormLabel>
-                <Input id='stateCountry' placeholder='State (if USA) or Country' />
-                </FormControl>
-
-                <FormControl mt={4}>
                 <FormLabel>Email</FormLabel>
                 <Input id='email' placeholder='Email' />
                 </FormControl>
