@@ -5,12 +5,13 @@ import { Heading, useColorMode, toggleColorMode } from '@chakra-ui/react'
 import { SunIcon } from '@chakra-ui/icons'
 
 
-
 const Header = () => {
 
   const { colorMode, toggleColorMode } = useColorMode()
 
+
   return (
+   
     <header>
     <Heading className='h1' as='h1' size='lg'><a href="/">DNDY</a></Heading>
     <nav>
@@ -19,7 +20,7 @@ const Header = () => {
             <Link to="./shop"> shop </Link>
          </li>
          <li>
-            <Link to="./member"> members </Link>
+            <Link to="./collectors"> members </Link>
          </li>
          <li>
             <Link to="./profile"> profile </Link>

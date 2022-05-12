@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import {
 	Parallax,
@@ -20,6 +21,7 @@ import Pink from "../components/images/pink.jpg";
 import Berry from "../components/images/strawberry.jpg";
 import Evening from "../components/images/evening-mountain.jpg";
 import Abstract from "../components/images/abstract-1.jpg";
+
 
 const HomePage = (props) => {
 	const hero = {

@@ -24,7 +24,13 @@ import {
   } from '@chakra-ui/react'
   import React from 'react'
   
-  const CollectorSignUp = () => {
+  const ArtistSignUp = () => {
+
+    // useEffect(() => {
+    //     const root = document.getElementById('root');
+    //     root.style.display = 'block'
+    //     root.style.position = 'relative'
+    // })
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef()
@@ -45,11 +51,11 @@ import {
             gap={4}
             >
             <GridItem className='gridTitle' colSpan={2}>Why DNDY?</GridItem>
-            <GridItem className='gridContent' colSpan={4}>DNDY is a trusted source for the finest art available. Pieces that are featured in our store immediately gain recognition in the community of collectors and artists. Every piece that we sell comes with a DNDY signed certificate of authenticity.</GridItem>
+            <GridItem className='gridContent' colSpan={4}>DNDY provides an elite platform for selling the finest art. With followers around the world, a feature on our sites brings unmatched notoriety.</GridItem>
             <GridItem className='gridTitle' colSpan={2}>First-Class Treatment</GridItem>
-            <GridItem className='gridContent' colSpan={4}>Here at DNDY we realize that we simply would not exist without you. That is why we treat our collectors with the utmost respect. Our staff responds promptly to questions and concerns. Customer satisfaction is our top priority.</GridItem>
+            <GridItem className='gridContent' colSpan={4}>Here at DNDY we realize that we simply would not exist without you. That is why we treat our artists with the utmost respect. Our staff responds promptly to questions and concerns. Our artists always come first.</GridItem>
             <GridItem className='gridTitle' colSpan={2}>Product Handling</GridItem>
-            <GridItem className='gridContent' colSpan={4}>You don't have to do a thing. Once you win the auction, our team will reach out immediately to arrange a product delivery plan that best suites you. And rest assured, we have the best insurance money can buy.</GridItem>
+            <GridItem className='gridContent' colSpan={4}>You don't have to do a thing. Our team will come to you, and deliver the piece to the buyer. No matter what. And rest assured, we have the best insurance money can buy.</GridItem>
         </Grid>
         </div>
 
@@ -73,12 +79,6 @@ import {
                 <FormControl mt={4}>
                 <FormLabel>Last name</FormLabel>
                 <Input placeholder='Last name' />
-                </FormControl>
-
-                <FormControl mt={4}>
-                <FormLabel>Location</FormLabel>
-                <Input placeholder='City' />
-                <Input placeholder='State (if USA) or Country' />
                 </FormControl>
 
                 <FormControl mt={4}>
@@ -126,4 +126,4 @@ import {
     )
   }
   
-  export default CollectorSignUp
+  export default ArtistSignUp

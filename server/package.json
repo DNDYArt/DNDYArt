@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "mern-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,6 +8,7 @@
     "seed": "node seeders/seed.js",
     "watch": "nodemon server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
