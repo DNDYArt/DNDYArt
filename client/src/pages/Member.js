@@ -29,10 +29,26 @@ import {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef()
     const finalRef = React.useRef()
+
+    function handleFormSubmit(e) {
+      const children = e.target.parentNode.parentNode.childNodes[2].childNodes
+      let childInputs = {}
+      for (let child of children){
+        let key = child.childNodes[1].id
+        let value = child.childNodes[1].value
+        childInputs[key] = value
+      }
+      sendSubmissionInfo(childInputs)
+    }
+
+    function sendSubmissionInfo(inputInfo) {
+      // Do something with the submitted information
+      // inputInfo param should be passed in as an object of input names and their respective values given by the user
+      console.log(inputInfo);
+    }
   
     return (
       <>
-      <ChakraProvider>
         <section className='artistContainer'>
             <h1 className='welcomeArtist'>Welcome to DNDY</h1>
         </section>
@@ -67,35 +83,39 @@ import {
             <ModalBody pb={6}>
                 <FormControl>
                 <FormLabel>First name</FormLabel>
-                <Input ref={initialRef} placeholder='First name' />
+                <Input id='firstName' ref={initialRef} placeholder='First name' />
                 </FormControl>
 
                 <FormControl mt={4}>
                 <FormLabel>Last name</FormLabel>
-                <Input placeholder='Last name' />
+                <Input id='lastName' placeholder='Last name' />
                 </FormControl>
 
                 <FormControl mt={4}>
                 <FormLabel>Location</FormLabel>
-                <Input placeholder='City' />
-                <Input placeholder='State (if USA) or Country' />
+                <Input id='city' placeholder='City' />
+                </FormControl>
+                <FormControl mt={4}>
+                <FormLabel>{/* Don't put anything in here */}</FormLabel>
+                <Input id='stateCountry' placeholder='State (if USA) or Country' />
                 </FormControl>
 
                 <FormControl mt={4}>
                 <FormLabel>Email</FormLabel>
-                <Input placeholder='Email' />
+                <Input id='email' placeholder='Email' />
                 </FormControl>
 
                 <FormControl mt={4}>
                 <FormLabel>Password</FormLabel>
                 <Input
+                    id='password'
                     placeholder='Password'
                     type='password' />
                 </FormControl>
             </ModalBody>
 
             <ModalFooter>
-                <Button colorScheme='blue' mr={3}>
+                <Button onClick={handleFormSubmit} colorScheme='blue' mr={3}>
                 Save
                 </Button>
                 <Button onClick={onClose}>Cancel</Button>
@@ -120,8 +140,6 @@ import {
                 Thanks for submitting your application. Our team will get back to you soon.
             </AlertDescription>
         </Alert> */}
-
-      </ChakraProvider>
       </>
     )
   }
