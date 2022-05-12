@@ -87,6 +87,7 @@ main {
 
 .welcome {
     padding-left: 10px;
+    /* outline: 3px solid red; */
 }
 
 .h2,
@@ -103,7 +104,7 @@ main {
 .feature-scroller {
     position: relative;
 
-    border: 3px red solid;
+    /* border: 3px red solid; */
     height: 475vh;
 }
 
@@ -143,13 +144,15 @@ main {
 
 /* Footer */
 
-footer {
+.appFooter {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* position */
     position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
     bottom: -40px;
     width: 100%;
     height: 7.5rem;
@@ -184,3 +187,62 @@ span {
 .lineTwo{
     margin-top: .7rem;
 }
+
+
+/* Artist SignUp */
+
+.artistContainer{
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: column;
+    margin-top: 30px;
+    /* outline: 3px solid red; */
+}
+
+.welcomeArtist{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 60px !important;
+    padding-left: 145px;
+    padding-top: 50px;
+}
+
+.gridParent{
+    display: block;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.gridTitle{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-size: 25px;
+}
+
+.gridContent{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnDiv{
+    display: flex;
+    margin-top: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PUSH footer to the bottom of page */
+
+#root {
+    display: flex;
+    flex-direction: column;
+   }
+
+html, body, #root {
+    height: 100%;
+  }
