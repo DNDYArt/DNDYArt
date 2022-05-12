@@ -26,6 +26,10 @@ const HomePage = (props) => {
 		imageAlt: "Greco-Roman bust",
 	};
 
+  // funtion explore() {
+
+  // }
+
 	return (
 		<>
 			<main>
@@ -45,6 +49,7 @@ const HomePage = (props) => {
 							never contained.
 						</Heading>
 						<Button
+              // onClick={explore}
 							className="enter"
 							colorScheme="black"
 							variant="outline"
