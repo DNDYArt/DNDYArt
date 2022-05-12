@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react'
 import {
     Modal,
@@ -14,7 +15,6 @@ import {
     Grid,
     GridItem,
     Button,
-    ChakraProvider,
     Alert,
     AlertIcon,
     AlertTitle,
@@ -23,6 +23,7 @@ import {
     CloseButton
   } from '@chakra-ui/react'
   import React from 'react'
+import { Link } from 'react-router-dom'
   
   const ArtistSignUp = () => {
 
@@ -37,10 +38,9 @@ import {
     const finalRef = React.useRef()
   
     return (
-      <>
-      <ChakraProvider>
+      <div className='vh'>
         <section className='artistContainer'>
-            <h1 className='welcomeArtist'>Welcome to DNDY</h1>
+            <h1 className='welcomeArtist'>Welcome Artists</h1>
         </section>
 
         <div className='gridParent'>
@@ -70,7 +70,7 @@ import {
         <ModalContent>
           <ModalHeader>Create your account</ModalHeader>
           <ModalCloseButton />
-            <ModalBody pb={6}>
+            <ModalBody  pb={6}>
                 <FormControl>
                 <FormLabel>First name</FormLabel>
                 <Input ref={initialRef} placeholder='First name' />
@@ -95,7 +95,7 @@ import {
             </ModalBody>
 
             <ModalFooter>
-                <Button colorScheme='blue' mr={3}>
+                <Button as={Link} to='/artistprofile' colorScheme='blue' mr={3}>
                 Save
                 </Button>
                 <Button onClick={onClose}>Cancel</Button>
@@ -120,9 +120,7 @@ import {
                 Thanks for submitting your application. Our team will get back to you soon.
             </AlertDescription>
         </Alert> */}
-
-      </ChakraProvider>
-      </>
+      </div>
     )
   }
   

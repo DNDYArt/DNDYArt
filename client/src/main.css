@@ -195,11 +195,10 @@ article {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     right: 0;
-    bottom: -40px;
     width: 100%;
     height: 7.5rem;
     background-color: black;
@@ -282,6 +281,56 @@ span {
     justify-content: center;
 }
 
+
+/* Artist Profile */
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.pfp{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    border-radius: 0px;
+}
+
+.pfpDiv{
+    width: 30em;
+    height:30em;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.text-container{
+    width: 80%;
+    text-align: center;
+    padding: 1em 1em;
+}
+
+.artistName{
+    /* font-family: 'Bosch', sans-serif !important; */
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-size: 40px;
+}
+
+.artistLocation{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-size: 30px;
+}
+
+.artistBio{
+    /* font-family: roc-grotesk-wide, sans-serif !important; */
+    font-size: 20px;
+    margin-top: 1em;
+    text-align: left;
+}
+
+
 /* PUSH footer to the bottom of page */
 
 /* #root {
@@ -291,4 +340,9 @@ span {
 
 html, body, #root {
     height: 100%;
-  } */
+} */
+
+
+.vh{
+    min-height: calc(100vh - 120px);
+}
