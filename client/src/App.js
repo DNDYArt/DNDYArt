@@ -29,7 +29,7 @@ function App() {
 			<Header />
 				<Routes>
 					<Route path="/" element={<HomePage />} />
-					<Route path="/member" element={<Member />} />
+					<Route path="/collectors" element={<Member />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/shop" element={<Shop />} />
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />

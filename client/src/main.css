@@ -238,11 +238,11 @@ span {
 
 /* PUSH footer to the bottom of page */
 
-#root {
+/* #root {
     display: flex;
     flex-direction: column;
    }
 
 html, body, #root {
     height: 100%;
-  }
+  } */
