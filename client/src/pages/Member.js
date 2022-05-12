@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react'
 import {
     Modal,
@@ -14,7 +15,6 @@ import {
     Grid,
     GridItem,
     Button,
-    ChakraProvider,
     Alert,
     AlertIcon,
     AlertTitle,
@@ -48,7 +48,7 @@ import {
     }
   
     return (
-      <>
+      <div className='vh'>
         <section className='artistContainer'>
             <h1 className='welcomeArtist'>Welcome to DNDY</h1>
         </section>
@@ -60,12 +60,12 @@ import {
             templateColumns='repeat(6, 1fr)'
             gap={4}
             >
-            <GridItem className='gridTitle' colSpan={2}>Why DNDY?</GridItem>
-            <GridItem className='gridContent' colSpan={4}>DNDY is a trusted source for the finest art available. Pieces that are featured in our store immediately gain recognition in the community of collectors and artists. Every piece that we sell comes with a DNDY signed certificate of authenticity.</GridItem>
-            <GridItem className='gridTitle' colSpan={2}>First-Class Treatment</GridItem>
-            <GridItem className='gridContent' colSpan={4}>Here at DNDY we realize that we simply would not exist without you. That is why we treat our collectors with the utmost respect. Our staff responds promptly to questions and concerns. Customer satisfaction is our top priority.</GridItem>
-            <GridItem className='gridTitle' colSpan={2}>Product Handling</GridItem>
-            <GridItem className='gridContent' colSpan={4}>You don't have to do a thing. Once you win the auction, our team will reach out immediately to arrange a product delivery plan that best suites you. And rest assured, we have the best insurance money can buy.</GridItem>
+            <GridItem bg='tomato' className='gridTitle' colSpan={2}>Why DNDY?</GridItem>
+            <GridItem bg='tomato' className='gridContent' colSpan={4}>DNDY is a trusted source for the finest art available. Pieces that are featured in our store immediately gain recognition in the community of collectors and artists. Every piece that we sell comes with a DNDY signed certificate of authenticity.</GridItem>
+            <GridItem bg='tomato' className='gridTitle' colSpan={2}>First-Class Treatment</GridItem>
+            <GridItem bg='tomato' className='gridContent' colSpan={4}>Here at DNDY we realize that we simply would not exist without you. That is why we treat our collectors with the utmost respect. Our staff responds promptly to questions and concerns. Customer satisfaction is our top priority.</GridItem>
+            <GridItem bg='tomato' className='gridTitle' colSpan={2}>Product Handling</GridItem>
+            <GridItem bg='tomato' className='gridContent' colSpan={4}>You don't have to do a thing. Once you win the auction, our team will reach out immediately to arrange a product delivery plan that best suites you. And rest assured, we have the best insurance money can buy.</GridItem>
         </Grid>
         </div>
 
@@ -131,6 +131,7 @@ import {
                 Thanks for submitting your application. Our team will get back to you soon.
             </AlertDescription>
         </Alert> */}
+      </div>
       </>
     )
   }

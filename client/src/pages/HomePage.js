@@ -34,7 +34,7 @@ const HomePage = (props) => {
 
 	return (
 		<>
-			<main>
+			<main className="vh">
 				{/* <!-- First --> */}
 				<section className="container">
 					{/* <!-- Main Title/Bust --> */}
