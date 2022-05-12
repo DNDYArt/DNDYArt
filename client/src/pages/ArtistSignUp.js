@@ -125,7 +125,6 @@ import { Link } from 'react-router-dom'
 
             <ModalFooter>
                 <Button onClick={handleFormSubmit} as={Link} to='/artistprofile' colorScheme='blue' mr={3}>
-                <Button  colorScheme='blue' mr={3}>
                 Save
                 </Button>
                 <Button onClick={onClose}>Cancel</Button>
@@ -151,7 +150,6 @@ import { Link } from 'react-router-dom'
             </AlertDescription>
         </Alert> */}
       </div>
-      </>
     )
   }
   
