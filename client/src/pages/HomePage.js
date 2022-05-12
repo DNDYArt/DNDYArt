@@ -9,6 +9,7 @@ import Pink from '../components/images/pink.jpg'
 import Berry from '../components/images/strawberry.jpg'
 import Evening from '../components/images/evening-mountain.jpg'
 import Abstract from '../components/images/abstract-1.jpg'
+import Footer from "../components/Footer/Footer";
 
 
 
@@ -54,6 +55,7 @@ const HomePage = (props) => {
     </Container>
         </section>
 			</main>
+      <Footer />
 		</>
 	);
 };

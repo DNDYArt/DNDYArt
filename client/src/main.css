@@ -12,7 +12,7 @@ body {
     color: #000;
 }
 
-/* Header */
+/* ------------- Header */
 
 header {
     display: flex;
@@ -49,11 +49,12 @@ li {
     list-style-type: none;
 }
 
-/* HomePage */
+/* ------------- HomePage */
 
 main {
     position: relative;
     min-height: 100vh;
+    border: red 3px solid;
 }
 
 .container {
@@ -99,7 +100,7 @@ main {
     margin-top: 10px;
 }
 
-/* Parallax-Scroll */
+/* ------------- Parallax-Scroll */
 
 .feature-scroller {
     position: relative;
@@ -107,10 +108,6 @@ main {
     /* border: 3px red solid; */
     height: 475vh;
 }
-
-/* .home-img {
-
-} */
 
 .pink {
     width: 700px;
@@ -142,7 +139,65 @@ main {
     left: -210px;
 }
 
-/* Footer */
+/* ------------- SHOP */
+
+.shop-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-section {
+    display: flex !important;
+    flex-direction: row;
+    border: red 3px solid;
+}
+.shop-container {
+    border: red 3px solid;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.feature-img {
+    width: 600px;
+    border: red 3px solid;
+}
+
+.feature-header {
+    border: red 3px solid;
+}
+
+.feature-name {
+    display: flex !important; 
+    border: red 3px solid;
+}
+
+.feature-about {
+    border: red 3px solid;
+}
+
+.bid-info {
+    border: red 3px solid;
+}
+
+.bid-btn {
+    border: red 3px solid;
+}
+
+section {
+    border: red 3px solid;
+}
+
+/* Main Footer */
 
 .appFooter {
     display: flex;
@@ -189,7 +244,7 @@ span {
 }
 
 
-/* Artist SignUp */
+/* ------------- Artist SignUp */
 
 .artistContainer{
     display: flex;
@@ -236,13 +291,13 @@ span {
     justify-content: center;
 }
 
-/* PUSH footer to the bottom of page */
+/* ------------- PUSH footer to the bottom of page */
 
-/* #root {
+#root {
     display: flex;
     flex-direction: column;
    }
 
 html, body, #root {
     height: 100%;
-  } */
+  }

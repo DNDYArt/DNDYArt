@@ -35,7 +35,7 @@ function App() {
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
 				</Routes>
-				<Footer />
+				{/* <Footer /> */}
 			</Router>
 			{/* </ApolloProvider> */}
 		</div>

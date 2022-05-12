@@ -26,19 +26,12 @@ import {
   
   const ArtistSignUp = () => {
 
-    // useEffect(() => {
-    //     const root = document.getElementById('root');
-    //     root.style.display = 'block'
-    //     root.style.position = 'relative'
-    // })
-
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef()
     const finalRef = React.useRef()
   
     return (
       <>
-      <ChakraProvider>
         <section className='artistContainer'>
             <h1 className='welcomeArtist'>Welcome to DNDY</h1>
         </section>
@@ -121,7 +114,6 @@ import {
             </AlertDescription>
         </Alert> */}
 
-      </ChakraProvider>
       </>
     )
   }
