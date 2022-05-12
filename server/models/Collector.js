@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose'),
       bycrypt = require('bcrypt');
 
-const userSchema = new Schema({
+const collectorSchema = new Schema({
   first_name: {
     type: String,
     required: true,
@@ -44,6 +44,6 @@ userSchema.pre('save', async function(next){
   }
 })
 
-const User = model('user', userSchema);
+const Collector = model('collector', collectorSchema);
 
-module.exports = User;
+module.exports = Collector;
