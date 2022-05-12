@@ -1,11 +1,10 @@
 @font-face {
-    font-family: 'Bosch';
-    src: url('../src/fonts/Bosch.otf') format('otf'),
-        /* Super Modern Browsers */
-        url('../src/fonts/Bosch.otf') format('otf'),
-        /* Pretty Modern Browsers */
-        url('../src/fonts/Bosch.otf') format('otf');
-    /* Safari, Android, iOS */
+    font-family: 'boschregular';
+    src: url('./bosch-webfont.woff2') format('woff2'),
+         url('./bosch-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 body {
@@ -53,8 +52,11 @@ li {
 
 main {
     position: relative;
+
     min-height: 100vh;
     /* border: red 3px solid; */
+    max-height: 500vh;
+
 }
 
 .container {
@@ -104,39 +106,91 @@ main {
 
 .feature-scroller {
     position: relative;
-
+    display: flex;
+    justify-content: space-around;
     /* border: 3px red solid; */
-    height: 475vh;
+    height: 315vh;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    height: 775px;
+}
+
+.par-box {
+    height: 1990px
 }
 
 .pink {
-    width: 700px;
+    width: 800px;
 
     position: relative;
-    left: -210px;
+    margin-left: 10px;
+}
+
+.text-1 {
+    position: relative;
+    top: 0;
+    left: 150px;
+    font-family: 'Bosch', sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 125px !important;
+}
+
+.text-2 {
+    font-family: 'Bosch', sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    top: 125px;
+    left: 150px;
 }
 
 .berry {
-    width: 400px;
-
+    width: 485px;
     position: relative;
-    top: 120px;
-    right: -380px;
+    top: -375px;
+    right: -480px;
+    z-index: -2;
 }
 
 .mountain {
-    width: 600px;
-
+    width: 750px;
     position: relative;
-    top: 200px;
+    bottom: 800px;
+    left: -100px;
+    z-index: -1;
+    object-fit: contain;
+    
 }
 
 .abstract {
-    width: 600px;
-
+    width: 1009px;
     position: relative;
-    top: 250px;
-    left: -210px;
+    bottom: 1000px;
+    bottom: 775px;
+    z-index: -1;
+}
+
+.text-3 {
+    font-family: 'Bosch', sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    left: 270px;
+    bottom: 200px;
+}
+
+.caboose {
+    height: 0;
 }
 
 /* ------------- SHOP */
@@ -274,11 +328,10 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     left: 0;
-    bottom: 0;
+    bottom: -16vh;
     right: 0;
-    bottom: -40px;
     width: 100%;
     height: 7.5rem;
     background-color: black;
@@ -362,6 +415,55 @@ span {
     justify-content: center;
 }
 
+/* Artist Profile */
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.pfp{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    border-radius: 0px;
+}
+
+.pfpDiv{
+    width: 30em;
+    height:30em;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.text-container{
+    width: 80%;
+    text-align: center;
+    padding: 1em 1em;
+}
+
+.artistName{
+    /* font-family: 'Bosch', sans-serif !important; */
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-size: 40px;
+}
+
+.artistLocation{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-size: 30px;
+}
+
+.artistBio{
+    /* font-family: roc-grotesk-wide, sans-serif !important; */
+    font-size: 20px;
+    margin-top: 1em;
+    text-align: left;
+}
+
+
 /* ------------- PUSH footer to the bottom of page */
 
 #root {
@@ -373,4 +475,8 @@ html,
 body,
 #root {
     height: 100%;
+}
+
+.vh{
+    min-height: calc(100vh - 120px);
 }

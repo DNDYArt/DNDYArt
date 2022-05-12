@@ -29,7 +29,7 @@ const Header = () => {
             <Link to="./profile"> login </Link>
          </li>
          <li>
-         <SunIcon onClick={toggleColorMode}/>
+            <SunIcon onClick={toggleColorMode}/>
          </li>
 
      </ul>
