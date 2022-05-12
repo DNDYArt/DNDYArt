@@ -12,7 +12,7 @@ const typeDefs = gql`
   type Feature {
     _id: ID
     name: String
-    startPrice: Number
+    startPrice: Int
     description: String
     image: String
   }
@@ -42,7 +42,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!, last_name: String!, fist_name: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!)
+    login(email: String!, password: String!):Auth
     addFeature(featureId: ID!):Feature
     removeFeature(featureId: ID!):Feature
   }
