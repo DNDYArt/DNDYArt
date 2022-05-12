@@ -91,7 +91,7 @@ const HomePage = (props) => {
 								<Parallax
 									className="right-text"
 									easing="easeOutQuad"
-									opacity={[4, -2]}
+									opacity={[10, 0]}
 								>
 									<Heading className="text-2">
 										Design,<br></br>Elevated.

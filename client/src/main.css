@@ -103,7 +103,7 @@ main {
     position: relative;
     display: flex;
     justify-content: space-around;
-    border: 3px red solid;
+    /* border: 3px red solid; */
     height: 315vh;
 }
 
