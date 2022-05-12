@@ -54,7 +54,7 @@ li {
 main {
     position: relative;
     min-height: 100vh;
-    border: red 3px solid;
+    /* border: red 3px solid; */
 }
 
 .container {
@@ -77,7 +77,7 @@ main {
     font-weight: 600 !important;
     font-style: normal !important;
     font-size: 150px !important;
-    
+
     position: absolute;
     z-index: 1;
     top: 115px;
@@ -111,7 +111,7 @@ main {
 
 .pink {
     width: 700px;
-    
+
     position: relative;
     left: -210px;
 }
@@ -151,10 +151,18 @@ main {
 .shop-section {
     display: flex !important;
     flex-direction: row;
-    border: red 3px solid;
+    /* border: red 3px solid; */
 }
-.shop-container {
+
+/* .shop-container {
     border: red 3px solid;
+} */
+
+.shop-description {
+    display: flex;
+    padding-top: 10px;
+    flex-direction: column;
+    /* border: red 3px solid; */
 }
 
 .timer {
@@ -169,32 +177,94 @@ main {
 
 .feature-img {
     width: 600px;
-    border: red 3px solid;
+    /* border: red 3px solid; */
 }
 
 .feature-header {
-    border: red 3px solid;
+    /* border: red 3px solid; */
+    padding-left: 10px;
+    line-height: 40px;
+}
+
+.feature-artist {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    font-size: 40px;
 }
 
 .feature-name {
-    display: flex !important; 
-    border: red 3px solid;
+    display: flex !important;
+    /* border: red 3px solid; */
+    flex-wrap: nowrap;
+}
+
+.feature-title {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 50px;
+}
+
+.feature-year {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.feature-medium {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 30px;
 }
 
 .feature-about {
-    border: red 3px solid;
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 18px;
+    padding-left: 10px;
+    /* border: red 3px solid; */
+}
+
+.para {
+    margin-top: 10px;
+    margin-bottom: -25px;
+}
+
+.para2 {
+    margin-bottom: 15px;
 }
 
 .bid-info {
-    border: red 3px solid;
+    padding-left: 10px;
+    /* border: red 3px solid; */
 }
 
+.bid-start {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.bid-current {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 20px;
+}
+
+.bid-form {
+    padding-left: 10px;
+    /* border: red 3px solid; */
+}
 .bid-btn {
-    border: red 3px solid;
-}
-
-section {
-    border: red 3px solid;
+    margin-top: 15px;
+    padding-left: 10px;
+    /* border: red 3px solid; */
 }
 
 /* Main Footer */
@@ -228,25 +298,25 @@ span {
     font-style: normal !important;
 }
 
-.artistLink{
+.artistLink {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-size: larger;
     font-style: normal !important;
 }
 
-.lineOne{
+.lineOne {
     margin-bottom: .7rem;
 }
 
-.lineTwo{
+.lineTwo {
     margin-top: .7rem;
 }
 
 
 /* ------------- Artist SignUp */
 
-.artistContainer{
+.artistContainer {
     display: flex;
     /* justify-content: space-around; */
     flex-direction: column;
@@ -254,7 +324,7 @@ span {
     /* outline: 3px solid red; */
 }
 
-.welcomeArtist{
+.welcomeArtist {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-style: normal !important;
@@ -263,13 +333,14 @@ span {
     padding-top: 50px;
 }
 
-.gridParent{
+.gridParent {
     display: block;
     padding-top: 3rem;
     padding-left: 3rem;
     padding-right: 3rem;
 }
-.gridTitle{
+
+.gridTitle {
     font-family: roc-grotesk-wide, sans-serif !important;
     display: flex;
     align-items: center;
@@ -277,14 +348,14 @@ span {
     font-size: 25px;
 }
 
-.gridContent{
+.gridContent {
     font-family: roc-grotesk-wide, sans-serif !important;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.btnDiv{
+.btnDiv {
     display: flex;
     margin-top: 3rem;
     align-items: center;
@@ -296,8 +367,10 @@ span {
 #root {
     display: flex;
     flex-direction: column;
-   }
+}
 
-html, body, #root {
+html,
+body,
+#root {
     height: 100%;
-  }
+}
