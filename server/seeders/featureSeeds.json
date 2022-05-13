@@ -1,7 +1,8 @@
 [
   {
     "name": "Beauty of Bridge",
-    "author": "Bri",
+    "authorFirstName": "Bri",
+    "authorLastName": "Kern",
     "startPrice": 1500,
     "currentBid": 1500,
     "description": "multiple size drip style abstract art on canvas, large wall art",
@@ -9,7 +10,8 @@
   },
   {
     "name": "Light of Passion",
-    "author": "Tony",
+    "authorFirstName": "Tony",
+    "authorLastName": "Law",
     "startPrice": 2000,
     "currentBid": 2000,
     "description": "Large oil painting on canvas modern wall art painting for home decor original art",
@@ -17,7 +19,8 @@
   },
   {
     "name": "Vintage",
-    "author": "Daniel",
+    "authorFirstName": "Daniel",
+    "authorLastName": "Sarmiento",
     "startPrice": 700,
     "currentBid": 700,
     "description": "red painting extra large abstract art modern wall oversize canvs",
@@ -25,7 +28,8 @@
   },
   {
     "name": "Blissful Sunrise",
-    "author": "Linda",
+    "authorFirstName": "Linda",
+    "authorLastName": "Haux",
     "startPrice": 3200,
     "currentBid": 3200,
     "description": "large landscape artwork oil painting on canvas",
@@ -33,7 +37,8 @@
   },
   {
     "name": "New Begining",
-    "author": "Joy",
+    "authorFirstName": "Joy",
+    "authorLastName": "Aguire",
     "startPrice": 10000,
     "currentBid": 10000,
     "description": "Large Abstract Blue Painting ",
