@@ -9,7 +9,7 @@ import HomePage from "./pages/HomePage";
 import Member from "./pages/Member";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import Profile from "./pages/Profile";
+import ArtistProfile from "./pages/ArtistProfile";
 import Shop from "./pages/Shop";
 import Cloudinarytest from "./pages/Cloudinarytest";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -30,7 +30,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/collectors" element={<Member />} />
-					<Route path="/profile" element={<Profile />} />
+					<Route path="/artistprofile" element={<ArtistProfile />} />
 					<Route path="/shop" element={<Shop />} />
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
