@@ -47,7 +47,7 @@ function Shop() {
 						/>
 						{/* add Countdown function, restart @ 48hrs, */}
             <GridItem colSpan={5} className="action-div">
-						  <h3 className="timer">Time Left: {featureContext.autionTime} </h3>
+						  <h3 className="timer">Time Left: {featureContext.auctionTimer} </h3>
             </GridItem>
 					</GridItem>
 					<GridItem

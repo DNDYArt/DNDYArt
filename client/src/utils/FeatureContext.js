@@ -6,6 +6,8 @@ function FeatureProvider(props) {
   const [currentFeature, setCurrentFeature] = useState()
   // { name, startPrice, description, image(url) }
   const [featureQue, setFeatureQue] = useState([])
+  const [auctionTime, setAuctionTime] = useState({'hours': 2, 'minutes': 30, 'seconds': 30})
+  const [auctionTimer, setAuctionTimer] = useState('2hrs 30min 30sec')
 
   useEffect(() => {
     ( async () => {
@@ -17,6 +19,33 @@ function FeatureProvider(props) {
       }
     })()
   }, [])
+
+  useEffect(() => {
+    let isMounted = true;
+
+    setTimeout(() => {
+      let hrs = auctionTime['hours'],
+          min = auctionTime['minutes'],
+          sec = auctionTime['seconds']
+
+      if (sec === 0) {
+        if (min === 0) {
+          hrs -= 1;
+          min = 60;
+          sec = 60
+        } else {
+          min -= 1;
+          sec = 60;
+        }
+      }else {
+        sec -= 1;
+      }
+      if (isMounted) setAuctionTime({'hours': hrs, 'minutes': min, 'seconds': sec})
+      if (isMounted) setAuctionTimer(`${auctionTime['hours']}hrs ${auctionTime['minutes']}min ${auctionTime['seconds']}sec`)
+    }, 1000)
+
+    return () => { isMounted = false }
+  }, [auctionTime])
   
   async function purchseFeature() {
     const purchase = currentFeature;
@@ -46,7 +75,7 @@ function FeatureProvider(props) {
   }
 
   return (
-    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature}} {...props}/>
+    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer}} {...props}/>
   )
 }
 
