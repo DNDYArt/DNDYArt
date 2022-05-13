@@ -14,8 +14,8 @@ import {
 	SlideFade,
 	useDisclosure,
 } from "@chakra-ui/react";
-import Footer from '../components/Footer/Footer';
-import { Link } from 'react-router-dom';
+import Footer from "../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 import { UserContext } from "../utils/UserContext";
 
@@ -27,7 +27,7 @@ import Evening from "../components/images/evening-mountain.jpg";
 import Abstract from "../components/images/abstract-1.jpg";
 
 const HomePage = (props) => {
-	const context = useContext(UserContext)
+	const context = useContext(UserContext);
 
 	const hero = {
 		imageAlt: "Greco-Roman bust",
@@ -51,24 +51,43 @@ const HomePage = (props) => {
 							Art should be shared, <br></br>
 							never contained.
 						</Heading>
-						<Button
+						{/* <Button
 							className="enter"
 							colorScheme="black"
 							variant="outline"
 							size="lg"
 							width="200px"
+						> */}
+						<Link
+							to={
+								context.currentUser.loggedIn
+									? "/shop"
+									: "/collectors"
+							}
 						>
-							<Link to={context.currentUser.loggedIn ? '/shop' : '/collectors'}>explore</Link>
-						</Button>
+							<Button
+								className="enter"
+								colorScheme="black"
+								variant="outline"
+								size="lg"
+								width="200px"
+							>
+								explore
+							</Button>
+						</Link>
+						{/* </Button> */}
 					</Box>
 				</section>
 				{/* <!-- Second-Fourth --> */}
 				<section className="feature-scroller">
-					<Container styleConfig="margin-right: 0px;margin-left: 0px;" scrollaxis="vertical">
+					<Container
+						styleConfig="margin-right: 0px;margin-left: 0px;"
+						scrollaxis="vertical"
+					>
 						<div className="par-box">
 							<article>
 								<Parallax className="home-img" speed={30}>
-									<Image src={Pink} className='pink' />
+									<Image src={Pink} className="pink" />
 								</Parallax>
 								<Parallax
 									className="right-text"
@@ -87,7 +106,7 @@ const HomePage = (props) => {
 									easing="easeOutQuad"
 									speed={10}
 								>
-									<Image src={Berry} className='berry' />
+									<Image src={Berry} className="berry" />
 								</Parallax>
 							</article>
 							<article>
@@ -95,37 +114,40 @@ const HomePage = (props) => {
 									className="home-img mountain"
 									speed={100}
 								>
-								<Parallax
-									className="right-text"
-									easing="easeOutQuad"
-									translateY={["500px", "-200px"]}
-									opacity={[1, -2]}
-								>
-									<Heading className="text-2">
-										Design,<br></br>Elevated.
-									</Heading>
-								</Parallax>
+									<Parallax
+										className="right-text"
+										easing="easeOutQuad"
+										translateY={["500px", "-200px"]}
+										opacity={[1, -2]}
+									>
+										<Heading className="text-2">
+											Design,<br></br>Elevated.
+										</Heading>
+									</Parallax>
 									<Image src={Evening} />
 								</Parallax>
-                </article>
-                <article className="caboose">
+							</article>
+							<article className="caboose">
 								<Parallax
 									className="home-img abstract"
 									speed={25}
 								>
 									<Image src={Abstract} />
-                  <Parallax easing="easeOutQuad" opacity={[2, 0]}>
-									<Heading className="text-3">
-										Color,<br></br>Invigorated.
-									</Heading>
-								</Parallax>
+									<Parallax
+										easing="easeOutQuad"
+										opacity={[2, 0]}
+									>
+										<Heading className="text-3">
+											Color,<br></br>Invigorated.
+										</Heading>
+									</Parallax>
 								</Parallax>
 							</article>
 						</div>
 					</Container>
 				</section>
 			</main>
-      {/* <Footer /> */}
+			{/* <Footer /> */}
 		</>
 	);
 };
