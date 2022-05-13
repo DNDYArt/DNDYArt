@@ -33,7 +33,7 @@ const collectorSchema = new Schema({
   }
 });
 
-userSchema.pre('save', async function(next){
+collectorSchema.pre('save', async function(next){
   try {
     if (!this.isModified('password')) return next();
 
