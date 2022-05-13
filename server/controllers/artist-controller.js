@@ -1,11 +1,10 @@
-const { Collector } = require('../models'),
+const { Artist } = require('../models'),
 bycrypt = require('bcrypt');
 
 module.exports = {
-  async verifyCollectorLogin(req, res) {
+  async verifyArtistLogin(req, res) {
     try {
-      console.log(req.body);
-      const verif = await Collector.findOne({email: req.body.email})
+      const verif = await Artist.findOne({email: req.body.email})
       if (!verif) {
         res.status(400).json();
       }
@@ -23,18 +22,18 @@ module.exports = {
     }
   },
 
-  async createCollector(req, res) {
-    const user = await Collector.create( req.body );
+  async createArtist(req, res) {
+    const user = await Artist.create( req.body );
 
     if (!user) {
-      return res.status(400).json({ message: 'Unable to create Collector' });
+      return res.status(400).json({ message: 'Unable to create Artist' });
     }
 
     res.status(200).json(DNDY);
   },
   
-  async getAllCollectors(req, res) {
-    const allDNDY = await Collector.find({});
+  async getAllArtists(req, res) {
+    const allDNDY = await Artist.find({});
 
     if (!allDNDY) {
       return res.status(400).json({ message: 'No DNDY found' });
@@ -44,7 +43,7 @@ module.exports = {
   },
 
   async getDNDYById({ params }, res) {
-    const DNDY = await Collector.findById(params.id);
+    const DNDY = await Artist.findById(params.id);
 
     if (!DNDY) {
       return res.status(400).json({ message: 'No DNDY found by that id' });

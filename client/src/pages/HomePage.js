@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
 	Parallax,
 	useParallax,
@@ -14,6 +14,10 @@ import {
 	SlideFade,
 	useDisclosure,
 } from "@chakra-ui/react";
+import Footer from '../components/Footer/Footer';
+import { Link } from 'react-router-dom';
+
+import { UserContext } from "../utils/UserContext";
 
 // Import Pictures
 import Bust from "../components/images/greek-bust.png";
@@ -22,15 +26,12 @@ import Berry from "../components/images/strawberry.jpg";
 import Evening from "../components/images/evening-mountain.jpg";
 import Abstract from "../components/images/abstract-1.jpg";
 
-
 const HomePage = (props) => {
+	const context = useContext(UserContext)
+
 	const hero = {
 		imageAlt: "Greco-Roman bust",
 	};
-
-  // funtion explore() {
-
-  // }
 
 	return (
 		<>
@@ -51,14 +52,13 @@ const HomePage = (props) => {
 							never contained.
 						</Heading>
 						<Button
-              // onClick={explore}
 							className="enter"
 							colorScheme="black"
 							variant="outline"
 							size="lg"
 							width="200px"
 						>
-							explore
+							<Link to={context.currentUser.loggedIn ? '/shop' : '/collectors'}>explore</Link>
 						</Button>
 					</Box>
 				</section>
@@ -124,6 +124,7 @@ const HomePage = (props) => {
 					</Container>
 				</section>
 			</main>
+      {/* <Footer /> */}
 		</>
 	);
 };
