@@ -39,7 +39,7 @@ function App() {
 					<Route path="/artist" element={<ArtistSignUp />} />
 					<Route path="/loggin" element={<Login />} />
 				</Routes>
-				{/* <Footer /> */}
+				<Footer />
 			</Router>
 			{/* </ApolloProvider> */}
 		</div>
