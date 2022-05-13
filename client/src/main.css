@@ -1,12 +1,3 @@
-@font-face {
-    font-family: 'boschregular';
-    src: url('./bosch-webfont.woff2') format('woff2'),
-         url('./bosch-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 body {
     color: #000;
 }
@@ -52,7 +43,6 @@ li {
 
 main {
     position: relative;
-
     min-height: 100vh;
     /* border: red 3px solid; */
     max-height: 500vh;
@@ -70,8 +60,13 @@ main {
 
 .hero {
     display: flex;
+    flex: 1 0 auto;
     justify-content: center;
     /* border: 3px red solid; */
+}
+
+.bust {
+    /* width: 500px; */
 }
 
 .hero-head {
@@ -79,7 +74,7 @@ main {
     font-weight: 600 !important;
     font-style: normal !important;
     font-size: 150px !important;
-
+    /* color: #f7fafc; */
     position: absolute;
     z-index: 1;
     top: 115px;
@@ -95,7 +90,9 @@ main {
 
 .h2,
 .welcome {
-    font-family: 'Bosch', sans-serif !important;
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .enter {
@@ -130,25 +127,36 @@ article {
 }
 
 .text-1 {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
     position: relative;
     top: 0;
     left: 150px;
-    font-family: 'Bosch', sans-serif !important;
-    font-weight: 600 !important;
-    font-style: normal !important;
-    font-size: 125px !important;
 }
 
 .text-2 {
-    font-family: 'Bosch', sans-serif !important;
-    font-weight: 600 !important;
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 300 !important;
     font-style: normal !important;
     font-size: 100px !important;
     position: absolute;
     z-index: 2;
     color: white;
     top: 125px;
-    left: 150px;
+    left: 100px;
+}
+.text-3 {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    left: 100px;
+    bottom: 200px;
 }
 
 .berry {
@@ -179,17 +187,6 @@ article {
     box-shadow: 1px 25px 50px rgb(51, 51, 51);
 }
 
-.text-3 {
-    font-family: 'Bosch', sans-serif !important;
-    font-weight: 600 !important;
-    font-style: normal !important;
-    font-size: 100px !important;
-    position: absolute;
-    z-index: 2;
-    color: white;
-    left: 270px;
-    bottom: 200px;
-}
 
 .caboose {
     height: 0;

@@ -3,6 +3,7 @@ import React from "react";
 import nextFeature from "./images/mountain-bw.jpg";
 import {
 	Button,
+  extendTheme,
 	Grid,
 	GridItem,
 	Input,

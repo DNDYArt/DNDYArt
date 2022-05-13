@@ -39,7 +39,7 @@ const HomePage = (props) => {
 				<section className="container">
 					{/* <!-- Main Title/Bust --> */}
 					<Box className="hero" boxSize="lg">
-						<img src={Bust} alt={hero.imageAlt} />
+						<img src={Bust} alt={hero.imageAlt} className="bust" />
 						<Heading className="h1 hero-head" as="h1">
 							DNDY
 						</Heading>
@@ -98,7 +98,8 @@ const HomePage = (props) => {
 								<Parallax
 									className="right-text"
 									easing="easeOutQuad"
-									opacity={[10, 0]}
+									translateY={["500px", "-200px"]}
+									opacity={[1, -2]}
 								>
 									<Heading className="text-2">
 										Design,<br></br>Elevated.
