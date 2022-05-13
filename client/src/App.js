@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import Member from "./pages/Member";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+// import LoginModal from "./components/LogInModal";
 import ArtistProfile from "./pages/ArtistProfile";
 import CollectorProfile from "./pages/Collector";
 import Shop from "./pages/Shop";
