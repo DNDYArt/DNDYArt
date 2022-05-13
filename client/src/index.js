@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './main.css';
 import App from './App';
 import { theme, ColorModeScript } from '@chakra-ui/react'
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
 
 
@@ -15,4 +15,4 @@ ReactDOM.render(
 document.getElementById('root')
 );
 
-reportWebVitals();
+// reportWebVitals();
