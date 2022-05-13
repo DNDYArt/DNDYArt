@@ -32,10 +32,6 @@ const HomePage = (props) => {
 		imageAlt: "Greco-Roman bust",
 	};
 
-  // funtion explore() {
-
-  // }
-
 	return (
 		<>
 			<main className="vh">
@@ -55,7 +51,7 @@ const HomePage = (props) => {
 							never contained.
 						</Heading>
 						<Button
-              onClick={() => document.location.replace('./shop')}
+              onClick={() => context.currentUser.loggedIn ? document.location.replace('./shop') : document.location.replace('./collectors')}
 							className="enter"
 							colorScheme="black"
 							variant="outline"
