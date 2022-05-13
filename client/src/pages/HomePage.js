@@ -124,7 +124,7 @@ const HomePage = (props) => {
 					</Container>
 				</section>
 			</main>
-      <Footer />
+      {/* <Footer /> */}
 		</>
 	);
 };
