@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
 	Parallax,
 	useParallax,
@@ -14,7 +14,9 @@ import {
 	SlideFade,
 	useDisclosure,
 } from "@chakra-ui/react";
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer/Footer';
+
+import { UserContext } from "../utils/UserContext";
 
 // Import Pictures
 import Bust from "../components/images/greek-bust.png";
@@ -24,6 +26,8 @@ import Evening from "../components/images/evening-mountain.jpg";
 import Abstract from "../components/images/abstract-1.jpg";
 
 const HomePage = (props) => {
+	const context = useContext(UserContext)
+
 	const hero = {
 		imageAlt: "Greco-Roman bust",
 	};
@@ -51,7 +55,7 @@ const HomePage = (props) => {
 							never contained.
 						</Heading>
 						<Button
-              // onClick={explore}
+              onClick={() => document.location.replace('./shop')}
 							className="enter"
 							colorScheme="black"
 							variant="outline"
