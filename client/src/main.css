@@ -375,6 +375,15 @@ article {
     align-items: center;
 }
 
+.bid-btn {
+    margin-right: 15px;
+}
+
+.form-input {
+    background-color: white;
+    border-radius: 5px;
+}
+
 /* --------------------- Slider */
 
 .nextSection{
