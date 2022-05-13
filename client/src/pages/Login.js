@@ -10,7 +10,7 @@ function Login() {
     e.preventDefault()
     const loginInfo = {"email": e.target.email.value, "password": e.target.password.value}
     if (loginInfo.email && loginInfo.password){
-      const response = await fetch('http://localhost:3001/api/collectors/login',
+      const response = await fetch('/api/collectors/login',
       {
         method:'PUT',
         body:JSON.stringify(loginInfo),
@@ -37,7 +37,7 @@ function Login() {
     e.preventDefault()
     const loginInfo = {email: e.target.email.value, password: e.target.password.value}
     if (loginInfo.email && loginInfo.password) {
-      const response = await fetch('http://localhost:3001/api/artists/login',
+      const response = await fetch('/api/artists/login',
       {
         method:'PUT',
         body:JSON.stringify(loginInfo),
@@ -48,7 +48,7 @@ function Login() {
         const data = await response.json()
           context.setCurrentUser({...context.currentUser ,
             'loggedIn': true, 
-            'userType': 'collector', 
+            'userType': 'artist', 
             'firstName': data.first_name, 
             'lastName': data.last_name,
             'bio': data.bio,
@@ -94,8 +94,6 @@ function Login() {
         <button type='submit'>Submit</button>
       </div>
     </form>
-    
-    <Footer />
     </>
   )
 }

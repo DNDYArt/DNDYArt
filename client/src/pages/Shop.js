@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import Slider from '../components/Slider';
 import {
 	Grid,
@@ -83,7 +83,7 @@ function Shop() {
 						<GridItem className="bid-form">
 							{/* <!-- add margin to match section height --> */}
 							{context.currentUser.loggedIn ? (
-							<>
+							<>	
 							<FormControl isInvalid={isError}>
 								<FormLabel htmlFor="amount">Amount</FormLabel>
 								<NumberInput w='300px' min={0}>
@@ -104,9 +104,10 @@ function Shop() {
 									</FormErrorMessage>
 								)}
 							</FormControl>
-              <GridItem w='240px' className="btn-box">
+              <GridItem w='240px' className="btn-box" />
 							<Button onClick={Submit} className="bid-btn">Place Bid</Button>
-							</>)
+							</>
+							)
 							: (<div className='notloggedmsg'>You must be logged in to place a bid.</div>)}
                  <Slider />
 						</GridItem>
