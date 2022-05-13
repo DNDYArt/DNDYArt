@@ -12,7 +12,9 @@ const typeDefs = gql`
   type Feature {
     _id: ID
     name: String
+    author: String
     startPrice: Int
+    currentBid: Int
     description: String
     image: String
   }
@@ -35,15 +37,18 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    features: [Feature]
-    feature(featureId: ID!): Feature
+    artists: [Artist]
+    artist(first_name:String!): Artist
+    features(first_name:String): [Feature]
+    feature(featureId:ID!): Feature
     me: User
   }
 
   type Mutation {
-    addUser(username: String!, last_name: String!, fist_name: String!, email: String!, password: String!): Auth
+    addUser(username: String!, last_name: String!, first_name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!):Auth
-    addFeature(featureId: ID!):Feature
+    addArtist(first_name:String!,last_name:String!,email:String!,password:String!,bio:String!,location:String!):Auth
+    addFeature(name:String!,startPrice:Int!,currentBid:Int!,description:String!,image:String! ):Feature
     removeFeature(featureId: ID!):Feature
   }
 `;

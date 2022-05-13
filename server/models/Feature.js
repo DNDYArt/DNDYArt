@@ -6,7 +6,16 @@ const featureSchema = new Schema({
     required: true,
     trim: true
   },
+  author:{
+    type: String,
+    required: true,
+    trim: true
+  },
   startPrice: {
+    type: Number,
+    required: true
+  },
+  currentBid:{
     type: Number,
     required: true
   },
@@ -19,6 +28,6 @@ const featureSchema = new Schema({
   }
 });
 
-const Feature = model('feature', featureSchema);
+const Feature = model('Feature', featureSchema);
 
 module.exports = Feature;

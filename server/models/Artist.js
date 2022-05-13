@@ -20,7 +20,8 @@ const artistSchema = new Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    minLength: 8
   },
   bio: {
     type: String
@@ -29,7 +30,7 @@ const artistSchema = new Schema({
     type: String,
     required: true
   },
-  feature: [
+  features: [
     {
       type: Schema.Types.ObjectId,
       ref: "Feature",
