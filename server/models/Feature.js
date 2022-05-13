@@ -6,7 +6,12 @@ const featureSchema = new Schema({
     required: true,
     trim: true
   },
-  author:{
+  authorFirstName:{
+    type: String,
+    required: true,
+    trim: true
+  },
+  authorLastName:{
     type: String,
     required: true,
     trim: true
