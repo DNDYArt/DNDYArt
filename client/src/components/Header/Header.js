@@ -16,7 +16,7 @@ const Header = () => {
 
    
     <header>
-    <Heading className='h1' as='h1' size='lg'><a href="/">DNDY</a></Heading>
+    <Heading className='h1' as='h1' size='lg'><Link to="/"> DNDY </Link></Heading>
     <nav>
      <ul>
          <li>
