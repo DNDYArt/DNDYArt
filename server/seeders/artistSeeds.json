@@ -5,8 +5,8 @@
       "last_name": "Kern",
       "email": "bkern@dndy.dev",
       "password": "password01",
-      "location": "Dallas,TX",
-      "feature": "627adbe49d12989a1b862061"
+      "location": "Dallas,TX"
+      
     },
     {
         "bio": "",
@@ -14,8 +14,8 @@
         "last_name": "Law",
         "email": "tlaw@dndy.dev",
         "password": "password02",
-        "location": "Austin,TX",
-        "feature": "627adbe49d12989a1b862062"
+        "location": "Austin,TX"
+        
       },
       {
         "bio": "",
@@ -23,8 +23,8 @@
         "last_name": "Sarmiento",
         "email": "dsarmiento@dndy.dev",
         "password": "password03",
-        "location": "San Diego,CA",
-        "feature": "627adbe49d12989a1b862063"
+        "location": "San Diego,CA"
+        
       },
       {
         "bio": "",
@@ -32,8 +32,8 @@
         "last_name": "Haux",
         "email": "lhaux@dndy.dev",
         "password": "password04",
-        "location": "Bronx,NY",
-        "feature": "627adbe49d12989a1b862064"
+        "location": "Bronx,NY"
+        
       },
       {
         "bio": "",
@@ -41,7 +41,7 @@
         "last_name": "Aguire",
         "email": "jaguire@dndy.dev",
         "password": "password05",
-        "location": "Miami,FL",
-        "feature": "627adbe49d12989a1b862065"
+        "location": "Miami,FL"
+       
       }
   ]

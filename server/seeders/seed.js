@@ -9,16 +9,22 @@ db.once('open', async () => {
   await Collector.deleteMany({});
   await Feature.deleteMany({});
   await Artist.deleteMany({});
+<<<<<<< HEAD
   await Collector.create(userSeeds);
   await Feature.create(featureSeeds);
+=======
+>>>>>>> 14979bd (added all mutattion and queries for gql, also redid seeding and models)
 
-  for (let i = 0; i < artistSeeds.length; i++){
-    const {_id, first_name} = await Artist.create(artistSeeds [i]);
-    const feature = await Feature.findOneAndUpdate(
-      {name: first_name},
+  await User.create(userSeeds);
+  await Artist.create(artistSeeds);
+
+  for (let i = 0; i < featureSeeds.length; i++){
+    const {_id, author} = await Feature.create(featureSeeds [i]);
+    const artist = await Artist.findOneAndUpdate(
+      {first_name: author},
       {
         $addToSet:{
-          artists:_id,
+          features:_id,
         }
       }
     )
