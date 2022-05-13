@@ -29,7 +29,7 @@ const artistSchema = new Schema({
     type: String,
     required: true
   },
-  feature: [
+  features: [
     {
       type: Schema.Types.ObjectId,
       ref: "Feature",
