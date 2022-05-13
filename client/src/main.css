@@ -1,18 +1,17 @@
 @font-face {
-    font-family: 'Bosch';
-    src: url('../src/fonts/Bosch.otf') format('otf'),
-        /* Super Modern Browsers */
-        url('../src/fonts/Bosch.otf') format('otf'),
-        /* Pretty Modern Browsers */
-        url('../src/fonts/Bosch.otf') format('otf');
-    /* Safari, Android, iOS */
+    font-family: 'boschregular';
+    src: url('./bosch-webfont.woff2') format('woff2'),
+         url('./bosch-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 body {
     color: #000;
 }
 
-/* Header */
+/* ------------- Header */
 
 header {
     display: flex;
@@ -49,11 +48,15 @@ li {
     list-style-type: none;
 }
 
-/* HomePage */
+/* ------------- HomePage */
 
 main {
     position: relative;
+
     min-height: 100vh;
+    /* border: red 3px solid; */
+    max-height: 500vh;
+
 }
 
 .container {
@@ -76,15 +79,18 @@ main {
     font-weight: 600 !important;
     font-style: normal !important;
     font-size: 150px !important;
-    
+
     position: absolute;
     z-index: 1;
     top: 115px;
     padding-left: 15px;
+
+    /* border: 3px red solid; */
 }
 
 .welcome {
     padding-left: 10px;
+    /* outline: 3px solid red; */
 }
 
 .h2,
@@ -96,17 +102,235 @@ main {
     margin-top: 10px;
 }
 
+/* ------------- Parallax-Scroll */
 
-/* Footer */
+.feature-scroller {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    /* border: 3px red solid; */
+    height: 315vh;
+}
 
-footer {
+article {
+    display: flex;
+    flex-direction: column;
+    height: 775px;
+}
+
+.par-box {
+    height: 1990px
+}
+
+.pink {
+    width: 800px;
+
+    position: relative;
+    margin-left: 10px;
+}
+
+.text-1 {
+    position: relative;
+    top: 0;
+    left: 150px;
+    font-family: 'Bosch', sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 125px !important;
+}
+
+.text-2 {
+    font-family: 'Bosch', sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    top: 125px;
+    left: 150px;
+}
+
+.berry {
+    width: 485px;
+    position: relative;
+    top: -375px;
+    right: -480px;
+    z-index: -2;
+}
+
+.mountain {
+    width: 750px;
+    position: relative;
+    bottom: 800px;
+    left: -100px;
+    z-index: -1;
+    object-fit: contain;
+    
+}
+
+.abstract {
+    width: 1009px;
+    position: relative;
+    bottom: 1000px;
+    bottom: 775px;
+    z-index: -1;
+}
+
+.text-3 {
+    font-family: 'Bosch', sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    left: 270px;
+    bottom: 200px;
+}
+
+.caboose {
+    height: 0;
+}
+
+/* ------------- SHOP */
+
+.shop-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-section {
+    display: flex !important;
+    flex-direction: row;
+    /* border: red 3px solid; */
+}
+
+/* .shop-container {
+    border: red 3px solid;
+} */
+
+.shop-description {
+    display: flex;
+    padding-top: 10px;
+    flex-direction: column;
+    /* border: red 3px solid; */
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.feature-img {
+    width: 600px;
+    /* border: red 3px solid; */
+}
+
+.feature-header {
+    /* border: red 3px solid; */
+    padding-left: 10px;
+    line-height: 40px;
+}
+
+.feature-artist {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    font-size: 40px;
+}
+
+.feature-name {
+    display: flex !important;
+    /* border: red 3px solid; */
+    flex-wrap: nowrap;
+}
+
+.feature-title {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 50px;
+}
+
+.feature-year {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.feature-medium {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 30px;
+}
+
+.feature-about {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 18px;
+    padding-left: 10px;
+    /* border: red 3px solid; */
+}
+
+.para {
+    margin-top: 10px;
+    margin-bottom: -25px;
+}
+
+.para2 {
+    margin-bottom: 15px;
+}
+
+.bid-info {
+    padding-left: 10px;
+    /* border: red 3px solid; */
+}
+
+.bid-start {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.bid-current {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 20px;
+}
+
+.bid-form {
+    padding-left: 10px;
+    /* border: red 3px solid; */
+}
+.bid-btn {
+    margin-top: 15px;
+    padding-left: 10px;
+    /* border: red 3px solid; */
+}
+
+/* ----------- Main Footer ------------*/
+
+.appFooter {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* position */
-    position: absolute;
-    bottom: -40px;
+    /* position: relative; */
+    left: 0;
+    right: 0;
     width: 100%;
     height: 7.5rem;
     background-color: black;
@@ -126,17 +350,168 @@ span {
     font-style: normal !important;
 }
 
-.artistLink{
+.artistLink {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-size: larger;
     font-style: normal !important;
 }
 
-.lineOne{
+.lineOne {
     margin-bottom: .7rem;
 }
 
-.lineTwo{
+.lineTwo {
     margin-top: .7rem;
+}
+
+
+/* ------------- Artist SignUp ------------ */
+
+.artistContainer {
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: column;
+    margin-top: 30px;
+    /* outline: 3px solid red; */
+}
+
+.welcomeArtist {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 60px !important;
+    padding-left: 145px;
+    padding-top: 50px;
+}
+
+.gridParent {
+    display: block;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.gridTitle {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-size: 25px;
+}
+
+.gridContent {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnDiv {
+    display: flex;
+    margin-top: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --------Artist Profile------------ */
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.pfp{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    border-radius: 0px;
+}
+
+.pfpDiv{
+    width: 30em;
+    height:30em;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.text-container{
+    width: 80%;
+    text-align: center;
+    padding: 1em;
+    padding-bottom: 0;
+    /* outline: 2px solid; */
+}
+
+
+.artistName{
+    /* font-family: 'Bosch', sans-serif !important; */
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-size: 40px;
+}
+
+.artistLocation{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-size: 30px;
+}
+
+.artistBio{
+    /* font-family: roc-grotesk-wide, sans-serif !important; */
+    font-size: 20px;
+    margin-top: 1em;
+    text-align: left;
+}
+
+
+.feature-text{
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-size: 40px;
+    margin-top: 5rem;
+    outline: 3px solid;
+}
+
+.feature-text h1{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mando{
+    margin-top: 3rem;
+}
+
+.feature-description{
+    width: 80%;
+}
+
+.feature-description h4{
+    margin-top: 1rem;
+    font-size: 25px;
+    font-family: aktiv-grotesk, sans-serif;
+    font-style: italic;
+    text-align: center;
+}
+
+.feature-description p{
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+/* ------------- PUSH footer to the bottom of page */
+
+/* #root {
+    display: flex;
+    flex-direction: column;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+} */
+
+.vh{
+    min-height: calc(100vh - 120px);
 }

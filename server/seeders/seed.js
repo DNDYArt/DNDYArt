@@ -1,14 +1,16 @@
 const db = require('../config/connection');
-const { User, Artist, Feature } = require('../models');
+const { Collector, Artist, Feature } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const featureSeeds = require('./featureSeeds.json');
 const artistSeeds = require('./artistSeeds.json')
 
 db.once('open', async () => {
  try{ 
-  await User.deleteMany({});
+  await Collector.deleteMany({});
   await Feature.deleteMany({});
   await Artist.deleteMany({});
+  await Collector.create(userSeeds);
+  await Feature.create(featureSeeds);
 
   await User.create(userSeeds);
   await Artist.create(artistSeeds);

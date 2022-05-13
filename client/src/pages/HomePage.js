@@ -1,58 +1,130 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Parallax } from 'react-scroll-parallax'
-import { Container, Box, Image, Button, Heading } from "@chakra-ui/react";
-import Img from '../components/greek-bust.png'
+import { useState, useEffect, useContext } from "react";
+import {
+	Parallax,
+	useParallax,
+	useParallaxController,
+} from "react-scroll-parallax";
+import {
+	Container,
+	Box,
+	Image,
+	Button,
+	Heading,
+	SlideFade,
+	useDisclosure,
+} from "@chakra-ui/react";
+import Footer from '../components/Footer/Footer';
 
+import { UserContext } from "../utils/UserContext";
+
+// Import Pictures
+import Bust from "../components/images/greek-bust.png";
+import Pink from "../components/images/pink.jpg";
+import Berry from "../components/images/strawberry.jpg";
+import Evening from "../components/images/evening-mountain.jpg";
+import Abstract from "../components/images/abstract-1.jpg";
 
 const HomePage = (props) => {
+	const context = useContext(UserContext)
+
 	const hero = {
-		imageAlt: "Greco-Roman bust"
+		imageAlt: "Greco-Roman bust",
 	};
 
 	return (
 		<>
-			<main>
+			<main className="vh">
 				{/* <!-- First --> */}
 				<section className="container">
 					{/* <!-- Main Title/Bust --> */}
 					<Box className="hero" boxSize="lg">
-						<img src={Img} alt={hero.imageAlt} />
-            <Heading className='h1 hero-head' as='h1'>DNDY</Heading>
+						<img src={Bust} alt={hero.imageAlt} />
+						<Heading className="h1 hero-head" as="h1">
+							DNDY
+						</Heading>
 					</Box>
 					{/* <!-- Statement/Enter --> */}
 					<Box className="welcome">
-						<Heading className='h2' as='h2' size='xl' >Art should be shared, <br></br>
-                never contained.</Heading>
-						<Button className="enter" colorScheme='black' variant='outline' size='lg'>explore</Button>
+						<Heading className="h2" as="h2" size="xl">
+							Art should be shared, <br></br>
+							never contained.
+						</Heading>
+						<Button
+              onClick={() => context.currentUser.loggedIn ? document.location.replace('./shop') : document.location.replace('./collectors')}
+							className="enter"
+							colorScheme="black"
+							variant="outline"
+							size="lg"
+							width="200px"
+						>
+							explore
+						</Button>
 					</Box>
 				</section>
-        {/* <!-- Second-Fourth --> */}
-        <section>
-        <Container scrollAxis="vertical">
-      <div>
-        <Parallax speed={10}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-        <Parallax speed={-10}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-        <Parallax speed={5}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-        <Parallax speed={-5}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-        <Parallax speed={3}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-        <Parallax speed={6}>
-          <Image src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
-        </Parallax>
-      </div>
-    </Container>
-        </section>
+				{/* <!-- Second-Fourth --> */}
+				<section className="feature-scroller">
+					<Container styleConfig="margin-right: 0px;margin-left: 0px;" scrollaxis="vertical">
+						<div className="par-box">
+							<article>
+								<Parallax className="home-img pink" speed={30}>
+									<Image src={Pink} />
+								</Parallax>
+								<Parallax
+									className="right-text"
+									easing="easeOutQuad"
+									translateX={["2px", "-200px"]}
+									opacity={[0, 1.5]}
+								>
+									<Heading className="text-1">
+										Art,<br></br>Curated.
+									</Heading>
+								</Parallax>
+							</article>
+							<article>
+								<Parallax
+									className="home-img berry"
+									easing="easeOutQuad"
+									speed={10}
+								>
+									<Image src={Berry} />
+								</Parallax>
+							</article>
+							<article>
+								<Parallax
+									className="home-img mountain"
+									speed={100}
+								>
+								<Parallax
+									className="right-text"
+									easing="easeOutQuad"
+									opacity={[10, 0]}
+								>
+									<Heading className="text-2">
+										Design,<br></br>Elevated.
+									</Heading>
+								</Parallax>
+									<Image src={Evening} />
+								</Parallax>
+                </article>
+                <article className="caboose">
+								<Parallax
+									className="home-img abstract"
+									speed={25}
+								>
+									<Image src={Abstract} />
+                  <Parallax easing="easeOutQuad" opacity={[2, 0]}>
+									<Heading className="text-3">
+										Color,<br></br>Invigorated.
+									</Heading>
+								</Parallax>
+								</Parallax>
+							</article>
+						</div>
+					</Container>
+				</section>
 			</main>
+      {/* <Footer /> */}
 		</>
 	);
 };
