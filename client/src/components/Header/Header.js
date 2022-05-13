@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Button } from "@chakra-ui/react"
 import { Heading, useColorMode, toggleColorMode } from '@chakra-ui/react'
 import { SunIcon } from '@chakra-ui/icons'
-import { UserContext } from '../../utils/UserContext';
+import { UserContext } from '../../utils/UserContext'; // Important for current user
 
 
 const Header = () => {
-   const context = useContext(UserContext)
+   const context = useContext(UserContext) // Important for current user
 
   const { colorMode, toggleColorMode } = useColorMode()
 

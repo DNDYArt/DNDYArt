@@ -15,6 +15,7 @@ import {
 	useDisclosure,
 } from "@chakra-ui/react";
 import Footer from '../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 import { UserContext } from "../utils/UserContext";
 
@@ -39,7 +40,7 @@ const HomePage = (props) => {
 				<section className="container">
 					{/* <!-- Main Title/Bust --> */}
 					<Box className="hero" boxSize="lg">
-						<img src={Bust} alt={hero.imageAlt} />
+						<img src={Bust} alt={hero.imageAlt} className="bust" />
 						<Heading className="h1 hero-head" as="h1">
 							DNDY
 						</Heading>
@@ -51,14 +52,13 @@ const HomePage = (props) => {
 							never contained.
 						</Heading>
 						<Button
-              onClick={() => context.currentUser.loggedIn ? document.location.replace('./shop') : document.location.replace('./collectors')}
 							className="enter"
 							colorScheme="black"
 							variant="outline"
 							size="lg"
 							width="200px"
 						>
-							explore
+							<Link to={context.currentUser.loggedIn ? '/shop' : '/collectors'}>explore</Link>
 						</Button>
 					</Box>
 				</section>
@@ -67,8 +67,8 @@ const HomePage = (props) => {
 					<Container styleConfig="margin-right: 0px;margin-left: 0px;" scrollaxis="vertical">
 						<div className="par-box">
 							<article>
-								<Parallax className="home-img pink" speed={30}>
-									<Image src={Pink} />
+								<Parallax className="home-img" speed={30}>
+									<Image src={Pink} className='pink' />
 								</Parallax>
 								<Parallax
 									className="right-text"
@@ -83,11 +83,11 @@ const HomePage = (props) => {
 							</article>
 							<article>
 								<Parallax
-									className="home-img berry"
+									className="home-img"
 									easing="easeOutQuad"
 									speed={10}
 								>
-									<Image src={Berry} />
+									<Image src={Berry} className='berry' />
 								</Parallax>
 							</article>
 							<article>
@@ -98,7 +98,8 @@ const HomePage = (props) => {
 								<Parallax
 									className="right-text"
 									easing="easeOutQuad"
-									opacity={[10, 0]}
+									translateY={["500px", "-200px"]}
+									opacity={[1, -2]}
 								>
 									<Heading className="text-2">
 										Design,<br></br>Elevated.

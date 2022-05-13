@@ -10,7 +10,7 @@ function Login() {
     e.preventDefault()
     const loginInfo = {"email": e.target.email.value, "password": e.target.password.value}
     if (loginInfo.email && loginInfo.password){
-      const response = await fetch('http://localhost:3001/api/collectors/login',
+      const response = await fetch('/api/collectors/login',
       {
         method:'PUT',
         body:JSON.stringify(loginInfo),
@@ -19,7 +19,12 @@ function Login() {
   
       if (response.ok) {
         const data = await response.json()
-        context.setCurrentUser({...context.currentUser ,'loggedIn': true, 'userType': 'collector', 'firstName': data.first_name, 'lastName': data.last_name, 'email': data.email})
+        context.setCurrentUser({...context.currentUser ,
+          'loggedIn': true, 
+          'userType': 'collector', 
+          'firstName': data.first_name, 
+          'lastName': data.last_name, 
+          'email': data.email})
       } else {
         alert('Email or Password incorrect')
       }
@@ -31,17 +36,29 @@ function Login() {
   async function loginArtist(e) {
     e.preventDefault()
     const loginInfo = {email: e.target.email.value, password: e.target.password.value}
-    const response = await fetch('/api/artists/login',
-    {
-      method:'PUT',
-      body:JSON.stringify(loginInfo),
-      headers: { 'Content-Type': 'application/json' }
-    })
-
-    if (response.ok) {
-      context.setCurrentUser(response.body)
+    if (loginInfo.email && loginInfo.password) {
+      const response = await fetch('/api/artists/login',
+      {
+        method:'PUT',
+        body:JSON.stringify(loginInfo),
+        headers: { 'Content-Type': 'application/json' }
+      })
+  
+      if (response.ok) {
+        const data = await response.json()
+          context.setCurrentUser({...context.currentUser ,
+            'loggedIn': true, 
+            'userType': 'artist', 
+            'firstName': data.first_name, 
+            'lastName': data.last_name,
+            'bio': data.bio,
+            'location': data.location,
+            'email': data.email})
+      } else {
+        alert('Email or Password incorrect')
+      }
     } else {
-      alert('Email or Password incorrect')
+      alert('Please enter something')
     }
   }
 
@@ -77,8 +94,6 @@ function Login() {
         <button type='submit'>Submit</button>
       </div>
     </form>
-    
-    <Footer />
     </>
   )
 }

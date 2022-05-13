@@ -1,4 +1,5 @@
-import { React, useContext, useState } from "react";
+import { React, useState, useContext } from "react";
+import Slider from '../components/Slider';
 import {
 	Grid,
 	GridItem,
@@ -43,7 +44,9 @@ function Shop() {
 							alt="abtract painting"
 						/>
 						{/* add Countdown function, restart @ 48hrs, */}
-						<h3 className="timer">Time Left: </h3>
+            <GridItem colSpan={5} className="action-div">
+						  <h3 className="timer">Time Left: 48 00 00 </h3>
+            </GridItem>
 					</GridItem>
 					<GridItem
 						w="600px"
@@ -80,10 +83,10 @@ function Shop() {
 						<GridItem className="bid-form">
 							{/* <!-- add margin to match section height --> */}
 							{context.currentUser.loggedIn ? (
-							<>
+							<>	
 							<FormControl isInvalid={isError}>
 								<FormLabel htmlFor="amount">Amount</FormLabel>
-								<NumberInput min={0}>
+								<NumberInput w='300px' min={0}>
 									<NumberInputField id="amount" />
 									<NumberInputStepper>
 										<NumberIncrementStepper />
@@ -101,31 +104,19 @@ function Shop() {
 									</FormErrorMessage>
 								)}
 							</FormControl>
+              <GridItem w='240px' className="btn-box" />
 							<Button onClick={Submit} className="bid-btn">Place Bid</Button>
-							</>)
+							</>
+							)
 							: (<div className='notloggedmsg'>You must be logged in to place a bid.</div>)}
+                 <Slider />
 						</GridItem>
 					</GridItem>
 				</Grid>
 			</main>
 			{/* <!-- slider / sans-footer --> */}
 			<footer className="slider">
-				<article>
-					<div>
-						<img src="" alt="" />
-						<div className="next-feature">
-							{/* <!-- flex, justify: center, align: center --> */}
-							<h1 className="upNext">UP NEXT</h1>
-							<h2 className="feature-artist">Artist Name</h2>
-							<div className="feature-name">
-								{/* <!-- flex, row, align: baseline --> */}
-								<h3 className="feature-title">title</h3>
-								<p className="feature-year">year</p>
-							</div>
-							<h4 className="feature-medium">Medium</h4>
-						</div>
-					</div>
-				</article>
+
 			</footer>
 		</>
 	);

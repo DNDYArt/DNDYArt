@@ -1,12 +1,3 @@
-@font-face {
-    font-family: 'boschregular';
-    src: url('./bosch-webfont.woff2') format('woff2'),
-         url('./bosch-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 body {
     color: #000;
 }
@@ -52,11 +43,16 @@ li {
 
 main {
     position: relative;
-
     min-height: 100vh;
     /* border: red 3px solid; */
     max-height: 500vh;
 
+}
+
+@media screen and (max-width: 768px) {
+    *, main {
+        max-width: initial;
+    }
 }
 
 .container {
@@ -68,10 +64,26 @@ main {
     /* border: 3px red solid; */
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        /* align-items: center; */
+        max-width: initial;
+        padding: 0 0 0 0;
+    }
+}
+
 .hero {
     display: flex;
     justify-content: center;
     /* border: 3px red solid; */
+}
+
+@media screen and (max-width: 768px) {
+    img {
+        /* flex: 1 0 auto; */
+            max-width: 75% !important;
+        }
 }
 
 .hero-head {
@@ -79,7 +91,7 @@ main {
     font-weight: 600 !important;
     font-style: normal !important;
     font-size: 150px !important;
-
+    /* color: #f7fafc; */
     position: absolute;
     z-index: 1;
     top: 115px;
@@ -95,7 +107,9 @@ main {
 
 .h2,
 .welcome {
-    font-family: 'Bosch', sans-serif !important;
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .enter {
@@ -124,31 +138,56 @@ article {
 
 .pink {
     width: 800px;
-
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
     position: relative;
     margin-left: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    .pink {
+        max-width: 75% !important;
+    }
+}
+
 .text-1 {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
     position: relative;
     top: 0;
     left: 150px;
-    font-family: 'Bosch', sans-serif !important;
-    font-weight: 600 !important;
-    font-style: normal !important;
-    font-size: 125px !important;
 }
 
 .text-2 {
-    font-family: 'Bosch', sans-serif !important;
-    font-weight: 600 !important;
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 300 !important;
     font-style: normal !important;
     font-size: 100px !important;
     position: absolute;
     z-index: 2;
     color: white;
     top: 125px;
-    left: 150px;
+    left: 100px;
+}
+.text-3 {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 100px !important;
+    position: absolute;
+    z-index: 2;
+    color: white;
+    left: 100px;
+    bottom: 200px;
+}
+
+@media screen and (max-width: 768px) {
+    .text-1,
+    .text-2,
+    .text-3 {
+        font-size: 50px !important;
+    }
 }
 
 .berry {
@@ -157,6 +196,16 @@ article {
     top: -375px;
     right: -480px;
     z-index: -2;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
+}
+
+@media screen and (max-width: 768px) {
+    .berry {
+        max-width: 75% !important;
+        max-width: 50% !important;
+    right: -344px;
+        /* right: -400px; */
+    }
 }
 
 .mountain {
@@ -165,29 +214,30 @@ article {
     bottom: 800px;
     left: -100px;
     z-index: -1;
-    object-fit: contain;
-    
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
+}
+
+@media screen and (max-width: 768px) {
+    .mountain {
+        max-width: 75% !important;
+        right: -400px;
+    }
 }
 
 .abstract {
     width: 1009px;
     position: relative;
-    bottom: 1000px;
     bottom: 775px;
     z-index: -1;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
 }
 
-.text-3 {
-    font-family: 'Bosch', sans-serif !important;
-    font-weight: 600 !important;
-    font-style: normal !important;
-    font-size: 100px !important;
-    position: absolute;
-    z-index: 2;
-    color: white;
-    left: 270px;
-    bottom: 200px;
+@media screen and (max-width: 768px) {
+    .abstract {
+        max-width: 600px;
+    }
 }
+
 
 .caboose {
     height: 0;
@@ -231,6 +281,7 @@ article {
 
 .feature-img {
     width: 600px;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
     /* border: red 3px solid; */
 }
 
@@ -315,10 +366,76 @@ article {
     padding-left: 10px;
     /* border: red 3px solid; */
 }
-.bid-btn {
-    margin-top: 15px;
-    padding-left: 10px;
+
+.btn-box {
     /* border: red 3px solid; */
+    margin-top: 15px;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------------------- Slider */
+
+.nextSection{
+    display: flex !important;
+    justify-content: center;
+    /* align-items: center; */
+    /* border: red 3px solid; */
+    margin: 50px 0 50px 0px;
+}
+
+.nextPic {
+    max-width: 240px;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
+    /* border: red 3px solid; */
+}
+
+.next-box {
+    /* border: red 3px solid; */
+    display: flex !important;
+    align-items: center;
+    padding-left: 10px;
+
+}
+
+.next-stuff {
+    /* border: red 3px solid; */
+    line-height: 40px;
+}
+
+.next-artist {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    font-size: 40px;
+}
+
+.next-name {
+    display: flex !important;
+    /* border: red 3px solid; */
+    flex-wrap: nowrap;
+}
+
+.next-title {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    font-size: 50px;
+}
+
+.next-year {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.next-medium {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 30px;
 }
 
 /* ----------- Main Footer ------------*/
