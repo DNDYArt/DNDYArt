@@ -14,6 +14,7 @@ import {
 	SlideFade,
 	useDisclosure,
 } from "@chakra-ui/react";
+import Footer from '../components/Footer/Footer'
 
 // Import Pictures
 import Bust from "../components/images/greek-bust.png";
@@ -21,7 +22,6 @@ import Pink from "../components/images/pink.jpg";
 import Berry from "../components/images/strawberry.jpg";
 import Evening from "../components/images/evening-mountain.jpg";
 import Abstract from "../components/images/abstract-1.jpg";
-
 
 const HomePage = (props) => {
 	const hero = {
@@ -124,6 +124,7 @@ const HomePage = (props) => {
 					</Container>
 				</section>
 			</main>
+      <Footer />
 		</>
 	);
 };
