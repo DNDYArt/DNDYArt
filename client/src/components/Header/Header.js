@@ -23,7 +23,7 @@ const Header = () => {
             <Link to="./collectors"> members </Link>
          </li>
          <li>
-            <Link to="./profile"> profile </Link>
+            <Link to="./artistprofile"> profile </Link>
          </li>
          <li>
             <Link to="./profile"> login </Link>
