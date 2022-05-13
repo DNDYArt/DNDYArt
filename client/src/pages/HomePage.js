@@ -22,7 +22,6 @@ import Berry from "../components/images/strawberry.jpg";
 import Evening from "../components/images/evening-mountain.jpg";
 import Abstract from "../components/images/abstract-1.jpg";
 
-
 const HomePage = (props) => {
 	const hero = {
 		imageAlt: "Greco-Roman bust",
@@ -124,6 +123,7 @@ const HomePage = (props) => {
 					</Container>
 				</section>
 			</main>
+      <Footer />
 		</>
 	);
 };
