@@ -28,10 +28,6 @@ const resolvers = {
       return Feature.findOne({ _id: featureId });
     },
 
-
-
-
-
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate();
@@ -46,6 +42,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
+    addArtist: async (parent, { first_name, last_name, location, email, password, bio }) => {
+      const artist = await Artist.create({ first_name, last_name, location, email, password, bio });
+      const token = signToken(artist);
+      return { token, artist };
+    },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

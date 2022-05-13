@@ -6,7 +6,16 @@ const featureSchema = new Schema({
     required: true,
     trim: true
   },
+  author:{
+    type: String,
+    required: true,
+    trim: true
+  },
   startPrice: {
+    type: Number,
+    required: true
+  },
+  currentBid:{
     type: Number,
     required: true
   },
