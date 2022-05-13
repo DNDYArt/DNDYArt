@@ -57,7 +57,7 @@ function Shop() {
 					>
 						<GridItem className="feature-header" colSpan={5}>
 							{/* Add Artist Name from ArtistDB */}
-							<h2 className="feature-artist">Steve Johnson</h2>
+							<h2 className="feature-artist">{featureContext.currentFeature.artist}</h2>
 							<GridItem className="feature-name">
 								{/* Add Feature Name from FeatureDB */}
 								{/* <!-- flex, row, align: baseline --> */}

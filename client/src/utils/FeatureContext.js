@@ -46,6 +46,11 @@ function FeatureProvider(props) {
 
     return () => { isMounted = false }
   }, [auctionTime])
+
+  function resetAuctionTime() {
+    setAuctionTime({'hours': 2, 'minutes': 30, 'seconds': 30})
+    setAuctionTimer(`${auctionTime['hours']}hrs ${auctionTime['minutes']}min ${auctionTime['seconds']}sec`)
+  }
   
   async function purchseFeature() {
     const purchase = currentFeature;
@@ -75,7 +80,7 @@ function FeatureProvider(props) {
   }
 
   return (
-    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer}} {...props}/>
+    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer, resetAuctionTime}} {...props}/>
   )
 }
 
