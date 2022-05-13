@@ -1,14 +1,14 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Artist, Feature } = require('../models');
+const { Collector, Artist, Feature } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find();
+    collectors: async () => {
+      return Collector.find();
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username });
+    collector: async (parent, { username }) => {
+      return Collector.findOne({ username });
     },
 
     artists: async () => {
@@ -37,10 +37,10 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { first_name, last_name, username, email, password }) => {
-      const user = await User.create({ first_name, last_name, username, email, password });
-      const token = signToken(user);
-      return { token, user };
+    addCollector: async (parent, { first_name, last_name, username, email, password }) => {
+      const collector = await Collector.create({ first_name, last_name, username, email, password });
+      const token = signToken(collector);
+      return { token, collector };
     },
 
     addArtist: async (parent, { first_name, last_name, location, email, password, bio }) => {
@@ -50,21 +50,21 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const collector = await Collector.findOne({ email });
 
-      if (!user) {
+      if (!collector) {
         throw new AuthenticationError('No user found with this email address');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await collector.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const token = signToken(user);
+      const token = signToken(collector);
 
-      return { token, user };
+      return { token, collector };
     },
   },
 };
