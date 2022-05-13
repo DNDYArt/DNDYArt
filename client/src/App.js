@@ -34,6 +34,7 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/collectors" element={<Member />} />
 					<Route path="/artistprofile" element={<ArtistProfile />} />
+					<Route path="/collectorprofile" element={<ArtistProfile />} />  {/* when collector profile page created, add here */}
 					<Route path="/shop" element={<Shop />} />
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
