@@ -18,11 +18,9 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Theme from './components/Theme';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import ArtistSignUp from "./pages/ArtistSignUp";
-<<<<<<< HEAD
 import CollectorProfile from "./pages/Collector";
-=======
 import UserProvider from "./utils/UserContext";
->>>>>>> 8afc0de3c7a09112c56d907d4a59f072a0d63dc7
+
 
 function App() {
 
@@ -42,11 +40,8 @@ function App() {
 					<Route path="/shop" element={<Shop />} />
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
-<<<<<<< HEAD
-          <Route path="/collectorprofile" element={<CollectorProfile />}/>
-=======
+          				<Route path="/collectorprofile" element={<CollectorProfile />}/>
 					<Route path="/loggin" element={<Login />} />
->>>>>>> 8afc0de3c7a09112c56d907d4a59f072a0d63dc7
 				</Routes>
 				<Footer />
 			</Router>
