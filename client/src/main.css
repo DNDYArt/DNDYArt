@@ -124,7 +124,7 @@ article {
 
 .pink {
     width: 800px;
-
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
     position: relative;
     margin-left: 10px;
 }
@@ -157,6 +157,7 @@ article {
     top: -375px;
     right: -480px;
     z-index: -2;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
 }
 
 .mountain {
@@ -165,7 +166,7 @@ article {
     bottom: 800px;
     left: -100px;
     z-index: -1;
-    object-fit: contain;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
     
 }
 
@@ -175,6 +176,7 @@ article {
     bottom: 1000px;
     bottom: 775px;
     z-index: -1;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
 }
 
 .text-3 {
@@ -231,6 +233,7 @@ article {
 
 .feature-img {
     width: 600px;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
     /* border: red 3px solid; */
 }
 
@@ -326,11 +329,65 @@ article {
 
 /* --------------------- Slider */
 
-.nexthead {
+.nextSection{
+    display: flex !important;
+    justify-content: center;
+    /* align-items: center; */
+    /* border: red 3px solid; */
+    margin: 50px 0 50px 0px;
+}
+
+.nextPic {
+    max-width: 240px;
+    box-shadow: 1px 25px 50px rgb(51, 51, 51);
+    /* border: red 3px solid; */
+}
+
+.next-box {
+    /* border: red 3px solid; */
+    display: flex !important;
+    align-items: center;
+    padding-left: 10px;
+
+}
+
+.next-stuff {
+    /* border: red 3px solid; */
+    line-height: 40px;
+}
+
+.next-artist {
+    font-family: roc-grotesk-wide, sans-serif !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    font-size: 40px;
+}
+
+.next-name {
+    display: flex !important;
+    /* border: red 3px solid; */
+    flex-wrap: nowrap;
+}
+
+.next-title {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-style: normal !important;
-    font-size: 50px !important;
+    font-size: 50px;
+}
+
+.next-year {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.next-medium {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 30px;
 }
 
 /* Main Footer */

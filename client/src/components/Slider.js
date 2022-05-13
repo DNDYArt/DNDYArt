@@ -1,69 +1,76 @@
-import '../main.css';
-import React from 'react';
+import "../main.css";
+import React from "react";
+import nextFeature from "./images/mountain-bw.jpg";
 import {
-    Button,
-    Input, 
-    useDisclosure,
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-  } from '@chakra-ui/react';
+	Button,
+	Grid,
+	GridItem,
+	Input,
+	useDisclosure,
+	Drawer,
+	DrawerBody,
+	DrawerFooter,
+	DrawerHeader,
+	DrawerOverlay,
+	DrawerContent,
+	DrawerCloseButton,
+} from "@chakra-ui/react";
 
-  function Slider() {
-    const [size, setSize] = React.useState('xl')
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
-  
-    return (
-      <>
-        <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-          Look Ahead
-        </Button>
-        <Drawer
-          size={size}
-          isOpen={isOpen}
-          placement='bottom'
-          onClose={onClose}
-          finalFocusRef={btnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader className='nexthead'></DrawerHeader>
-  
-            <DrawerBody>
-            <article>
-					<div>
-						<img src="" alt="" />
-						<div className="next-feature">
-							{/* <!-- flex, justify: center, align: center --> */}
-							<h1 className="upNext">UP NEXT</h1>
-							<h2 className="feature-artist">Artist Name</h2>
-							<div className="feature-name">
-								{/* <!-- flex, row, align: baseline --> */}
-								<h3 className="feature-title">title</h3>
-								<p className="feature-year">year</p>
-							</div>
-							<h4 className="feature-medium">Medium</h4>
+function Slider() {
+	const [size, setSize] = React.useState("xl");
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const btnRef = React.useRef();
+
+	return (
+		<>
+			<Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+				Look Ahead
+			</Button>
+			<Drawer
+				size={size}
+				isOpen={isOpen}
+				placement="bottom"
+				onClose={onClose}
+				finalFocusRef={btnRef}
+			>
+				<DrawerOverlay />
+				<DrawerContent>
+					<DrawerCloseButton />
+					<DrawerHeader className="nexthead"></DrawerHeader>
+
+					<DrawerBody>
+						<div>
+							<Grid
+								className="nextSection"
+								templateColumns="repeat(12)"
+							>
+								<GridItem colSpan={5}>
+									<img
+										src={nextFeature}
+										alt="the mountain"
+										className="nextPic"
+									/>
+								</GridItem>
+								<GridItem className="next-box">
+                  <GridItem className="next-stuff">
+									<h1 className="upNext">UP NEXT</h1>
+									<h2 className="feature-artist">
+										Oleg Prachuk
+									</h2>
+									<div className="feature-name">
+										<h3 className="feature-title">the mountain</h3>
+										<p className="feature-year">2018</p>
+									</div>
+									<h4 className="feature-medium">Kodak TRI-X 400</h4>
+                  </GridItem>
+								</GridItem>
+							</Grid>
 						</div>
-					</div>
-				</article>
-            </DrawerBody>
-  
-            <DrawerFooter>
-              <Button variant='outline' mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme='blue'>Save</Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    )
-  }
+					</DrawerBody>
+				</DrawerContent>
+			</Drawer>
+		</>
+	);
+}
 
-  export default Slider;
+export default Slider;
