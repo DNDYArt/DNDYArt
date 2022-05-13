@@ -1,6 +1,28 @@
-const { Collector } = require('../models');
+const { Collector } = require('../models'),
+bycrypt = require('bcrypt');
 
 module.exports = {
+  async verifyCollectorLogin(req, res) {
+    try {
+      console.log(req.body);
+      const verif = await Collector.findOne({email: req.body.email})
+      if (!verif) {
+        res.status(400).json();
+      }
+      const validPassword = bycrypt.compareSync(req.body.password, verif.password);
+
+      if (!validPassword) {
+        res.status(400).json();
+        return;
+      }
+
+      res.status(200).json(verif);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json(err)
+    }
+  },
+
   async createCollector(req, res) {
     const user = await Collector.create( req.body );
 
@@ -11,7 +33,7 @@ module.exports = {
     res.status(200).json(DNDY);
   },
   
-  async getUsers(req, res) {
+  async getAllCollectors(req, res) {
     const allDNDY = await Collector.find({});
 
     if (!allDNDY) {

@@ -11,16 +11,19 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ArtistProfile from "./pages/ArtistProfile";
 import Shop from "./pages/Shop";
+import Login from './pages/Login';
 import Cloudinarytest from "./pages/Cloudinarytest";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react'
 import Theme from './components/Theme';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import ArtistSignUp from "./pages/ArtistSignUp";
+import UserProvider from "./utils/UserContext";
 
 function App() {
 
 	return (
+		<UserProvider>
 		<ParallaxProvider>
 		<ChakraProvider theme={Theme}>
 		<div className="App">
@@ -34,6 +37,7 @@ function App() {
 					<Route path="/shop" element={<Shop />} />
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
+					<Route path="/loggin" element={<Login />} />
 				</Routes>
 				<Footer />
 			</Router>
@@ -41,6 +45,7 @@ function App() {
 		</div>
 		</ChakraProvider>
 		</ParallaxProvider>
+		</UserProvider>
 	);
 }
 
