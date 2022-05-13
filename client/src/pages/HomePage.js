@@ -67,8 +67,8 @@ const HomePage = (props) => {
 					<Container styleConfig="margin-right: 0px;margin-left: 0px;" scrollaxis="vertical">
 						<div className="par-box">
 							<article>
-								<Parallax className="home-img pink" speed={30}>
-									<Image src={Pink} />
+								<Parallax className="home-img" speed={30}>
+									<Image src={Pink} className='pink' />
 								</Parallax>
 								<Parallax
 									className="right-text"
@@ -83,11 +83,11 @@ const HomePage = (props) => {
 							</article>
 							<article>
 								<Parallax
-									className="home-img berry"
+									className="home-img"
 									easing="easeOutQuad"
 									speed={10}
 								>
-									<Image src={Berry} />
+									<Image src={Berry} className='berry' />
 								</Parallax>
 							</article>
 							<article>

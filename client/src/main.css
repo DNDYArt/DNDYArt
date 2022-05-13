@@ -49,6 +49,12 @@ main {
 
 }
 
+@media screen and (max-width: 768px) {
+    *, main {
+        max-width: initial;
+    }
+}
+
 .container {
     display: flex;
     justify-content: space-around;
@@ -58,15 +64,26 @@ main {
     /* border: 3px red solid; */
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        /* align-items: center; */
+        max-width: initial;
+        padding: 0 0 0 0;
+    }
+}
+
 .hero {
     display: flex;
-    flex: 1 0 auto;
     justify-content: center;
     /* border: 3px red solid; */
 }
 
-.bust {
-    /* width: 500px; */
+@media screen and (max-width: 768px) {
+    img {
+        /* flex: 1 0 auto; */
+            max-width: 75% !important;
+        }
 }
 
 .hero-head {
@@ -126,6 +143,12 @@ article {
     margin-left: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    .pink {
+        max-width: 75% !important;
+    }
+}
+
 .text-1 {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
@@ -159,6 +182,14 @@ article {
     bottom: 200px;
 }
 
+@media screen and (max-width: 768px) {
+    .text-1,
+    .text-2,
+    .text-3 {
+        font-size: 50px !important;
+    }
+}
+
 .berry {
     width: 485px;
     position: relative;
@@ -168,6 +199,15 @@ article {
     box-shadow: 1px 25px 50px rgb(51, 51, 51);
 }
 
+@media screen and (max-width: 768px) {
+    .berry {
+        max-width: 75% !important;
+        max-width: 50% !important;
+    right: -344px;
+        /* right: -400px; */
+    }
+}
+
 .mountain {
     width: 750px;
     position: relative;
@@ -175,16 +215,27 @@ article {
     left: -100px;
     z-index: -1;
     box-shadow: 1px 25px 50px rgb(51, 51, 51);
-    
+}
+
+@media screen and (max-width: 768px) {
+    .mountain {
+        max-width: 75% !important;
+        right: -400px;
+    }
 }
 
 .abstract {
     width: 1009px;
     position: relative;
-    bottom: 1000px;
     bottom: 775px;
     z-index: -1;
     box-shadow: 1px 25px 50px rgb(51, 51, 51);
+}
+
+@media screen and (max-width: 768px) {
+    .abstract {
+        max-width: 600px;
+    }
 }
 
 
