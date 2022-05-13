@@ -9,11 +9,8 @@ db.once('open', async () => {
   await Collector.deleteMany({});
   await Feature.deleteMany({});
   await Artist.deleteMany({});
-<<<<<<< HEAD
   await Collector.create(userSeeds);
   await Feature.create(featureSeeds);
-=======
->>>>>>> 14979bd (added all mutattion and queries for gql, also redid seeding and models)
 
   await User.create(userSeeds);
   await Artist.create(artistSeeds);
