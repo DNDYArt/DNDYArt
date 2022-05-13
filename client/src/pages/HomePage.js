@@ -15,6 +15,7 @@ import {
 	useDisclosure,
 } from "@chakra-ui/react";
 import Footer from '../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 import { UserContext } from "../utils/UserContext";
 
@@ -51,14 +52,13 @@ const HomePage = (props) => {
 							never contained.
 						</Heading>
 						<Button
-              onClick={() => context.currentUser.loggedIn ? document.location.replace('./shop') : document.location.replace('./collectors')}
 							className="enter"
 							colorScheme="black"
 							variant="outline"
 							size="lg"
 							width="200px"
 						>
-							explore
+							<Link to={context.currentUser.loggedIn ? '/shop' : '/collectors'}>explore</Link>
 						</Button>
 					</Box>
 				</section>
