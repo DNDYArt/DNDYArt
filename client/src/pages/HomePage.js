@@ -14,6 +14,7 @@ import {
 	SlideFade,
 	useDisclosure,
 } from "@chakra-ui/react";
+import Footer from '../components/Footer/Footer'
 
 // Import Pictures
 import Bust from "../components/images/greek-bust.png";
