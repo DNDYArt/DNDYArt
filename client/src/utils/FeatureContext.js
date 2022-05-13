@@ -67,6 +67,10 @@ function FeatureProvider(props) {
     }
   }
 
+  function raiseBid(newBid) {
+    setCurrentFeature({...currentFeature, currentBid: newBid})
+  }
+
   async function submitFeature(newFeature) {
     const response = await fetch('/api/features/',
     {
@@ -80,7 +84,7 @@ function FeatureProvider(props) {
   }
 
   return (
-    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer, resetAuctionTime}} {...props}/>
+    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer, resetAuctionTime, raiseBid}} {...props}/>
   )
 }
 

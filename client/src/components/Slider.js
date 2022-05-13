@@ -58,7 +58,7 @@ function Slider() {
                   <GridItem className="next-stuff">
 									<h1 className="upNext">UP NEXT</h1>
 									<h2 className="feature-artist">
-										{featureContext.featureQue[0].artist}
+									{featureContext.featureQue[0].authorFirstName + " " + featureContext.featureQue[0].authorLastName}
 									</h2>
 									<div className="feature-name">
 										<h3 className="feature-title">{featureContext.featureQue[0].name}</h3>

@@ -21,18 +21,21 @@ import { FeatureContext } from "../utils/FeatureContext";
 function Shop() {
 	const context = useContext(UserContext)
 	const featureContext = useContext(FeatureContext)
-	const [input, setInput] = useState("");
-
-	const handleInputChange = (e) => setInput(e.target.value);
-  
-  const isError = input === "";
+	const [isError, setIsError] = useState(false);
+	const [errorMessage, setErrorMessage] = useState();
   
   function Submit() {
-    if(NumberInput > 12000) {
-      handleInputChange();
-    } else {
-      return isError;
-    }
+		if(parseInt(document.querySelector('#amount').value) >= featureContext.currentFeature.currentBid+100) {
+			console.log("wut");
+      setIsError(false)
+			featureContext.raiseBid(parseInt(document.querySelector('#amount').value))
+    } else if (!parseInt(document.querySelector('#amount').value)) {
+			setErrorMessage('You must enter an amount')
+			setIsError(true)
+		} else if (parseInt(document.querySelector('#amount').value) < featureContext.currentFeature.currentBid+100) {
+			setErrorMessage('Your bid must be more than the current bid by at least $100');
+			setIsError(true);
+		}
   }
 
 	return (
@@ -57,7 +60,7 @@ function Shop() {
 					>
 						<GridItem className="feature-header" colSpan={5}>
 							{/* Add Artist Name from ArtistDB */}
-							<h2 className="feature-artist">{featureContext.currentFeature.artist}</h2>
+							<h2 className="feature-artist">{featureContext.currentFeature.authorFirstName + " " + featureContext.currentFeature.authorLastName}</h2>
 							<GridItem className="feature-name">
 								{/* Add Feature Name from FeatureDB */}
 								{/* <!-- flex, row, align: baseline --> */}
@@ -66,7 +69,7 @@ function Shop() {
 								</h3>
 								<p className="feature-year">({featureContext.currentFeature.year || 'c. \'05'})</p>
 							</GridItem>
-							<h4 className="feature-medium">Oil on canvas.</h4>
+							{/* <h4 className="feature-medium">Oil on canvas.</h4> */}
 						</GridItem>
 						<GridItem className="feature-about">
 							<p className="para"><u>About the feature from the artist:</u></p>
@@ -76,8 +79,8 @@ function Shop() {
 							</p>
 						</GridItem>
 						<GridItem className="bid-info">
-							<h4 className="bid-start">The starting bid {featureContext.currentFeature.startPrice !== featureContext.currentFeature.currentPrice ? 'was': 'is'}: <u>${featureContext.currentFeature.startPrice}</u> </h4>
-							<h3 className="bid-current">The current bid is: {featureContext.currentFeature.currentPrice}</h3>
+							<h4 className="bid-start">The starting bid {featureContext.currentFeature.startPrice !== featureContext.currentFeature.currentBid ? 'was': 'is'}: <u>${featureContext.currentFeature.startPrice}</u> </h4>
+							<h3>The current bid is: $<span className="bid-current">{featureContext.currentFeature.currentBid}</span></h3>
 						</GridItem>
 						<GridItem className="bid-form">
 							{/* <!-- add margin to match section height --> */}
@@ -99,7 +102,7 @@ function Shop() {
 									</FormHelperText>
 								) : (
 									<FormErrorMessage>
-										A bid amount is required.
+										{errorMessage}
 									</FormErrorMessage>
 								)}
 							</FormControl>
@@ -112,6 +115,7 @@ function Shop() {
 						</GridItem>
 					</GridItem>
 				</Grid>
+				<button className="hiddenAuctionButton"> Dev: Progress Feature Queue </button>
 			</main>
 			{/* <!-- slider / sans-footer --> */}
 			<footer className="slider">
