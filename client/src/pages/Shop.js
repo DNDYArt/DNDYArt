@@ -1,4 +1,4 @@
-import { React, useState, } from "react";
+import { React, useState } from "react";
 import Slider from '../components/Slider';
 import {
 	Grid,
@@ -15,8 +15,10 @@ import {
 	NumberDecrementStepper,
 } from "@chakra-ui/react";
 import Feature from "../components/images/abstract-3.jpg";
+import { UserContext } from "../utils/UserContext";
 
 function Shop() {
+	const context = useContext(UserContext)
 	const [input, setInput] = useState("");
 
 	const handleInputChange = (e) => setInput(e.target.value);
@@ -80,6 +82,8 @@ function Shop() {
 						</GridItem>
 						<GridItem className="bid-form">
 							{/* <!-- add margin to match section height --> */}
+							{context.currentUser.loggedIn ? (
+							<>
 							<FormControl isInvalid={isError}>
 								<FormLabel htmlFor="amount">Amount</FormLabel>
 								<NumberInput w='300px' min={0}>
@@ -102,8 +106,9 @@ function Shop() {
 							</FormControl>
               <GridItem w='240px' className="btn-box">
 							<Button onClick={Submit} className="bid-btn">Place Bid</Button>
-              <Slider />
-              </GridItem>
+							</>)
+							: (<div className='notloggedmsg'>You must be logged in to place a bid.</div>)}
+                 <Slider />
 						</GridItem>
 					</GridItem>
 				</Grid>
