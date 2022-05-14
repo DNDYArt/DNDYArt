@@ -1,10 +1,10 @@
 import React from "react";
-// import {
-//   ApolloClient,
-//   InMemoryCache,
-//   ApolloProvider,
-//   createHttpLink,
-// } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
 import HomePage from "./pages/HomePage";
 import Member from "./pages/Member";
 import Footer from "./components/Footer/Footer";
@@ -23,6 +23,24 @@ import ArtistSignUp from "./pages/ArtistSignUp";
 import UserProvider from "./utils/UserContext";
 import FeatureProvider from "./utils/FeatureContext";
 
+const httpLink = createHttpLink({
+	uri: '/graphql',
+  });
+
+  const authLink = setContext((_, { headers }) => {
+	const token = localStorage.getItem('id_token');
+	return {
+	  headers: {
+		...headers,
+		authorization: token ? `Bearer ${token}` : '',
+	  },
+	};
+  });
+
+  const client = new ApolloClient({
+	link: authLink.concat(httpLink),
+	cache: new InMemoryCache(),
+  });
 
 function App() {
 
@@ -32,7 +50,7 @@ function App() {
 		<ParallaxProvider>
 		<ChakraProvider theme={Theme}>
 		<div className="App">
-			{/* <ApolloProvider>  */}
+			<ApolloProvider client={client}> 
 			<Router>
 			<Header />
 				<Routes>
@@ -48,7 +66,7 @@ function App() {
 				</Routes>
 				<Footer />
 			</Router>
-			{/* </ApolloProvider> */}
+			</ApolloProvider>
 		</div>
 		</ChakraProvider>
 		</ParallaxProvider>

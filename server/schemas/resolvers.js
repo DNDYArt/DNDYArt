@@ -19,8 +19,8 @@ const resolvers = {
       return Artist.findOne({ first_name }).populate('features');
     },
 
-      features: async (parent, { first_name }) => {
-      const params = first_name ? { first_name } : {};
+    features: async (parent, { first_name }) => {
+    const params = first_name ? { first_name } : {};
       return Feature.find(params).sort({ startPrice: -1 });
     },
 
@@ -47,6 +47,27 @@ const resolvers = {
       const artist = await Artist.create({ first_name, last_name, location, email, password, bio });
       const token = signToken(artist);
       return { token, artist };
+    },
+
+    addFeature: async (parent, { name, authorLastName,startPrice,currentBid,description,image }, context) => {
+      if (context.artist) {
+        const feature = await Feature.create({
+          name,
+          authorFirstName: context.artist.first_name,
+          authorLastName,
+          startPrice,
+          currentBid,
+          description,
+          image,
+        });
+        await Artist.findOneAndUpdate(
+          { _id: context.artist._id },
+          { $addToSet: { features: feature._id } }
+        );
+
+        return feature;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
 
     login: async (parent, { email, password }) => {

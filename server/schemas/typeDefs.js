@@ -13,6 +13,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     authorFirstName: String
+    authorLastName: String
     startPrice: Int
     currentBid: Int
     description: String
@@ -48,7 +49,8 @@ const typeDefs = gql`
     addCollector(username: String!, last_name: String!, first_name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!):Auth
     addArtist(first_name:String!,last_name:String!,email:String!,password:String!,bio:String!,location:String!):Auth
-    addFeature(name:String!,startPrice:Int!,currentBid:Int!,description:String!,image:String! ):Feature
+    addFeature(name:String!,
+    authorLastName:String!,startPrice:Int!,currentBid:Int!,description:String!,image:String! ):Feature
     removeFeature(featureId: ID!):Feature
   }
 `;

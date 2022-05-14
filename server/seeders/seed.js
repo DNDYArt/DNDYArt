@@ -1,6 +1,6 @@
 const db = require('../config/connection');
 const { Collector, Artist, Feature } = require('../models');
-const userSeeds = require('./userSeeds.json');
+const collectorSeeds = require('./collectorSeeds.json');
 const featureSeeds = require('./featureSeeds.json');
 const artistSeeds = require('./artistSeeds.json')
 
@@ -9,14 +9,13 @@ db.once('open', async () => {
   await Collector.deleteMany({});
   await Feature.deleteMany({});
   await Artist.deleteMany({});
-  await Collector.create(userSeeds);
-  await Feature.create(featureSeeds);
+  await Collector.create(collectorSeeds);
   await Artist.create(artistSeeds);
 
   for (let i = 0; i < featureSeeds.length; i++){
-    const {_id, author} = await Feature.create(featureSeeds [i]);
+    const {_id, authorFirstName} = await Feature.create(featureSeeds [i]);
     const artist = await Artist.findOneAndUpdate(
-      {first_name: author},
+      {first_name: authorFirstName},
       {
         $addToSet:{
           features:_id,
