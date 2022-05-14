@@ -266,7 +266,7 @@ article {
     display: flex;
     padding-top: 10px;
     flex-direction: column;
-    margin-left: 20px;
+    /* margin-left: 0px; */
     /* border: red 3px solid; */
 }
 
