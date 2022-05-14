@@ -30,7 +30,7 @@ module.exports = {
       return res.status(400).json({ message: 'Unable to create Collector' });
     }
 
-    res.status(200).json(DNDY);
+    res.status(200).json(user);
   },
   
   async getAllCollectors(req, res) {
