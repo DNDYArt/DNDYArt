@@ -2,6 +2,14 @@ const { Artist } = require('../models'),
 bycrypt = require('bcrypt');
 
 module.exports = {
+  async changeArtistPfp(req, res) {
+    try {
+      const change = await Artist.findOneAndUpdate({email: req.body.email}, {pfpURL: req.body.imgUrl})
+      console.log(change);
+    } catch (err) {
+      console.log(err);
+    }
+  },
   async verifyArtistLogin(req, res) {
     try {
       const verif = await Artist.findOne({email: req.body.email})
