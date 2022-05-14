@@ -1,4 +1,4 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import Slider from '../components/Slider';
 import {
 	Grid,
@@ -16,22 +16,32 @@ import {
 } from "@chakra-ui/react";
 import Feature from "../components/images/abstract-3.jpg";
 import { UserContext } from "../utils/UserContext";
+import { FeatureContext } from "../utils/FeatureContext";
 
 function Shop() {
 	const context = useContext(UserContext)
-	const [input, setInput] = useState("");
-
-	const handleInputChange = (e) => setInput(e.target.value);
-  
-  const isError = input === "";
+	const featureContext = useContext(FeatureContext)
+	const [isError, setIsError] = useState(false);
+	const [errorMessage, setErrorMessage] = useState();
   
   function Submit() {
-    if(NumberInput > 12000) {
-      handleInputChange();
-    } else {
-      return isError;
-    }
+		if(parseInt(document.querySelector('#amount').value) >= featureContext.currentFeature.currentBid+100) {
+			console.log("wut");
+      setIsError(false)
+			featureContext.raiseBid(parseInt(document.querySelector('#amount').value))
+    } else if (!parseInt(document.querySelector('#amount').value)) {
+			setErrorMessage('You must enter an amount')
+			setIsError(true)
+		} else if (parseInt(document.querySelector('#amount').value) < featureContext.currentFeature.currentBid+100) {
+			setErrorMessage('Your bid must be more than the current bid by at least $100');
+			setIsError(true);
+		}
   }
+
+	function rotateFeatures() {
+		const purchase = featureContext.purchseFeature()
+		featureContext.resetAuctionTime()
+	}
 
 	return (
 		<>
@@ -39,13 +49,13 @@ function Shop() {
 				<Grid className="shop-section" templateColumns="repeat(12)">
 					<GridItem w="600px" className="shop-container" colSpan={5}>
 						<img
-							src={Feature}
+							src={featureContext?.currentFeature.image ?? 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp'}
 							className="feature-img"
 							alt="abtract painting"
 						/>
 						{/* add Countdown function, restart @ 48hrs, */}
             <GridItem colSpan={5} className="action-div">
-						  <h3 className="timer">Time Left: 48 00 00 </h3>
+						  <h3 className="timer">Time Left: {featureContext.auctionTimer} </h3>
             </GridItem>
 					</GridItem>
 					<GridItem
@@ -55,30 +65,27 @@ function Shop() {
 					>
 						<GridItem className="feature-header" colSpan={5}>
 							{/* Add Artist Name from ArtistDB */}
-							<h2 className="feature-artist">Steve Johnson</h2>
+							<h2 className="feature-artist">{featureContext.currentFeature.authorFirstName + " " + featureContext.currentFeature.authorLastName}</h2>
 							<GridItem className="feature-name">
 								{/* Add Feature Name from FeatureDB */}
 								{/* <!-- flex, row, align: baseline --> */}
 								<h3 className="feature-title">
-									the long hallway
+									{featureContext.currentFeature.name}
 								</h3>
-								<p className="feature-year">(2014)</p>
+								<p className="feature-year">({featureContext.currentFeature.year || 'c. \'05'})</p>
 							</GridItem>
-							<h4 className="feature-medium">Oil on canvas.</h4>
+							{/* <h4 className="feature-medium">Oil on canvas.</h4> */}
 						</GridItem>
 						<GridItem className="feature-about">
-							<p className="para">About the feature from the artist:</p>
+							<p className="para"><u>About the feature from the artist:</u></p>
 							<br></br>
 							<p className="para2">
-								Life, uh, finds a way. This thing comes<br></br>
-								fully loaded: AM/FM radio, reclining bucket
-								seats,<br></br>
-								and… power windows.
+								{featureContext.currentFeature.description}
 							</p>
 						</GridItem>
 						<GridItem className="bid-info">
-							<h4 className="bid-start">The starting bid is:</h4>
-							<h3 className="bid-current">The current bid is:</h3>
+							<h4 className="bid-start">The starting bid {featureContext.currentFeature.startPrice !== featureContext.currentFeature.currentBid ? 'was': 'is'}: <u>${featureContext.currentFeature.startPrice}</u> </h4>
+							<h3>The current bid is: $<span className="bid-current">{featureContext.currentFeature.currentBid}</span></h3>
 						</GridItem>
 						<GridItem className="bid-form">
 							{/* <!-- add margin to match section height --> */}
@@ -100,7 +107,7 @@ function Shop() {
 									</FormHelperText>
 								) : (
 									<FormErrorMessage>
-										A bid amount is required.
+										{errorMessage}
 									</FormErrorMessage>
 								)}
 							</FormControl>
@@ -113,6 +120,7 @@ function Shop() {
 						</GridItem>
 					</GridItem>
 				</Grid>
+				<button onClick={rotateFeatures} className="hiddenAuctionButton"> Dev: Progress Feature Queue </button>
 			</main>
 			{/* <!-- slider / sans-footer --> */}
 			<footer className="slider">
