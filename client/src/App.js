@@ -43,7 +43,6 @@ function App() {
 					<Route path="/shop" element={<Shop />} />
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
-          				<Route path="/collectorprofile" element={<CollectorProfile />}/>
 					<Route path="/loggin" element={<Login />} />
 				</Routes>
 				<Footer />
