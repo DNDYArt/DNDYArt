@@ -24,13 +24,17 @@ module.exports = {
   },
 
   async createCollector(req, res) {
-    const user = await Collector.create( req.body );
-
-    if (!user) {
-      return res.status(400).json({ message: 'Unable to create Collector' });
+    try {
+      const user = await Collector.create( req.body );
+  
+      if (!user) {
+        return res.status(400).json({ message: 'Unable to create Collector' });
+      }
+  
+      res.status(200).json(user);
+    } catch (err) {
+      res.status(500).json(err)
     }
-
-    res.status(200).json(DNDY);
   },
   
   async getAllCollectors(req, res) {

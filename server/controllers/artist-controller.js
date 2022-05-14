@@ -23,13 +23,17 @@ module.exports = {
   },
 
   async createArtist(req, res) {
-    const user = await Artist.create( req.body );
-
-    if (!user) {
-      return res.status(400).json({ message: 'Unable to create Artist' });
+    try {
+      const user = await Artist.create( req.body );
+  
+      if (!user) {
+        return res.status(400).json({ message: 'Unable to create Artist' });
+      }
+  
+      res.status(200).json(user);
+    } catch (err) {
+      res.status(500).json(err)
     }
-
-    res.status(200).json(DNDY);
   },
   
   async getAllArtists(req, res) {

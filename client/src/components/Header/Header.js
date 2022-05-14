@@ -45,9 +45,9 @@ const Header = () => {
          { context.currentUser?.userType === 'artist' &&(<li>
             <Link to="/artistprofile"> profile </Link>
          </li>)}
-         {context.currentUser?.userType === 'collector' &&(<li>
+         {/* {context.currentUser?.userType === 'collector' &&(<li>
             <Link to="/collectorprofile"> profile </Link>
-         </li>)}
+         </li>)} */}
          {!context.currentUser.loggedIn &&(<li>
             {/* <Link to="/loggin"> log in </Link> */}
             <LogInModal />
