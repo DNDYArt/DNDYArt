@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type User {
+  type Collector {
     _id: ID
     username: String
     last_name: String
