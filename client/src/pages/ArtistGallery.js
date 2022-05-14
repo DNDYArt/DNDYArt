@@ -3,12 +3,25 @@ import { useEffect } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import picture from '../components/images/abstract-2.jpg'
-// import {Motion, spring}
+import picture2 from '../components/images/abstract-1.jpg'
+import picture3 from '../components/images/abstract-3.jpg'
+import picture4 from '../components/images/abstract-4.jpg'
+import picture5 from '../components/images/strawberry.jpg'
+import picture6 from '../components/images/mountain-bw.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 const ArtistGallery = () => {
 
     useEffect(() => {
         AOS.init({});
+
+        document.querySelectorAll('img')
+        .forEach((img) => 
+        img.addEventListener('load', () =>
+            AOS.refresh()
+        )
+    )
     }, [])
 
 
@@ -17,8 +30,8 @@ const ArtistGallery = () => {
     <>
         <div className='fullGallery'>
             <div className='singleArtistContainer'>
-                <div data-aos='fade-up' className='galleryFeatureContainer'>
-                    <img src={picture} />
+                <div className='galleryFeatureContainer'>
+                    <img src={picture} alt='abstract painting'/>
                 </div>
                 <div className='artistInfo'>
                     <h1>Jason Smith</h1>
@@ -26,66 +39,104 @@ const ArtistGallery = () => {
                     <p className='artistAboutUnderline'>About the piece:</p>
                     <p className='artistAboutInfo'>Inspired by a psychedelic walk on the beach, this piece portrays the coexistence of fluidity and geometric structure. Many people assume the two don't mix, but Jason Smith would disagree.</p>
                     <p className='artistGalleryPrice'>The current bid is: 15,000</p>
-                    {/* <span className="artistGalleryPrice">{featureContext.currentFeature.currentBid}</span> */}
+                    <div className='socials'>
+                        <a href='https://twitter.com/' target='_blank'><FontAwesomeIcon icon={faTwitter} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.facebook.com/' target='_blank'><FontAwesomeIcon icon={faFacebook} className='spaceIcon'></FontAwesomeIcon></a>
+                    </div>
                 </div>
             </div>
-            <div className='singleArtistContainer'>
-                <div data-aos='fade-right' className='galleryFeatureContainer'>
-                    <img src={picture} />
-                </div>
-                <div data-aos='fade-left'className='artistInfo'>
+            <div className='singleArtistContainer'> 
+                <div data-aos='fade-right' data-aos-duration="1000" data-aos-delay='50' className='artistInfo'>
                     <h1>Jason Smith</h1>
                     <h2>Contained Splash <span>c.('21)</span></h2>
                     <p className='artistAboutUnderline'>About the piece:</p>
                     <p className='artistAboutInfo'>Inspired by a psychedelic walk on the beach, this piece portrays the coexistence of fluidity and geometric structure. Many people assume the two don't mix, but Jason Smith would disagree.</p>
-                    <p className='artistGalleryPrice'>The current bid is: 15,000</p>
-                    {/* <span className="artistGalleryPrice">{featureContext.currentFeature.currentBid}</span> */}
+                    <p className='artistGalleryPrice'>The current bid is: SOLD</p>
+                    <div className='socials'>
+                        <a href='https://twitter.com/' target='_blank'><FontAwesomeIcon icon={faTwitter} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.facebook.com/' target='_blank'><FontAwesomeIcon icon={faFacebook} className='spaceIcon'></FontAwesomeIcon></a>
+                    </div>
+                </div>
+                <div data-aos='fade-left' data-aos-duration="1000" data-aos-delay='50' className='galleryFeatureContainer'>
+                    <img src={picture2}  alt='abstract painting'/>
                 </div>
             </div>
             <div className='singleArtistContainer'>
-                <div data-aos='fade-up' className='galleryFeatureContainer'>
-                    <img src={picture} />
+                <div data-aos='flip-left' data-aos-duration="1000" data-aos-delay='50' className='galleryFeatureContainer'>
+                    <img src={picture3}  alt='abstract painting'/>
                 </div>
-                <div data-aos='fade-down' className='artistInfo'>
+                <div data-aos='fade-down' data-aos-duration="1000" data-aos-delay='50' className='artistInfo'>
                     <h1>Jason Smith</h1>
                     <h2>Contained Splash <span>c.('21)</span></h2>
                     <p className='artistAboutUnderline'>About the piece:</p>
                     <p className='artistAboutInfo'>Inspired by a psychedelic walk on the beach, this piece portrays the coexistence of fluidity and geometric structure. Many people assume the two don't mix, but Jason Smith would disagree.</p>
-                    <p className='artistGalleryPrice'>The current bid is: 15,000</p>
-                    {/* <span className="artistGalleryPrice">{featureContext.currentFeature.currentBid}</span> */}
+                    <p className='artistGalleryPrice'>The current bid is: SOLD</p>
+                    <div className='socials'>
+                        <a href='https://twitter.com/' target='_blank'><FontAwesomeIcon icon={faTwitter} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.facebook.com/' target='_blank'><FontAwesomeIcon icon={faFacebook} className='spaceIcon'></FontAwesomeIcon></a>
+                    </div>
                 </div>
             </div>
             <div className='singleArtistContainer'>   
-                <div data-aos='fade-right' className='artistInfo'>
+                <div data-aos='fade-up' data-aos-duration="1000" data-aos-delay='50' className='artistInfo'>
                     <h1>Jason Smith</h1>
                     <h2>Contained Splash <span>c.('21)</span></h2>
                     <p className='artistAboutUnderline'>About the piece:</p>
                     <p className='artistAboutInfo'>Inspired by a psychedelic walk on the beach, this piece portrays the coexistence of fluidity and geometric structure. Many people assume the two don't mix, but Jason Smith would disagree.</p>
-                    <p className='artistGalleryPrice'>The current bid is: 15,000</p>
-                    {/* <span className="artistGalleryPrice">{featureContext.currentFeature.currentBid}</span> */}
+                    <p className='artistGalleryPrice'>The current bid is: SOLD</p>
+                    <div className='socials'>
+                        <a href='https://twitter.com/' target='_blank'><FontAwesomeIcon icon={faTwitter} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.facebook.com/' target='_blank'><FontAwesomeIcon icon={faFacebook} className='spaceIcon'></FontAwesomeIcon></a>
+                    </div>
                 </div>
-                <div data-aos='flip-right' className='galleryFeatureContainer'>
-                    <img src={picture} />
+                <div data-aos='fade-left' data-aos-duration="1000" data-aos-delay='50' className='galleryFeatureContainer'>
+                    <img src={picture4}  alt='abstract painting'/>
+                </div>
+            </div>
+            <div className='singleArtistContainer'>
+                <div data-aos='fade-right' data-aos-duration="1000" data-aos-delay='50' className='galleryFeatureContainer'>
+                    <img src={picture5} alt='strawberry'/>
+                </div>
+                <div data-aos='fade-up' data-aos-duration="1000" data-aos-delay='50' className='artistInfo'>
+                    <h1>Jason Smith</h1>
+                    <h2>Contained Splash <span>c.('21)</span></h2>
+                    <p className='artistAboutUnderline'>About the piece:</p>
+                    <p className='artistAboutInfo'>Inspired by a psychedelic walk on the beach, this piece portrays the coexistence of fluidity and geometric structure. Many people assume the two don't mix, but Jason Smith would disagree.</p>
+                    <p className='artistGalleryPrice'>The current bid is: SOLD</p>
+                    <div className='socials'>
+                        <a href='https://twitter.com/' target='_blank'><FontAwesomeIcon icon={faTwitter} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.facebook.com/' target='_blank'><FontAwesomeIcon icon={faFacebook} className='spaceIcon'></FontAwesomeIcon></a>
+                    </div>
+                </div>
+            </div>
+            <div className='singleArtistContainer'>
+                <div data-aos='fade-up' data-aos-duration="1000" data-aos-delay='50' className='artistInfo'>
+                    <h1>Jason Smith</h1>
+                    <h2>Contained Splash <span>c.('21)</span></h2>
+                    <p className='artistAboutUnderline'>About the piece:</p>
+                    <p className='artistAboutInfo'>Inspired by a psychedelic walk on the beach, this piece portrays the coexistence of fluidity and geometric structure. Many people assume the two don't mix, but Jason Smith would disagree.</p>
+                    <p className='artistGalleryPrice'>The current bid is: SOLD</p>
+                    <div className='socials'>
+                        <a href='https://twitter.com/' target='_blank'><FontAwesomeIcon icon={faTwitter} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} className='spaceIcon'></FontAwesomeIcon></a>
+                        <a href='https://www.facebook.com/' target='_blank'><FontAwesomeIcon icon={faFacebook} className='spaceIcon'></FontAwesomeIcon></a>
+                    </div>
+                </div>
+                <div data-aos='flip-right' data-aos-duration="1000" data-aos-delay='50' className='galleryFeatureContainer'>
+                    <img src={picture6} alt='mountain black/white'/>
                 </div>
             </div>
         </div>
-
-
-
-        {/* <div data-aos='fade-up' className='gallery-container vh'>
-            <img src={picture} />
-        </div>
-        <div data-aos='flip-right' className='gallery-container3 vh'>
-            <img src={picture} />
-        </div>
-        <div data-aos='flip-left' className='gallery-container vh'>
-            <img src={picture} />
-        </div>
-        <div data-aos='fade-right' className='gallery-container vh'>
-            <img src={picture} />
-        </div> */}
      </>
   )
 }
 
 export default ArtistGallery
+
+
+{/* <span className="artistGalleryPrice">{featureContext.currentFeature.currentBid}</span> */}
