@@ -60,6 +60,15 @@ const HomePage = (props) => {
 						>
 							<Link to={context.currentUser.loggedIn ? '/shop' : '/collectors'}>explore</Link>
 						</Button>
+						<Button
+							className="enter recent"
+							colorScheme="black"
+							variant="outline"
+							size="lg"
+							width="200px"
+						>
+							<Link to={'artistgallery'}>recent</Link>
+						</Button>
 					</Box>
 				</section>
 				{/* <!-- Second-Fourth --> */}
