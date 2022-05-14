@@ -22,6 +22,7 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import ArtistSignUp from "./pages/ArtistSignUp";
 import UserProvider from "./utils/UserContext";
 import FeatureProvider from "./utils/FeatureContext";
+import ArtistGallery from "./pages/ArtistGallery";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
 					<Route path="/loggin" element={<Login />} />
+					<Route path="/artistgallery" element={<ArtistGallery />} />
 				</Routes>
 				<Footer />
 			</Router>

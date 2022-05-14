@@ -65,17 +65,17 @@ const HomePage = (props) => {
 									: "/collectors"
 							}
 						>
-							<Button
-								className="enter"
-								colorScheme="black"
-								variant="outline"
-								size="lg"
-								width="200px"
-							>
-								explore
-							</Button>
-						</Link>
-						{/* </Button> */}
+							<Link to={context.currentUser.loggedIn ? '/shop' : '/collectors'}>explore</Link>
+						</Button>
+						<Button
+							className="enter recent"
+							colorScheme="black"
+							variant="outline"
+							size="lg"
+							width="200px"
+						>
+							<Link to={'artistgallery'}>recent</Link>
+						</Button>
 					</Box>
 				</section>
 				{/* <!-- Second-Fourth --> */}
