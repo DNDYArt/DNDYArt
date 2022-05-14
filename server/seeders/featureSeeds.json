@@ -1,31 +1,46 @@
 [
   {
     "name": "Beauty of Bridge",
+    "authorFirstName": "Bri",
+    "authorLastName": "Kern",
     "startPrice": 1500,
+    "currentBid": 1500,
     "description": "multiple size drip style abstract art on canvas, large wall art",
     "image": "https://i.etsystatic.com/21137593/r/il/c15b28/2611976014/il_fullxfull.2611976014_3sr5.jpg"
   },
   {
     "name": "Light of Passion",
+    "authorFirstName": "Tony",
+    "authorLastName": "Law",
     "startPrice": 2000,
+    "currentBid": 2000,
     "description": "Large oil painting on canvas modern wall art painting for home decor original art",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXpMDstE0YC5XU49WYydRtblTp9Zsg5hqpw&usqp=CAU"
   },
   {
     "name": "Vintage",
+    "authorFirstName": "Daniel",
+    "authorLastName": "Sarmiento",
     "startPrice": 700,
+    "currentBid": 700,
     "description": "red painting extra large abstract art modern wall oversize canvs",
     "image": "https://d5wt70d4gnm1t.cloudfront.net/media/a-s/articles/1693-507164524847/phaidon-twenty-first-century-painting-masterpieces-list-900x450.png"
   },
   {
     "name": "Blissful Sunrise",
+    "authorFirstName": "Linda",
+    "authorLastName": "Haux",
     "startPrice": 3200,
+    "currentBid": 3200,
     "description": "large landscape artwork oil painting on canvas",
     "image": "https://mir-s3-cdn-cf.behance.net/projects/404/142b1d116287097.Y3JvcCwzNjgyLDI4ODAsNzIwLDA.jpg"
   },
   {
     "name": "New Begining",
+    "authorFirstName": "Joy",
+    "authorLastName": "Aguire",
     "startPrice": 10000,
+    "currentBid": 10000,
     "description": "Large Abstract Blue Painting ",
     "image": "https://d1o22ltncixott.cloudfront.net/eyJrZXkiOiJwcm9kdWN0c1wvMzAwNjlfOGE2ZDlmZTVlOGM1YjYwZTYyOTFiYjQ1ZWYzZDJlZjIwNzk0NWQ5Nl9mMXRtbVg0NHo1NnU1cmw1XzEuanBnIiwiZWRpdHMiOnt9fQ=="
   }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import {
     Modal,
     ModalOverlay,
@@ -21,13 +21,18 @@ import {
     Box,
     CloseButton
   } from '@chakra-ui/react'
-  import React from 'react'
+  import { useNavigate } from 'react-router-dom';
+  
+  
+  import { UserContext } from '../utils/UserContext';
   
   const CollectorSignUp = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef()
     const finalRef = React.useRef()
+    const context = useContext(UserContext);
+    const navigate = useNavigate()
 
     function handleFormSubmit(e) {
       const children = e.target.parentNode.parentNode.childNodes[2].childNodes
@@ -37,13 +42,26 @@ import {
         let value = child.childNodes[1].value
         childInputs[key] = value
       }
-      sendSubmissionInfo(childInputs)
+      sendSubmissionInfo({...childInputs, 'username': childInputs.first_name+" "+childInputs.last_name})
     }
 
-    function sendSubmissionInfo(inputInfo) {
+    async function sendSubmissionInfo(inputInfo) {
       // Do something with the submitted information
       // inputInfo param should be passed in as an object of input names and their respective values given by the user
-      console.log(inputInfo);
+      const response = await fetch('/api/collectors',
+      {
+        method:'POST',
+        body:JSON.stringify(inputInfo),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      context.setCurrentUser({...context.setCurrentUser, 
+        'loggedIn': true,
+        'userType': 'collector',
+        'firstName': inputInfo.first_name,
+        'lastName': inputInfo.last_name,
+        'email': inputInfo.email
+      })
+      navigate('/')
     }
   
     return (
@@ -82,12 +100,12 @@ import {
             <ModalBody pb={6}>
                 <FormControl>
                 <FormLabel>First name</FormLabel>
-                <Input id='firstName' ref={initialRef} placeholder='First name' />
+                <Input id='first_name' ref={initialRef} placeholder='First name' />
                 </FormControl>
 
                 <FormControl mt={4}>
                 <FormLabel>Last name</FormLabel>
-                <Input id='lastName' placeholder='Last name' />
+                <Input id='last_name' placeholder='Last name' />
                 </FormControl>
 
                 <FormControl mt={4}>

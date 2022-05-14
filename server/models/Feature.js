@@ -6,7 +6,21 @@ const featureSchema = new Schema({
     required: true,
     trim: true
   },
+  authorFirstName:{
+    type: String,
+    required: true,
+    trim: true
+  },
+  authorLastName:{
+    type: String,
+    required: true,
+    trim: true
+  },
   startPrice: {
+    type: Number,
+    required: true
+  },
+  currentBid:{
     type: Number,
     required: true
   },

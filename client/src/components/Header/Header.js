@@ -1,9 +1,23 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from "@chakra-ui/react"
+import { Button,
+            useDisclosure,
+            Modal,
+            ModalOverlay,
+            ModalContent,
+            ModalHeader,
+            ModalFooter,
+            ModalBody,
+            ModalCloseButton,
+            FormLabel,
+            Input,
+            FormControl,
+         } from "@chakra-ui/react"
 import { Heading, useColorMode, toggleColorMode } from '@chakra-ui/react'
 import { SunIcon } from '@chakra-ui/icons'
 import { UserContext } from '../../utils/UserContext'; // Important for current user
+import LogInModal from '../LogInModal';
+
 
 
 const Header = () => {
@@ -11,11 +25,14 @@ const Header = () => {
 
   const { colorMode, toggleColorMode } = useColorMode()
 
+  const { isOpen, onOpen, onClose } = useDisclosure()
+    const initialRef = React.useRef()
+    const finalRef = React.useRef()
 
   return (
 
-   
-    <header>
+<>
+   <header>
     <Heading className='h1' as='h1' size='lg'><Link to="/"> DNDY </Link></Heading>
     <nav>
      <ul>
@@ -28,11 +45,12 @@ const Header = () => {
          { context.currentUser?.userType === 'artist' &&(<li>
             <Link to="/artistprofile"> profile </Link>
          </li>)}
-         {context.currentUser?.userType === 'collector' &&(<li>
+         {/* {context.currentUser?.userType === 'collector' &&(<li>
             <Link to="/collectorprofile"> profile </Link>
-         </li>)}
+         </li>)} */}
          {!context.currentUser.loggedIn &&(<li>
-            <Link to="/loggin"> log in </Link>
+            {/* <Link to="/loggin"> log in </Link> */}
+            <LogInModal />
          </li>)}
          {context.currentUser.loggedIn &&(<li>
             <Link onClick={context.logoutUser} to="/"> logout </Link>
@@ -40,9 +58,12 @@ const Header = () => {
          <li>
             <SunIcon onClick={toggleColorMode}/>
          </li>
-     </ul>
-    </nav>
-</header>
+      </ul>
+      </nav>
+   </header>
+   
+</>
+
   );
 };
 

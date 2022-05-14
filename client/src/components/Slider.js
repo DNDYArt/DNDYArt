@@ -1,5 +1,5 @@
 import "../main.css";
-import React from "react";
+import React, { useContext } from "react";
 import nextFeature from "./images/mountain-bw.jpg";
 import {
 	Button,
@@ -16,11 +16,13 @@ import {
 	DrawerContent,
 	DrawerCloseButton,
 } from "@chakra-ui/react";
+import { FeatureContext } from "../utils/FeatureContext";
 
 function Slider() {
 	const [size, setSize] = React.useState("xl");
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
+	const featureContext = useContext(FeatureContext)
 
 	return (
 		<>
@@ -47,7 +49,7 @@ function Slider() {
 							>
 								<GridItem colSpan={5}>
 									<img
-										src={nextFeature}
+										src={featureContext.featureQue[0].image ?? 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp'}
 										alt="the mountain"
 										className="nextPic"
 									/>
@@ -56,13 +58,13 @@ function Slider() {
                   <GridItem className="next-stuff">
 									<h1 className="upNext">UP NEXT</h1>
 									<h2 className="feature-artist">
-										Oleg Prachuk
+									{(featureContext?.featureQue[0].authorFirstName + " " + featureContext?.featureQue[0].authorLastName) || ''}
 									</h2>
 									<div className="feature-name">
-										<h3 className="feature-title">the mountain</h3>
-										<p className="feature-year">2018</p>
+										<h3 className="feature-title">{featureContext?.featureQue[0].name || ''}</h3>
+										<p className="feature-year">({featureContext?.featureQue[0].year || 'c. \'05'})</p>
 									</div>
-									<h4 className="feature-medium">Kodak TRI-X 400</h4>
+									{/* <h4 className="feature-medium">Kodak TRI-X 400</h4> */}
                   </GridItem>
 								</GridItem>
 							</Grid>

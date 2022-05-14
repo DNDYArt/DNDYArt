@@ -9,7 +9,9 @@ import HomePage from "./pages/HomePage";
 import Member from "./pages/Member";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+// import LoginModal from "./components/LogInModal";
 import ArtistProfile from "./pages/ArtistProfile";
+import CollectorProfile from "./pages/Collector";
 import Shop from "./pages/Shop";
 import Login from './pages/Login';
 import Cloudinarytest from "./pages/Cloudinarytest";
@@ -18,14 +20,15 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Theme from './components/Theme';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import ArtistSignUp from "./pages/ArtistSignUp";
-import CollectorProfile from "./pages/Collector";
 import UserProvider from "./utils/UserContext";
+import FeatureProvider from "./utils/FeatureContext";
 
 
 function App() {
 
 	return (
 		<UserProvider>
+		<FeatureProvider>
 		<ParallaxProvider>
 		<ChakraProvider theme={Theme}>
 		<div className="App">
@@ -36,11 +39,10 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/collectors" element={<Member />} />
 					<Route path="/artistprofile" element={<ArtistProfile />} />
-					<Route path="/collectorprofile" element={<ArtistProfile />} />  {/* when collector profile page created, add here */}
+					{/* <Route path="/collectorprofile" element={<CollectorProfile />} /> */}
 					<Route path="/shop" element={<Shop />} />
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
-          				<Route path="/collectorprofile" element={<CollectorProfile />}/>
 					<Route path="/loggin" element={<Login />} />
 				</Routes>
 				<Footer />
@@ -49,6 +51,7 @@ function App() {
 		</div>
 		</ChakraProvider>
 		</ParallaxProvider>
+		</FeatureProvider>
 		</UserProvider>
 	);
 }
