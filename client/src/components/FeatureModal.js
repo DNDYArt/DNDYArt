@@ -12,7 +12,12 @@ import {
   FormControl,
   Button,
   useDisclosure,
-} from '@chakra-ui/react'
+  NumberInput,
+	NumberInputField,
+	NumberInputStepper,
+	NumberIncrementStepper,
+	NumberDecrementStepper,
+} from '@chakra-ui/react';
 
 
 function FeatureModal(props) {
@@ -69,7 +74,28 @@ function FeatureModal(props) {
   }
 
   async function handleSubmit(e) {
-    
+    if (uplImg !== 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp') {
+      const _ = {
+        'name': document.querySelector('#featureName').value,
+        'authorFirstName': props.firstName,
+        'authorLastName': props.lastName,
+        'startPrice': document.querySelector('#featureStrtBid').value,
+        'currentBid': document.querySelector('#featureStrtBid').value,
+        'description': document.querySelector('#featurenDesc').value,
+        'image': uplImg
+      }
+      console.log(_);
+      const response = await fetch('http://localhost:3001/api/features',
+      {
+        method:'POST',
+        body:JSON.stringify(_),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      setUplImg('https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp')
+      onClose()
+    } else {
+      alert('Need to upload an image')
+    }
   }
 
   return (
@@ -95,7 +121,7 @@ function FeatureModal(props) {
                 <FormControl mt={4}>
                 <FormLabel>Feature Title</FormLabel>
                 <Input
-                    id='featurenName'
+                    id='featureName'
                     type='text'
                     placeholder='Title of your Feature'
                      />
@@ -112,11 +138,13 @@ function FeatureModal(props) {
 
                 <FormControl mt={4}>
                 <FormLabel>Feature Starting Bid</FormLabel>
-                <Input
-                    id='featurenStrtBid'
-                    type='number'
-                    placeholder='($5000)'
-                     />
+                <NumberInput w='300px' min={0}>
+									<NumberInputField id="featureStrtBid" placeholder={5000} />
+									<NumberInputStepper>
+										<NumberIncrementStepper />
+										<NumberDecrementStepper />
+								  </NumberInputStepper>
+								</NumberInput>
                 </FormControl>
 
                 <ModalFooter>

@@ -4,7 +4,7 @@ module.exports = {
   async createFeature(req, res) {
     const feature = await Feature.create( req.body );
 
-    if (!user) {
+    if (!feature) {
       return res.status(400).json({ message: 'Unable to create Feature' });
     }
 

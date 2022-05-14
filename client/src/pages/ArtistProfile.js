@@ -89,7 +89,7 @@ function ArtistProfile() {
 
 
           
-          {context.currentUser.features || <FeatureModal />}
+          {context.currentUser.features || <FeatureModal firstName={context.currentUser.firstName} lastName={context.currentUser.lastName} />}
           {/* <div className='mando'>
             <img src={Mando} alt='girl with mandolin by Picasso'></img>
           </div>
