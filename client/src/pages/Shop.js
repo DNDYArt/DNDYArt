@@ -38,13 +38,18 @@ function Shop() {
 		}
   }
 
+	function rotateFeatures() {
+		const purchase = featureContext.purchseFeature()
+		featureContext.resetAuctionTime()
+	}
+
 	return (
 		<>
 			<main className="shop-main">
 				<Grid className="shop-section" templateColumns="repeat(12)">
 					<GridItem w="600px" className="shop-container" colSpan={5}>
 						<img
-							src={featureContext.currentFeature.image}
+							src={featureContext?.currentFeature.image ?? 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp'}
 							className="feature-img"
 							alt="abtract painting"
 						/>
@@ -115,7 +120,7 @@ function Shop() {
 						</GridItem>
 					</GridItem>
 				</Grid>
-				<button className="hiddenAuctionButton"> Dev: Progress Feature Queue </button>
+				<button onClick={rotateFeatures} className="hiddenAuctionButton"> Dev: Progress Feature Queue </button>
 			</main>
 			{/* <!-- slider / sans-footer --> */}
 			<footer className="slider">

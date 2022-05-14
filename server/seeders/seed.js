@@ -10,7 +10,6 @@ db.once('open', async () => {
   await Feature.deleteMany({});
   await Artist.deleteMany({});
   await Collector.create(userSeeds);
-  await Feature.create(featureSeeds);
   await Artist.create(artistSeeds);
 
   for (let i = 0; i < featureSeeds.length; i++){

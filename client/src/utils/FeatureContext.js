@@ -4,10 +4,12 @@ export const FeatureContext = React.createContext()
 
 function FeatureProvider(props) {
   const [currentFeature, setCurrentFeature] = useState()
+  const def = { 'name': 'No more Features Available', 'authorFirstName': '', 'authorLastName': '' }
   // { name, startPrice, description, image(url) }
   const [featureQue, setFeatureQue] = useState([])
   const [auctionTime, setAuctionTime] = useState({'hours': 2, 'minutes': 30, 'seconds': 30})
   const [auctionTimer, setAuctionTimer] = useState('2hrs 30min 30sec')
+
 
   useEffect(() => {
     ( async () => {
@@ -15,7 +17,7 @@ function FeatureProvider(props) {
       if (response.ok) {
         const data = await response.json();
         setCurrentFeature(data[0])
-        setFeatureQue(data.splice(1))
+        setFeatureQue(data.slice(1))
       }
     })()
   }, [])
@@ -54,6 +56,8 @@ function FeatureProvider(props) {
   
   async function purchseFeature() {
     const purchase = currentFeature;
+    const next = featureQue[0] || def
+    const updQue = featureQue.slice(1) || def
     const response = await fetch('/api/features/purchaseout/',
     {
       method:'DELETE',
@@ -61,9 +65,13 @@ function FeatureProvider(props) {
       headers: { 'Content-Type': 'application/json' }
     })
     if (response.ok) {
-      setCurrentFeature(featureQue[0])
-      setFeatureQue(prev => {return featureQue.splice(1)})
-      return purchase
+        setCurrentFeature(next)
+        if(updQue.length <=2) {
+          setFeatureQue([...updQue, def])
+        } else {
+          setFeatureQue(updQue)
+        }
+        return purchase
     }
   }
 
