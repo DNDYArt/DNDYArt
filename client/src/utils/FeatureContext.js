@@ -69,6 +69,7 @@ function FeatureProvider(props) {
 		);
 	}
 
+<<<<<<< HEAD
 	async function purchseFeature() {
 		const purchase = currentFeature;
 		const next = featureQue[0] || def;
@@ -88,6 +89,49 @@ function FeatureProvider(props) {
 			return purchase;
 		}
 	}
+=======
+  function resetAuctionTime() {
+    setAuctionTime({'hours': 2, 'minutes': 30, 'seconds': 30})
+    setAuctionTimer(`${auctionTime['hours']}hrs ${auctionTime['minutes']}min ${auctionTime['seconds']}sec`)
+  }
+
+  async function insertFeature() {
+    const response = await fetch('/api/features');
+      if (response.ok) {
+        const data = await response.json();
+        setCurrentFeature(data[0])
+        if(data[1]) {
+          console.log("NOPE");
+          setFeatureQue(data.slice(1))
+        } else {
+          console.log("YUPP");
+          setFeatureQue([def])
+        }
+      }
+      console.log(featureQue);
+  }
+  
+  async function purchseFeature() {
+    const purchase = currentFeature;
+    const next = featureQue[0] || def
+    const updQue = featureQue.slice(1) || def
+    const response = await fetch('/api/features/purchaseout/',
+    {
+      method:'DELETE',
+      body:JSON.stringify({_id: currentFeature._id}),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    if (response.ok) {
+        setCurrentFeature(next)
+        if(updQue.length <=2) {
+          setFeatureQue([...updQue, def])
+        } else {
+          setFeatureQue(updQue)
+        }
+        return purchase
+    }
+  }
+>>>>>>> 3f0f7506d3173d97c5a55f2510b1263ee7b8b6ab
 
 	function raiseBid(newBid) {
 		setCurrentFeature({ ...currentFeature, currentBid: newBid });
@@ -106,6 +150,7 @@ function FeatureProvider(props) {
 		}
 	}
 
+<<<<<<< HEAD
 	return (
 		<FeatureContext.Provider
 			value={{
@@ -120,6 +165,11 @@ function FeatureProvider(props) {
 			{...props}
 		/>
 	);
+=======
+  return (
+    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer, resetAuctionTime, raiseBid, insertFeature}} {...props}/>
+  )
+>>>>>>> 3f0f7506d3173d97c5a55f2510b1263ee7b8b6ab
 }
 
 export default FeatureProvider;
