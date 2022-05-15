@@ -49,7 +49,7 @@ function Slider() {
 							>
 								<GridItem colSpan={5}>
 									<img
-										src={featureContext.featureQue[0].image}
+										src={featureContext.featureQue[0].image ?? 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp'}
 										alt="the mountain"
 										className="nextPic"
 									/>
@@ -58,13 +58,13 @@ function Slider() {
                   <GridItem className="next-stuff">
 									<h1 className="upNext">UP NEXT</h1>
 									<h2 className="feature-artist">
-										{featureContext.featureQue[0].artist}
+									{(featureContext?.featureQue[0].authorFirstName + " " + featureContext?.featureQue[0].authorLastName) || ''}
 									</h2>
 									<div className="feature-name">
-										<h3 className="feature-title">{featureContext.featureQue[0].name}</h3>
-										<p className="feature-year">({featureContext.featureQue[0].year || 'c. \'05'})</p>
+										<h3 className="feature-title">{featureContext?.featureQue[0].name || ''}</h3>
+										<p className="feature-year">({featureContext?.featureQue[0].year || 'c. \'05'})</p>
 									</div>
-									<h4 className="feature-medium">Kodak TRI-X 400</h4>
+									{/* <h4 className="feature-medium">Kodak TRI-X 400</h4> */}
                   </GridItem>
 								</GridItem>
 							</Grid>

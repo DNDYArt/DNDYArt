@@ -18,7 +18,7 @@ import { SunIcon } from '@chakra-ui/icons'
 import { UserContext } from '../../utils/UserContext'; // Important for current user
 import LogInModal from '../LogInModal';
 
-
+import Auth from '../../utils/auth';
 
 const Header = () => {
    const context = useContext(UserContext) // Important for current user
@@ -45,15 +45,19 @@ const Header = () => {
          { context.currentUser?.userType === 'artist' &&(<li>
             <Link to="/artistprofile"> profile </Link>
          </li>)}
-         {context.currentUser?.userType === 'collector' &&(<li>
+         {/* {context.currentUser?.userType === 'collector' &&(<li>
             <Link to="/collectorprofile"> profile </Link>
-         </li>)}
+         </li>)} */}
          {!context.currentUser.loggedIn &&(<li>
             {/* <Link to="/loggin"> log in </Link> */}
             <LogInModal />
          </li>)}
          {context.currentUser.loggedIn &&(<li>
-            <Link onClick={context.logoutUser} to="/"> logout </Link>
+            <Link onClick={()=>{
+               context.logoutUser();
+               Auth.logout()
+            }
+               } to="/"> logout </Link>
          </li>)}
          <li>
             <SunIcon onClick={toggleColorMode}/>
