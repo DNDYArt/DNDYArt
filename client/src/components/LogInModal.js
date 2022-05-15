@@ -15,15 +15,10 @@ import {
   } from '@chakra-ui/react'
   import { useContext } from "react";
   import { UserContext } from "../utils/UserContext";
-  import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { LOGIN_COLLECTOR } from '../utils/mutations';
-
-import Auth from '../utils/auth';
+  import React from 'react'
 
 
-const LoginModal = (props) =>{
+function LoginModal() {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const initialRef = React.useRef()
@@ -31,50 +26,36 @@ const LoginModal = (props) =>{
 
     const context = useContext(UserContext);
   
-    const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_COLLECTOR);
+    async function loginCollector(e) {
+      e.preventDefault()
 
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+      const collEmail = e.target.parentNode.parentNode.childNodes[0].childNodes[1].value;
+      const collPass = e.target.parentNode.parentNode.childNodes[1].childNodes[1].value;
+
+      const loginInfo = {email: collEmail, password: collPass}
+      if (loginInfo.email && loginInfo.password){
+        const response = await fetch('/api/collectors/login',
+        {
+          method:'PUT',
+          body:JSON.stringify(loginInfo),
+          headers: { 'Content-Type': 'application/json' }
+        })
     
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-    // console.log(formState)
-  };
-
-  // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-    try {
-      const { data } = await login({
-        variables: { ...formState },
-      });
-      console.log(data);
-
-      context.setCurrentUser({...context.currentUser ,
-        'loggedIn': true, 
-        'userType': 'collector', 
-        'firstName': data.first_name, 
-        'lastName': data.last_name,
-        'username': data.username,
-        'email': data.email})
-      Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
+        if (response.ok) {
+          const data = await response.json()
+          context.setCurrentUser({...context.currentUser ,
+            'loggedIn': true, 
+            'userType': 'collector', 
+            'firstName': data.first_name, 
+            'lastName': data.last_name, 
+            'email': data.email})
+        } else {
+          alert('Email or Password incorrect')
+        }
+      } else {
+        alert('Please enter something')
+      }
     }
-
-
-    // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
-  };
   
     async function loginArtist(e) {
       e.preventDefault()
@@ -123,33 +104,30 @@ const LoginModal = (props) =>{
         <ModalHeader className="modalTitle">DNDY Login</ModalHeader>
         <ModalCloseButton />
             <ModalBody pb={6}>
-              {data ? (
-                   <p>
-                   Success! You may now head{' '}
-                   <Link to="/">back to the homepage.</Link>
-                 </p>
-               ) : (
-                <><FormControl mt={4} onSubmit={handleFormSubmit} >
-                  <FormLabel>Collector</FormLabel>
-                  <Input
+
+                <FormControl mt={4} onSubmit={loginCollector}>
+                <FormLabel>Collector</FormLabel>
+                <Input 
                     id='collectorEmail'
-                    name="email"
                     type='email'
                     placeholder='Email'
-                    onChange={handleChange} />
-                </FormControl><FormControl mt={4}>
-                    <FormLabel></FormLabel>
-                    <Input
-                      id='collectorPassword'
-                      name="password"
-                      type='password'
-                      placeholder='Password'
-                      onChange={handleChange} />
-                  </FormControl><ModalFooter>
-                    <Button onClick= {handleFormSubmit}colorScheme='blue' mr={3}>Save</Button>
+                     />
+                </FormControl>
+
+                <FormControl mt={4}>
+                <FormLabel></FormLabel>
+                <Input
+                    id='collectorPassword'
+                    type='password'
+                    placeholder='Password'
+                     />
+                </FormControl>
+
+                <ModalFooter>
+                    <Button onClick={loginCollector} colorScheme='blue' mr={3}>Save</Button>
                     <Button onClick={onClose}>Cancel</Button>
-                  </ModalFooter></>
-               )}
+                </ModalFooter>
+
                 <FormControl mt={4} onSubmit={loginArtist}>
                 <FormLabel>Artist</FormLabel>
                 <Input 

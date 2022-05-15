@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import {
     Modal,
     ModalOverlay,
@@ -22,10 +22,13 @@ import {
     CloseButton
   } from '@chakra-ui/react'
   import { useNavigate } from 'react-router-dom';
-  
-  
+  import { Link } from 'react-router-dom';
   import { UserContext } from '../utils/UserContext';
-  
+  import { useMutation } from '@apollo/client';
+  import { ADD_COLLECTOR } from '../utils/mutations';
+
+  import Auth from '../utils/auth';
+
   const CollectorSignUp = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -33,33 +36,65 @@ import {
     const finalRef = React.useRef()
     const context = useContext(UserContext);
     const navigate = useNavigate()
+    const [formState, setFormState] = useState({
+      username: '',
+      last_name:'',
+      first_name:'',
+      email: '',
+      password: '',
+    });
+    const [addCollector, { error, data }] = useMutation(ADD_COLLECTOR);
 
-    function handleFormSubmit(e) {
-      const children = e.target.parentNode.parentNode.childNodes[2].childNodes
-      let childInputs = {}
-      for (let child of children){
-        let key = child.childNodes[1].id
-        let value = child.childNodes[1].value
-        childInputs[key] = value
+    const handleChange = (event) => {
+      const { id, value } = event.target;
+  
+      setFormState({
+        ...formState,
+        [id]: value,
+      });
+    };
+
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(formState);
+  
+      try {
+        const { data } = await addCollector({
+          variables: { ...formState },
+        });
+  
+        Auth.login(data.addCollector.token);
+      } catch (e) {
+        console.error(e);
       }
-      sendSubmissionInfo({...childInputs, 'username': childInputs.first_name+" "+childInputs.last_name})
-    }
+    };
+    // function handleFormSubmit(e) {
+    //   const children = e.target.parentNode.parentNode.childNodes[2].childNodes
+    //   let childInputs = {}
+    //   for (let child of children){
+    //     let key = child.childNodes[1].id
+    //     let value = child.childNodes[1].value
+    //     childInputs[key] = value
+    //   }
+    //   sendSubmissionInfo({...childInputs, 'username': childInputs.first_name+" "+childInputs.last_name})
+    // }
 
     async function sendSubmissionInfo(inputInfo) {
       // Do something with the submitted information
       // inputInfo param should be passed in as an object of input names and their respective values given by the user
-      const response = await fetch('/api/collectors',
-      {
-        method:'POST',
-        body:JSON.stringify(inputInfo),
-        headers: { 'Content-Type': 'application/json' }
-      })
+      // const response = await fetch('/api/collectors',
+      // {
+      //   method:'POST',
+      //   body:JSON.stringify(inputInfo),
+      //   headers: { 'Content-Type': 'application/json' }
+      // })
       context.setCurrentUser({...context.setCurrentUser, 
         'loggedIn': true,
         'userType': 'collector',
-        'firstName': inputInfo.first_name,
-        'lastName': inputInfo.last_name,
-        'email': inputInfo.email
+        'firstName': data.first_name,
+        'lastName': data.last_name,
+        'username': data.username,
+        'email': data.email
       })
       navigate('/')
     }
@@ -98,19 +133,44 @@ import {
           <ModalHeader>Create your account</ModalHeader>
           <ModalCloseButton />
             <ModalBody pb={6}>
-                <FormControl>
+                <FormControl onSubmit={handleFormSubmit} >
                 <FormLabel>First name</FormLabel>
-                <Input id='first_name' ref={initialRef} placeholder='First name' />
+                <Input 
+                id='first_name'  placeholder='First name'
+                // name='first name'
+                type="text"
+                value={formState.name}
+                onChange={handleChange} />
                 </FormControl>
 
                 <FormControl mt={4}>
                 <FormLabel>Last name</FormLabel>
-                <Input id='last_name' placeholder='Last name' />
+                <Input 
+                id='last_name' placeholder='Last name'
+                name='last name'
+                type="text"
+                value={formState.name}
+                onChange={handleChange} />
+                </FormControl>
+
+                <FormControl mt={4}>
+                <FormLabel>username</FormLabel>
+                <Input 
+                id='username' placeholder='username'
+                name="username"
+                type="text"
+                value={formState.name}
+                onChange={handleChange} />
                 </FormControl>
 
                 <FormControl mt={4}>
                 <FormLabel>Email</FormLabel>
-                <Input id='email' placeholder='Email' />
+                <Input 
+                id='email' placeholder='Email'
+                name="email"
+                type="email"
+                value={formState.email}
+                onChange={handleChange} />
                 </FormControl>
 
                 <FormControl mt={4}>
@@ -118,7 +178,10 @@ import {
                 <Input
                     id='password'
                     placeholder='Password'
-                    type='password' />
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange} />
                 </FormControl>
             </ModalBody>
 
