@@ -4,9 +4,11 @@ import Mando from '../components/images/girl-with-mandolin.jpeg'
 import { useContext, useState } from 'react';
 import { UserContext } from '../utils/UserContext';
 import FeatureModal from '../components/FeatureModal'
+import { FeatureContext } from '../utils/FeatureContext';
 
 function ArtistProfile() {
   const context = useContext(UserContext)
+  const featureContext = useContext(FeatureContext)
 
   const [pfpic, setpfpic] = useState(context.currentUser?.pfpic)
   const [feature, setFeature] = useState()
@@ -89,7 +91,7 @@ function ArtistProfile() {
 
 
           
-          {context.currentUser.features || <FeatureModal firstName={context.currentUser.firstName} lastName={context.currentUser.lastName} />}
+          {context.currentUser.features || <FeatureModal firstName={context.currentUser.firstName} lastName={context.currentUser.lastName} insertFeature={featureContext.insertFeature} />}
           {/* <div className='mando'>
             <img src={Mando} alt='girl with mandolin by Picasso'></img>
           </div>

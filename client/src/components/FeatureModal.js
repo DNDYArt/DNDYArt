@@ -84,7 +84,6 @@ function FeatureModal(props) {
         'description': document.querySelector('#featurenDesc').value,
         'image': uplImg
       }
-      console.log(_);
       const response = await fetch('http://localhost:3001/api/features',
       {
         method:'POST',
@@ -92,6 +91,7 @@ function FeatureModal(props) {
         headers: { 'Content-Type': 'application/json' }
       })
       setUplImg('https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp')
+      props.insertFeature()
       onClose()
     } else {
       alert('Need to upload an image')
