@@ -49,7 +49,7 @@ function Shop() {
                 <Grid className="shop-section" templateColumns="repeat(12)">
                     <GridItem w="600px" className="shop-container" colSpan={5}>
                         <img
-                            src={featureContext?.currentFeature.image ?? 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp'}
+                            src={featureContext.currentFeature?.image ?? 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp'}
                             className="feature-img"
                             alt="abtract painting"
                         />
