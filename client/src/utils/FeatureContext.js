@@ -53,6 +53,22 @@ function FeatureProvider(props) {
     setAuctionTime({'hours': 2, 'minutes': 30, 'seconds': 30})
     setAuctionTimer(`${auctionTime['hours']}hrs ${auctionTime['minutes']}min ${auctionTime['seconds']}sec`)
   }
+
+  async function insertFeature() {
+    const response = await fetch('/api/features');
+      if (response.ok) {
+        const data = await response.json();
+        setCurrentFeature(data[0])
+        if(data[1]) {
+          console.log("NOPE");
+          setFeatureQue(data.slice(1))
+        } else {
+          console.log("YUPP");
+          setFeatureQue([def])
+        }
+      }
+      console.log(featureQue);
+  }
   
   async function purchseFeature() {
     const purchase = currentFeature;
@@ -92,7 +108,7 @@ function FeatureProvider(props) {
   }
 
   return (
-    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer, resetAuctionTime, raiseBid}} {...props}/>
+    <FeatureContext.Provider value={{currentFeature, featureQue, purchseFeature, submitFeature, auctionTimer, resetAuctionTime, raiseBid, insertFeature}} {...props}/>
   )
 }
 

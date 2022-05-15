@@ -11,7 +11,9 @@ function UserProvider(props) {
     'lastName' : null,
     'email': null,
     'bio' : null,
-    'location' : null
+    'location' : null,
+    'pfpic': null,
+    'features': null
   })
 
   function logoutUser() {
