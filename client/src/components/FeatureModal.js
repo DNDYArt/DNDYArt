@@ -157,7 +157,7 @@ function FeatureModal(props) {
         </ModalContent>
     </Modal>
 
-    <Button className='loginLink' onClick={onOpen} variant='link'>Submit Feature</Button>
+    <Button className='loginLink' onClick={onOpen} variant='link' style={{'width': '150px', 'height': '25px', 'backgroundColor': 'blue', 'color': 'white', 'marginTop': '25px'}}>Submit Feature</Button>
     </>
   )
 }
