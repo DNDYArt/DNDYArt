@@ -23,6 +23,7 @@ import ArtistSignUp from "./pages/ArtistSignUp";
 import UserProvider from "./utils/UserContext";
 import FeatureProvider from "./utils/FeatureContext";
 import { setContext } from '@apollo/client/link/context';
+import ArtistGallery from "./pages/ArtistGallery";
 
 const httpLink = createHttpLink({
 	uri:  '/graphql',
@@ -67,6 +68,7 @@ function App() {
 					<Route path="/cloudinarytest" element={<Cloudinarytest />} />
 					<Route path="/artist" element={<ArtistSignUp />} />
 					<Route path="/loggin" element={<Login />} />
+					<Route path="/artistgallery" element={<ArtistGallery />} />
 				</Routes>
 				<Footer />
 			</Router>

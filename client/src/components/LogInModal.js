@@ -100,6 +100,7 @@ const LoginModal = (props) =>{
               'lastName': data.last_name,
               'bio': data.bio,
               'location': data.location,
+              'pfpic': data.pfpURL,
               'email': data.email})
         } else {
           alert('Email or Password incorrect')
