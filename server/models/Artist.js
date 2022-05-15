@@ -30,6 +30,10 @@ const artistSchema = new Schema({
     type: String,
     required: true
   },
+  pfpURL: {
+    type: String,
+    default: 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp',
+  },
   features: [
     {
       type: Schema.Types.ObjectId,
