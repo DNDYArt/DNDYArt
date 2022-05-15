@@ -38,7 +38,7 @@ const ArtistGallery = () => {
                     <h2>Contained Splash <span>c.('21)</span></h2>
                     <p className='artistAboutUnderline'>About the piece:</p>
                     <p className='artistAboutInfo'>Inspired by a psychedelic walk on the beach, this piece portrays the coexistence of fluidity and geometric structure. Many people assume the two don't mix, but Jason Smith would disagree.</p>
-                    <p className='artistGalleryPrice'>The current bid is: 15,000</p>
+                    <p className='artistGalleryPrice'>The current bid is: SOLD</p>
                     <div className='socials'>
                         <a href='https://twitter.com/' target='_blank'><FontAwesomeIcon icon={faTwitter} className='spaceIcon'></FontAwesomeIcon></a>
                         <a href='https://www.instagram.com/' target='_blank'><FontAwesomeIcon icon={faInstagram} className='spaceIcon'></FontAwesomeIcon></a>
