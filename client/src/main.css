@@ -50,7 +50,9 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-    *, main {
+
+    *,
+    main {
         max-width: initial;
     }
 }
@@ -82,8 +84,8 @@ main {
 @media screen and (max-width: 768px) {
     img {
         /* flex: 1 0 auto; */
-            max-width: 75% !important;
-        }
+        max-width: 75% !important;
+    }
 }
 
 .hero-head {
@@ -116,7 +118,7 @@ main {
     margin-top: 10px;
 }
 
-.recent{
+.recent {
     margin-left: 1rem;
 }
 
@@ -174,6 +176,7 @@ article {
     top: 125px;
     left: 100px;
 }
+
 .text-3 {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
@@ -187,6 +190,7 @@ article {
 }
 
 @media screen and (max-width: 768px) {
+
     .text-1,
     .text-2,
     .text-3 {
@@ -207,7 +211,7 @@ article {
     .berry {
         max-width: 75% !important;
         max-width: 50% !important;
-    right: -344px;
+        right: -344px;
         /* right: -400px; */
     }
 }
@@ -375,7 +379,8 @@ article {
 
 .btn-box {
     /* border: red 3px solid; */
-    margin-top: 15px;;
+    margin-top: 15px;
+    ;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -392,7 +397,7 @@ article {
 
 /* --------------------- Slider */
 
-.nextSection{
+.nextSection {
     display: flex !important;
     justify-content: center;
     /* align-items: center; */
@@ -548,30 +553,30 @@ span {
 
 /* --------Artist Profile------------ */
 
-.profile-container{
+.profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 5rem;
 }
 
-.pfp{
+.pfp {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 50%;
     border-radius: 0px;
 }
 
-.pfpDiv{
+.pfpDiv {
     width: 30em;
-    height:30em;
+    height: 30em;
     text-align: center;
     margin-bottom: 1rem;
     margin-top: 2rem;
     box-shadow: 1px 25px 50px rgb(51, 51, 51);
 }
 
-.text-container{
+.text-container {
     width: 80%;
     text-align: center;
     padding: 1em;
@@ -580,18 +585,18 @@ span {
 }
 
 
-.artistName{
+.artistName {
     /* font-family: 'Bosch', sans-serif !important; */
     font-family: roc-grotesk-wide, sans-serif !important;
     font-size: 40px;
 }
 
-.artistLocation{
+.artistLocation {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-size: 30px;
 }
 
-.artistBio{
+.artistBio {
     /* font-family: roc-grotesk-wide, sans-serif !important; */
     font-size: 20px;
     margin-top: 1em;
@@ -599,28 +604,28 @@ span {
 }
 
 
-.feature-text{
+.feature-text {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-size: 40px;
     margin-top: 5rem;
     outline: 3px solid;
 }
 
-.feature-text h1{
+.feature-text h1 {
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-.mando{
+.mando {
     margin-top: 3rem;
     box-shadow: 1px 25px 50px rgb(51, 51, 51);
 }
 
-.feature-description{
+.feature-description {
     width: 80%;
 }
 
-.feature-description h4{
+.feature-description h4 {
     margin-top: 1rem;
     font-size: 25px;
     font-family: aktiv-grotesk, sans-serif;
@@ -628,7 +633,7 @@ span {
     text-align: center;
 }
 
-.feature-description p{
+.feature-description p {
     font-size: 20px;
     margin-top: 1em;
 }
@@ -646,14 +651,14 @@ body,
     height: 100%;
 } */
 
-.vh{
+.vh {
     min-height: calc(100vh - 120px);
 }
 
 
 /* ---------------Login Modal Link */
 
-.loginLink{
+.loginLink {
     list-style-type: none;
     font-family: aktiv-grotesk, sans-serif !important;
     text-decoration: none !important;
@@ -661,7 +666,7 @@ body,
     font-style: normal;
 }
 
-.modalTitle{
+.modalTitle {
     font-family: roc-grotesk-wide, sans-serif !important;
 }
 
@@ -684,12 +689,12 @@ body,
 
 /* -------------Artist Gallery */
 
-.fullGallery{
+.fullGallery {
     display: flex;
     flex-direction: column;
 }
 
-.singleArtistContainer{
+.singleArtistContainer {
     display: flex;
     /* background-color: lightgray; */
     /* margin-top: 3rem; */
@@ -700,7 +705,7 @@ body,
     border-bottom: 1px solid;
 }
 
-.artistInfo{
+.artistInfo {
     display: flex;
     flex-direction: column;
     /* background-color: aqua; */
@@ -708,7 +713,7 @@ body,
     min-width: 50%;
 }
 
-.artistInfo h1{
+.artistInfo h1 {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 300 !important;
     font-style: normal !important;
@@ -716,7 +721,7 @@ body,
     padding-left: 2rem;
 }
 
-.artistInfo h2{
+.artistInfo h2 {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-style: normal !important;
@@ -724,14 +729,14 @@ body,
     padding-left: 2rem;
 }
 
-.artistInfo h2 span{
+.artistInfo h2 span {
     font-family: aktiv-grotesk, sans-serif;
     font-weight: 300;
     font-style: italic;
     font-size: 20px;
 }
 
-.artistAboutUnderline{
+.artistAboutUnderline {
     font-family: aktiv-grotesk, sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -740,7 +745,7 @@ body,
     text-decoration: underline;
 }
 
-.artistAboutInfo{
+.artistAboutInfo {
     font-family: aktiv-grotesk, sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -750,30 +755,29 @@ body,
     padding-right: 1rem;
 }
 
-.artistGalleryPrice{
+.artistGalleryPrice {
     font-family: roc-grotesk-wide, sans-serif !important;
     font-weight: 600 !important;
     font-style: normal !important;
     font-size: 20px;
     padding-left: 2rem;
     padding-top: 1rem;
-    
+
 }
 
-.socials{
+.socials {
     padding-left: 2rem;
     padding-top: 3rem;
     font-size: 40px;
 }
 
-.spaceIcon{
+.spaceIcon {
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-@media screen and (max-width: 960px){
-    .singleArtistContainer{
+@media screen and (max-width: 960px) {
+    .singleArtistContainer {
         flex-direction: column;
     }
 }
-

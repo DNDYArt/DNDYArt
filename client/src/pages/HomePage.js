@@ -1,11 +1,7 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import ParaScroller from "../components/ParaScroller";
-import {
-	Box,
-	Button,
-	Heading,
-} from "@chakra-ui/react";
+import { Box, Button, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 import { UserContext } from "../utils/UserContext";
@@ -23,28 +19,21 @@ const HomePage = (props) => {
 	return (
 		<>
 			<main className="vh">
-				{/* <!-- First --> */}
+				{/* First */}
 				<section className="container">
-					{/* <!-- Main Title/Bust --> */}
+					{/* Main Title/Bust */}
 					<Box className="hero" boxSize="lg">
 						<img src={Bust} alt={hero.imageAlt} className="bust" />
 						<Heading className="h1 hero-head" as="h1">
 							DNDY
 						</Heading>
 					</Box>
-					{/* <!-- Statement/Enter --> */}
+					{/* Statement/Enter*/}
 					<Box className="welcome">
 						<Heading className="h2" as="h2" size="xl">
 							Art should be shared, <br></br>
 							never contained.
 						</Heading>
-						{/* <Button
-                            className="enter"
-                            colorScheme="black"
-                            variant="outline"
-                            size="lg"
-                            width="200px"
-                        > */}
 						<Link
 							to={
 								context.currentUser.loggedIn
@@ -69,7 +58,6 @@ const HomePage = (props) => {
 								explore
 							</Button>
 						</Link>
-						{/* </Button> */}
 						<Button
 							className="enter recent"
 							colorScheme="black"
@@ -81,7 +69,7 @@ const HomePage = (props) => {
 						</Button>
 					</Box>
 				</section>
-				{/* <!-- Second-Fourth --> */}
+				{/* Parallax */}
 				<section className="feature-scroller">
 					<ParaScroller />
 				</section>
