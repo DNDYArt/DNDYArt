@@ -1,16 +1,12 @@
 import "../main.css";
 import React, { useContext } from "react";
-import nextFeature from "./images/mountain-bw.jpg";
 import {
 	Button,
-  extendTheme,
 	Grid,
 	GridItem,
-	Input,
 	useDisclosure,
 	Drawer,
 	DrawerBody,
-	DrawerFooter,
 	DrawerHeader,
 	DrawerOverlay,
 	DrawerContent,
@@ -22,7 +18,7 @@ function Slider() {
 	const [size, setSize] = React.useState("xl");
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
-	const featureContext = useContext(FeatureContext)
+	const featureContext = useContext(FeatureContext);
 
 	return (
 		<>
@@ -49,23 +45,38 @@ function Slider() {
 							>
 								<GridItem colSpan={5}>
 									<img
-										src={featureContext.featureQue[0].image ?? 'https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp'}
+										src={
+											featureContext.featureQue[0]
+												.image ??
+											"https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp"
+										}
 										alt="the mountain"
 										className="nextPic"
 									/>
 								</GridItem>
 								<GridItem className="next-box">
-                  <GridItem className="next-stuff">
-									<h1 className="upNext">UP NEXT</h1>
-									<h2 className="feature-artist">
-									{(featureContext?.featureQue[0].authorFirstName + " " + featureContext?.featureQue[0].authorLastName) || ''}
-									</h2>
-									<div className="feature-name">
-										<h3 className="feature-title">{featureContext?.featureQue[0].name || ''}</h3>
-										<p className="feature-year">({featureContext?.featureQue[0].year || 'c. \'05'})</p>
-									</div>
-									{/* <h4 className="feature-medium">Kodak TRI-X 400</h4> */}
-                  </GridItem>
+									<GridItem className="next-stuff">
+										<h1 className="upNext">UP NEXT</h1>
+										<h2 className="feature-artist">
+											{featureContext?.featureQue[0]
+												.authorFirstName +
+												" " +
+												featureContext?.featureQue[0]
+													.authorLastName || ""}
+										</h2>
+										<div className="feature-name">
+											<h3 className="feature-title">
+												{featureContext?.featureQue[0]
+													.name || ""}
+											</h3>
+											<p className="feature-year">
+												(
+												{featureContext?.featureQue[0]
+													.year || "c. '05"}
+												)
+											</p>
+										</div>
+									</GridItem>
 								</GridItem>
 							</Grid>
 						</div>

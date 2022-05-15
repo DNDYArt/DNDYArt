@@ -1,33 +1,35 @@
-const { Feature } = require('../models');
+const { Feature } = require("../models");
 
 module.exports = {
-  async createFeature(req, res) {
-    const feature = await Feature.create( req.body );
+	async createFeature(req, res) {
+		const feature = await Feature.create(req.body);
 
-    if (!feature) {
-      return res.status(400).json({ message: 'Unable to create Feature' });
-    }
+		if (!user) {
+			return res
+				.status(400)
+				.json({ message: "Unable to create Feature" });
+		}
 
-    res.status(200).json(feature);
-  },
-  
-  async getAllFeatures(req, res) {
-    const features = await Feature.find({});
+		res.status(200).json(feature);
+	},
 
-    if (!features) {
-      return res.status(400).json({ message: 'No DNDY found' });
-    }
+	async getAllFeatures(req, res) {
+		const features = await Feature.find({});
 
-    res.status(200).json(features);
-  },
+		if (!features) {
+			return res.status(400).json({ message: "No DNDY found" });
+		}
 
-  async purchaseOutFeature(req, res){
-    const feature = await Feature.findOneAndDelete({ _id: req.body._id})
+		res.status(200).json(features);
+	},
 
-    if (!feature) {
-      return res.status(400).json({ message: 'No DNDY found' });
-    }
+	async purchaseOutFeature(req, res) {
+		const feature = await Feature.findOneAndDelete({ _id: req.body._id });
 
-    res.status(200).json(feature)
-  }    
+		if (!feature) {
+			return res.status(400).json({ message: "No DNDY found" });
+		}
+
+		res.status(200).json(feature);
+	},
 };
