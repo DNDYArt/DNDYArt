@@ -9,7 +9,7 @@ import HomePage from "./pages/HomePage";
 import Member from "./pages/Member";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-// import LoginModal from "./components/LogInModal";
+import LoginModal from "./components/LogInModal";
 import ArtistProfile from "./pages/ArtistProfile";
 import CollectorProfile from "./pages/Collector";
 import Shop from "./pages/Shop";
@@ -25,7 +25,7 @@ import FeatureProvider from "./utils/FeatureContext";
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-	uri: '/graphql',
+	uri:  '/graphql',
   });
   
   // Construct request middleware that will attach the JWT token to every request as an `authorization` header

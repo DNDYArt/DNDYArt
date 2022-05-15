@@ -44,6 +44,10 @@ collectorSchema.pre('save', async function(next){
   }
 })
 
+collectorSchema.methods.isCorrectPassword = async function (password) {
+  return bycrypt.compare(password, this.password);
+};
+
 const Collector = model('collector', collectorSchema);
 
 module.exports = Collector;

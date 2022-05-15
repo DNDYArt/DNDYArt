@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import Footer from "../components/Footer/Footer";
 import { UserContext } from "../utils/UserContext";
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -18,11 +17,13 @@ const Login = (props) =>{
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
+    
 
     setFormState({
       ...formState,
       [name]: value,
     });
+    console.log(formState)
   };
 
   // submit form
@@ -33,8 +34,9 @@ const Login = (props) =>{
       const { data } = await login({
         variables: { ...formState },
       });
+      console.log(data);
 
-      Auth.login(data.login.token);
+      // Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
@@ -81,7 +83,7 @@ const Login = (props) =>{
     <>
     <div> {context.currentUser.firstName + ' ' + context.currentUser.lastName} </div>
 
-    <form onSubmit={LOGIN_COLLECTOR}>
+    <form onSubmit={handleFormSubmit} onChange={handleChange}>
       <h2>Collector Login</h2>
       <div>
         <input name='email' type='email' placeholder='email'  style={{'color': 'black'}}/>
