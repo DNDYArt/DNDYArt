@@ -1,37 +1,53 @@
 import { useContext } from "react";
-import Footer from "../components/Footer/Footer";
 import { UserContext } from "../utils/UserContext";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN_COLLECTOR } from '../utils/mutations';
 
-function Login() {
+import Auth from '../utils/auth';
+
+const Login = (props) =>{
 
   const context = useContext(UserContext);
 
-  async function loginCollector(e) {
-    e.preventDefault()
-    const loginInfo = {"email": e.target.email.value, "password": e.target.password.value}
-    if (loginInfo.email && loginInfo.password){
-      const response = await fetch('/api/collectors/login',
-      {
-        method:'PUT',
-        body:JSON.stringify(loginInfo),
-        headers: { 'Content-Type': 'application/json' }
-      })
-  
-      if (response.ok) {
-        const data = await response.json()
-        context.setCurrentUser({...context.currentUser ,
-          'loggedIn': true, 
-          'userType': 'collector', 
-          'firstName': data.first_name, 
-          'lastName': data.last_name, 
-          'email': data.email})
-      } else {
-        alert('Email or Password incorrect')
-      }
-    } else {
-      alert('Please enter something')
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_COLLECTOR);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+    console.log(formState)
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+      console.log(data);
+
+      // Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
-  }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
+
 
   async function loginArtist(e) {
     e.preventDefault()
@@ -67,7 +83,7 @@ function Login() {
     <>
     <div> {context.currentUser.firstName + ' ' + context.currentUser.lastName} </div>
 
-    <form onSubmit={loginCollector}>
+    <form onSubmit={handleFormSubmit} onChange={handleChange}>
       <h2>Collector Login</h2>
       <div>
         <input name='email' type='email' placeholder='email'  style={{'color': 'black'}}/>
