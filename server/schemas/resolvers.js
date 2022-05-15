@@ -1,14 +1,14 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Artist, Feature } = require('../models');
+const { Collector, Artist, Feature } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find();
+    collectors: async () => {
+      return Collector.find();
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username });
+    collector: async (parent, { username }) => {
+      return Collector.findOne({ username });
     },
 
     artists: async () => {
@@ -19,8 +19,8 @@ const resolvers = {
       return Artist.findOne({ first_name }).populate('features');
     },
 
-      features: async (parent, { first_name }) => {
-      const params = first_name ? { first_name } : {};
+    features: async (parent, { first_name }) => {
+    const params = first_name ? { first_name } : {};
       return Feature.find(params).sort({ startPrice: -1 });
     },
 
@@ -37,10 +37,10 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { first_name, last_name, username, email, password }) => {
-      const user = await User.create({ first_name, last_name, username, email, password });
-      const token = signToken(user);
-      return { token, user };
+    addCollector: async (parent, { first_name, last_name, username, email, password }) => {
+      const collector = await Collector.create({ first_name, last_name, username, email, password });
+      const token = signToken(collector);
+      return { token, collector };
     },
 
     addArtist: async (parent, { first_name, last_name, location, email, password, bio }) => {
@@ -49,22 +49,43 @@ const resolvers = {
       return { token, artist };
     },
 
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    addFeature: async (parent, { name, authorLastName,startPrice,currentBid,description,image }, context) => {
+      if (context.artist) {
+        const feature = await Feature.create({
+          name,
+          authorFirstName: context.artist.first_name,
+          authorLastName,
+          startPrice,
+          currentBid,
+          description,
+          image,
+        });
+        await Artist.findOneAndUpdate(
+          { _id: context.artist._id },
+          { $addToSet: { features: feature._id } }
+        );
 
-      if (!user) {
+        return feature;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    login: async (parent, { email, password }) => {
+      const collector = await Collector.findOne({ email });
+
+      if (!collector) {
         throw new AuthenticationError('No user found with this email address');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await collector.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const token = signToken(user);
+      const token = signToken(collector);
 
-      return { token, user };
+      return { token, collector };
     },
   },
 };
