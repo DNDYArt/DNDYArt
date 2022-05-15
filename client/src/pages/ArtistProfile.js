@@ -89,9 +89,8 @@ function ArtistProfile() {
             <h1>Featured Work</h1>
           </div>
 
-
+          <FeatureModal firstName={context.currentUser.firstName} lastName={context.currentUser.lastName} insertFeature={featureContext.insertFeature}/>
           
-          {context.currentUser.features || <FeatureModal firstName={context.currentUser.firstName} lastName={context.currentUser.lastName} insertFeature={featureContext.insertFeature} />}
           {/* <div className='mando'>
             <img src={Mando} alt='girl with mandolin by Picasso'></img>
           </div>
