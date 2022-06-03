@@ -13,6 +13,10 @@ Both collectors and artists can create accounts on the site.
 
 [Link](https://github.com/DNDYArt)
 
+## Link to Live Site
+
+[Live Site](https://dndyfineart.herokuapp.com/)
+
 ## Technologies used
 
 -CSS
