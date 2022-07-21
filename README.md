@@ -29,7 +29,7 @@ Both collectors and artists can create accounts on the site.
 
 ## Contributers
 
-- [@Vidalatan](https://github.com/Vidalatan)
+- [@Vidalatan](https://github.com/vidalatan)
 - [@alexwsalazar](https://github.com/alexwsalazar)
 - [@3roses](https://github.com/3roses)
 - [@wulfsounds](https://github.com/wulfsounds)
